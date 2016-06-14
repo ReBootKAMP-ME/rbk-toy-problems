@@ -11,12 +11,15 @@
      ]
 *
 * Extra credit:
-*   - Make your function return answers for any number of rounds.
+*   - Make your function return answeras for any number of rounds.
 * Example:
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
-
 var rockPaperScissors = function() {
+	'i did not understand even what the function should do' 
+	var array=[];
+
   // fill me out!
 };
+
