@@ -16,7 +16,22 @@
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
-
+var numofresult=3^3;
+var result=[];
 var rockPaperScissors = function() {
-  // fill me out!
+  if(numofresult===0){
+    return result;
+  }else{
+  var arr=["rock", "scissors", "paper"];
+      var arr1=[];
+     for (var i = 0; i < 3; i++) {
+      var rand=Math.floor((Math.random() * 3) + 0);
+         arr1.push(arr[rand])
+      
+     }
+    result.push(arr1);
+    numofresult--;
+    rockPaperScissors();
+ }
+
 };
