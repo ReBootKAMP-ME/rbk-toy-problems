@@ -17,6 +17,16 @@
 *
 */
 
-var rockPaperScissors = function() {
-  // fill me out!
+var rockPaperScissors = function(n) {
+  n = 3
+  var rpc = ['rock', 'paper', 'scissors']
+  var result = []
+  for(var i = 0; i < n; i++){
+  	 for(var j = 0; j < n; j++){
+  		for(var k = 0; k < n; k++){
+  			result.push([rpc[i], rpc[j], rpc[k]])
+  		}
+  	 }
+  }
+  return result
 };
