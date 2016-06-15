@@ -18,5 +18,16 @@
 */
 
 var rockPaperScissors = function() {
+	var solutions = [] ; 
+	var Sol= "rock" || "paper" || "scissors" ;
+	var Subsolutions = [sol,sol,sol] ; 
+    	for (var i = 0; i < solutions.length; i++) {
+    		solutions.psuh(Subsolutions) ; 
+
+   
+    	}
+    	return solutions ; 
+
+      }
   // fill me out!
 };
