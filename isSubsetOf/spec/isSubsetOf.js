@@ -1,5 +1,5 @@
 describe('isSubsetOf', function() {
   it('should return the right answer', function() {
-    expect(1).to.equal(1);
+    expect([2].isSubsetOf([1,2])).to.equal(true);
   });
 });
