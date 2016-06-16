@@ -16,7 +16,21 @@
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
+var newArr = [];
 
 var rockPaperScissors = function() {
-  // fill me out!
+  var arr = ["rock","paper","scissors"]
+  for (var i = 0; i < arr.length; i++) {
+  	for (var i = 0; i < arr.length; i++) {
+  		for (var i = 0; i < arr.length; i++) {
+  	if(newArr.length===27){
+  		return newArr;
+  	}
+  	newArr.push(arr[i])
+  
+  			
+  		}
+  	}
+  }
+
 };
