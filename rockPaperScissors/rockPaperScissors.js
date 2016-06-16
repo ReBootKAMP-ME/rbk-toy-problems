@@ -16,7 +16,31 @@
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
-
 var rockPaperScissors = function() {
-  // fill me out!
-};
+	var resultarr=[];
+	var rock ="rock";
+	var scissors="scissors";
+	var paper="paper";
+	for(var i=0;i<resultarr.length;i++){
+		if( rock === "rock"){
+		resultarr.push(
+			["rock", "rock", "rock"],
+			["rock", "rock", "paper"],
+			["rock", "rock", "scissors"])
+		}
+  	}
+	else if (paper === "paper"){
+		resultarr.push(
+			["paper", "paper", "paper"],
+			["paper", "paper", "rock"],
+			["paper", "paper", "scissors"],)
+	}
+	else   { scissors === "scissors"
+		    resultarr.push(
+			["scissors", "scissors", "scissors"],
+			["scissors", "scissors", "rock"],
+			["scissors", "scissors", "scissors"])
+	}
+	else if ( rock === "rock" || paper === "paper"|| scissors === "scissors")
+	return rockPaperScissors();
+	}
