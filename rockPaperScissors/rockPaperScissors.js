@@ -1,4 +1,3 @@
-
 /*
 * Write a function that generates every sequence of throws a single
 * player could throw over a three-round game of rock-paper-scissors.
@@ -8,6 +7,7 @@
 *    ["rock", "rock", "paper"],
 *    ["rock", "rock", "scissors"],
 *    ["rock", "paper", "rock"],
+
              ...etc...
      ]
 *
@@ -18,5 +18,21 @@
 *
 */
 
-var rockPaperScissors = function(n) {
+var rockPaperScissors = function() {
+	var arrPos=["rock","paper","scissors"];
+	var arr=[];
+    var array=[];
+    //var c=0;
+	for (var i = 0; i < arrPos.length; i++) { //rock
+     	 for(var j=0; j<arrPos.length ;j++) {//rock,paper
+ 	    	 for(var jj=0; jj<arrPos.length ;jj++) {//rock,paper,scissors
+
+      		 	array[i]=arrPos[i]+","+arrPos[j]+","+arrPos[jj];
+      		 	console.log(array)
+       				arr.push(array)
+			}
+
+   		 }
+   	}
+	return arr;
 };

@@ -25,5 +25,37 @@
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+ 	for (var i = 0; i < input.length; i++) {
+ 		if(input[i]===')'){
+ 			return false;
+ 		}else
+ 		if(input[i]==='('&&input[i+1]!==')'){
+ 			//console.log(false)
+ 			 }
+ 		 if(input[i]==='('){
+ 			for (var j = 1; j < input.length; j++) {
+ 				if(input[j]===')')
+ 					return true;
+ 				else{
+ 					if(input[j]==='('){
+ 					  for (var k = j+1; k < input.length; k++) {
+ 					  		if(input[k]===')'){
+ 					  			if(input[k+1]===')')
+ 					  				return true;
+ 					  		}
+ 					  	}
+ 						 return false;
+
+ 					}
+ 				}
+ 			}
+ 		}	
+ 		
+ 		}
  };
+ // 	balancedParens('(');  // false
+ // *   balancedParens('()'); // true
+ // *   balancedParens(')(');  // false
+ // *   balancedParens('(())');  // true
+ // *
+ // };
