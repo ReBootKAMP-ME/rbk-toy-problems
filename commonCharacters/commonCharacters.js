@@ -12,5 +12,31 @@
 
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
-  
+	var result="";
+	for (var i = 0; i < string1.length; i++) {
+		var char=string1[i];
+		for (var j = 0; j < string2.length; j++) {
+			if(char===string2[j]){
+				if(result.indexOf(char)===-1){
+					result+=char;
+					break;
+				}
+			}
+		}
+	}
+	return result;
+};
+
+var commonCharactersForN = function(arrOfStrings) {
+	var result="";
+	if(arrOfStrings.length===0)
+		return result;
+	else{
+		if(result===""){
+			result=arrOfStrings[arrOfStrings.length-1];
+			arrOfStrings.pop();
+		}
+		return result=commonCharacters(result,arrOfStrings[arrOfStrings.length-1]);
+		arrOfStrings.pop();
+	}
 };
