@@ -23,7 +23,35 @@
  *
  *
  */
-
+var check=function(index1,index2){
+   	if((index1 === '(' && index2 === ')') || (index1 === '{' && index2 === '}')
+   		|| (index1 === '[' && index2 === ']'))
+   		return true;
+   	else
+   		return false;
+}
  var balancedParens = function (input) {
-   // write your code hre
+   var str=input.split('');
+   var counter=0;
+   if(str.length % 2 !== 0){
+   		return false;
+   }else{
+ var length=str.length-1;
+   for(var i=0; i<str.length/2 ; i++){
+	   		var value=check(str[i],str[length]);
+	   		if(value){
+	   			length--;
+	   		}
+	   		else
+	   			counter++;
+   	}
+   }
+   if(counter >= 1 ){  // it means i have false cases
+	   for (var i = 0; i < str.length; i++) {
+	    	var value=check(str[i],str[++i]);
+	    	if(value === false)
+	    		return false;
+	  	 	}
+  	}
+   return true;
  };
