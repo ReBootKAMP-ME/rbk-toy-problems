@@ -15,6 +15,18 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
+//newArr=[ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+var allAnagrams = function(string) {//string="abc"
+	var newArr=[];	//newArr=[]
+	var length=string.length
+	for (var i = 0; i <length; i++) {//"a","b","c"
+		var result=allAnagrams(string[i], string.substr(0, i) + string.substr(i+1))// "a","b"
+	for (var j = 0; j < result.length; i++) {
+		  newArr.push( result[j]);
+
+	}
+}
+	return newArr;
 
 };
+

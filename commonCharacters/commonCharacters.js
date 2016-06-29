@@ -12,5 +12,19 @@
 
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
+	var string3=[];
+	for (var i = 0; i < string1.length; i++) {
+		for (var j = 0; j < string2.length; j++) {
+				if(string1[i].indexOf(string2[j])>-1){
+					 if(string1[i].indexOf(string3[j])&&string2[j].indexOf(string3[i])){
+		string3.push(string1[i]);
+					}	
+			}
+		}
+
+	}
+
+
+	return string3;
   
 };

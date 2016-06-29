@@ -1,12 +1,10 @@
-
  // function bind():
  //  example 1:
  //  var alice = {
  //   name: 'alice',
  //   shout: function(){
  //     alert(this.name);
- //   }
- // }
+ //   }}
  // var boundShout = bind(alice.shout, alice);
  // boundShout(); // alerts 'alice'
  // boundShout = bind(alice.shout, {name: 'bob'});
@@ -15,13 +13,13 @@
  //  var func = function(a, b){ return a + b };
  // var boundFunc = bind(func, null, 'foo');
  // var result = boundFunc('bar');
- // result === 'foobar'; // true
-
-
+//  // result === 'foobar'; // true
 var bind = function(func, context) {
+	//var fn=call()
+	return func.apply(context)
 };
 
- // * Function.prototype.bind:
+// * Function.prototype.bind:
  // *
  // * example 1:
  // *
@@ -29,8 +27,7 @@ var bind = function(func, context) {
  // *   name: 'alice',
  // *   shout: function(){
  // *     alert(this.name);
- // *   }
- // * }
+ // *   }}
  // * var boundShout = alice.shout.bind(alice);
  // * boundShout(); // alerts 'alice'
  // * boundShout = alice.shout.bind({name: 'bob'});
@@ -42,8 +39,10 @@ var bind = function(func, context) {
  // * var boundFunc = func.bind(null, 'foo');
  // * var result = boundFunc('bar');
  // * result === 'foobar'; // true
- // *
-
-
 Function.prototype.bind = function(a, args1, args2) {
+	  var fn = this;
+    return function() {
+        fn.apply(a, args1,args2);
+    };
 };
+

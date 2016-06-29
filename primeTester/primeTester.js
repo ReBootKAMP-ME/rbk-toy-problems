@@ -5,7 +5,14 @@
  */
 
 var primeTester = function(n) {
-  // to do
+    for(var i = 2; i < 10; i++) {
+        if(n % i === 0) {
+            return false;
+        }
+    
+    return true;
+}
+	
 };
 
  /* Extra credit: Write a function that generates a list of all prime numbers
@@ -16,5 +23,16 @@ var primeTester = function(n) {
 
 
 var primeSieve = function(start, end) {
-  // to do
+	var arrRes=[];var arr=[];
+	for(var i = start; i <= end; i++) {
+		arr.push(i)
+	}
+		//console.log(arr)
+		for(var j=0;j<arr.length;j++)
+		if(primeTester(arr[j])===true){
+			arrRes.push(arr[j])
+		}
+          return arrRes
+	
+  
 };
