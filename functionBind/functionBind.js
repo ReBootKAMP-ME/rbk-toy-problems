@@ -1,5 +1,5 @@
 
- // function bind():
+ // function bind()
  //  example 1:
  //  var alice = {
  //   name: 'alice',
@@ -12,13 +12,16 @@
  // boundShout = bind(alice.shout, {name: 'bob'});
  // boundShout(); // alerts 'bob'
  //  example 2:
- //  var func = function(a, b){ return a + b };
+ // var func = function(a, b){ return a + b };
  // var boundFunc = bind(func, null, 'foo');
  // var result = boundFunc('bar');
  // result === 'foobar'; // true
 
 
 var bind = function(func, context) {
+	return function () {
+		func.call(context);
+	}
 };
 
  // * Function.prototype.bind:
@@ -46,4 +49,10 @@ var bind = function(func, context) {
 
 
 Function.prototype.bind = function(a, args1, args2) {
+	var This=this;
+	var args = Array.prototype.slice.call(arguments);
+	console.log(args);
+	return function () {
+		 This.apply(a,args.slice(1));
+	}
 };
