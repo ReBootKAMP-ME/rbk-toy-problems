@@ -8,15 +8,32 @@ Your tree should have methods named "addChild" and "contains".
 // tree.addChild(2);
 // tree.contains(2);   // yields 'true'
 
-var treeMaker = function(value){
+var treeMaker = function(){
  //tree code goes here!
+ var methods=Object.create(treeMaker.prototype);
+ methods.theTree= {};
+ return methods;
 };
 
 //methods go here!
-treeMaker.methods = {};
+//treeMaker.methods = {};
 
-treeMaker.methods.addChild = function(){
+treeMaker.prototype.addChild = function(val,parent){
+	if(parent===undefined){
+		this.theTree[val]=val;
+		return this.theTree;
+	}
+	else{
+		//this.theTree[parent val
+		//return this.theTree;
+	}
 };
 
-treeMaker.methods.contains = function(){
+treeMaker.prototype.contains = function(val){
+	for (var key in theTree) {
+		if(theTree[val]===val){
+			return true;
+		}
+	}
+	return false;
 };

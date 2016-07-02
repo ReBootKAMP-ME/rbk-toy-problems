@@ -1,25 +1,29 @@
+var bind = function(func, context) {
+	return function(){
+		return func.call(context);
+	} 
+};
 
  // function bind():
  //  example 1:
- //  var alice = {
- //   name: 'alice',
- //   shout: function(){
- //     alert(this.name);
- //   }
- // }
- // var boundShout = bind(alice.shout, alice);
- // boundShout(); // alerts 'alice'
- // boundShout = bind(alice.shout, {name: 'bob'});
- // boundShout(); // alerts 'bob'
+  var alice = {
+   name: 'alice',
+   shout: function(){
+     alert(this.name);
+   }
+ }
+ var boundShout = bind(alice.shout, alice);
+ boundShout(); 
+ boundShout = bind(alice.shout, {name: 'bob'});
+ boundShout(); 
+ // alerts 'bob'
  //  example 2:
- //  var func = function(a, b){ return a + b };
- // var boundFunc = bind(func, null, 'foo');
- // var result = boundFunc('bar');
- // result === 'foobar'; // true
+ var func = function(a, b){ return a + b };
+ var boundFunc = bind(func, null, 'foo');
+ var result = boundFunc('bar');
+console.log( result === 'foobar'); // true
 
 
-var bind = function(func, context) {
-};
 
  // * Function.prototype.bind:
  // *
