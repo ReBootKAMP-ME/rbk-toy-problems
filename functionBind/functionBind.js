@@ -19,22 +19,29 @@
 
 
 var bind = function(func, context) {
+
+	func=this;
+
+	//i will be working on this later ! 
+
+
+	};
 };
 
  // * Function.prototype.bind:
  // *
  // * example 1:
  // *
- // * var alice = {
- // *   name: 'alice',
- // *   shout: function(){
- // *     alert(this.name);
- // *   }
- // * }
- // * var boundShout = alice.shout.bind(alice);
- // * boundShout(); // alerts 'alice'
- // * boundShout = alice.shout.bind({name: 'bob'});
- // * boundShout(); // alerts 'bob'
+ //  var alice = {
+ //    name: 'alice',
+ //    shout: function(){
+ //      alert(this.name);
+ //    }
+ //  }
+ //  var boundShout = alice.shout.bind(alice);
+ //  boundShout(); // alerts 'alice'
+ //  boundShout = alice.shout.bind({name: 'bob'});
+ //  boundShout(); // alerts 'bob'
  // *
  // * example 2:
  // *

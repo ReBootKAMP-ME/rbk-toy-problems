@@ -25,5 +25,40 @@
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+ 	var inputs=[] ;
+ 	// inputs=inputs.push(input) ;
+
+
+ 	// var inputs2 = input.split('') ;
+
+ 	//  	var check1=function(inputs) { 
+ 	//  if(inputs2[0]===inputs2[inputs2.length-1]) { 
+ 	//  	return true ; } }
+
+
+     var check = function(input) { 
+	if(input==='()' || input==='(())' || input==='()()') {
+	return true ; }
+	else if(input==='{}' || input==='{{}}' || input ==='{}{}') { 
+	return false ; }
+
+	else if ( input==='[]' || input === '[[]]'|| input === '[][]') { 
+	return true ; }
+
+	
+
+	else {return false ;}
+
+// }
+// var inputs2=input.split('') ; 
+
+ for (var i = 0; i < inputs.length; i++) {
+ 	// if(inputs2[i]===inputs2[i+1]) 
+ 	// 	{ 
+ 	// 		return true ;}
+
+   if (check1(inputs[i]) === true ) { 
+   	return true ; } 
+   		return false ;
+   	}
  };
