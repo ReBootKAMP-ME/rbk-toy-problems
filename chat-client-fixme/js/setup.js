@@ -128,9 +128,16 @@ getData();
 
 $('.submit').on('submit', function(event) {
   event.preventDefault();
+
   var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
 
   postData($('.userInput').val(), username);
+  ///////clear the message and user name after submitting
+  $('.userInput').val("");
+  $('.usernameInput').val("");
+  getData();
 });
+
+setInterval(getData,1000);

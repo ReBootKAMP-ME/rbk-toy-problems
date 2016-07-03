@@ -22,5 +22,28 @@
  * Extra credit: Make the method work for arrays that contain objects and/or arrays as elements.
 */
 
+
 Array.prototype.isSubsetOf = function (arr) {
+	for(var i=0;i<this.length;i++){
+		if(arr.indexOf(this[i])===-1){
+			return false;
+		}
+	}
+	return true;
 }
+
+
+// Array.prototype.isSubsetOf = function (arr) {
+// 	for(var i=0;i<this.length;i++){
+// 		if(typeof this[i]==="object"){
+// 			if(Array.isArray(this)){
+// 				isSubsetOf(this);
+// 			}
+// 		}
+// 		if(arr.indexOf(this[i])===-1){
+// 			return false;
+// 		}
+// 	}
+// 	return true;
+// }
+

@@ -12,5 +12,36 @@
 
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
-  
+	var result="";
+	var arr1=string1.split("");
+	var arr2=string2.split("");
+  for(var i=0;i<arr1.length;i++){
+  	var res=result.split("");
+  	if(arr2.indexOf(arr1[i])!==-1 && arr1[i]!== " " && res.indexOf(arr1[i])===-1){
+  		result=result+arr1[i];
+  	}
+  }
+  return result;
 };
+//Trial for the extra credait question
+// var commonCharacters = function(string1, string2) {
+// 	var result="";
+// 	var inner=function(str1,str2){
+// 	var arr1=str1.split("");
+// 	var arr2=str2.split("");
+//   for(var i=0;i<arr1.length;i++){
+//   	if(arr2.indexOf(arr1[i])!==-1){
+//   		result=result+arr1[i];
+//   	}
+//   }
+//   if(arguments[2]!== undefined){
+//   for(var i=0;i<=arguments.length;i++){
+//   	if(arguments[i]===undefined){
+// 	  return result
+// 	}else{
+// 		console.log(arguments[i])
+// 	  	inner(result,arguments[i]);
+// 	}}}}
+// 	inner(string1,string2);
+//   return result;
+// };
