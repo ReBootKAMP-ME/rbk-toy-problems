@@ -130,7 +130,7 @@ var postData = function(message, username) {
 getData();
 
 
-  setTimeout(function(){
+  setInterval(function(){
     getData()  }, 3000)
 
 
