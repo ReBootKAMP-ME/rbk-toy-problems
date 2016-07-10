@@ -29,6 +29,32 @@
 
 // Feel free to add helper functions if needed
 
+var temp = [];
 var bubbleSort = function(array) {
-
+	// take the largest num from the array unshift it to the temp arr and splice it
+	var largest = largestNum(array);
+	temp.unshift(largest);
+	bubbleSort (array.splice(array.indexOf(largest),1));
 };
+
+
+
+// find the largest number
+// splice the largest number from the array
+// unshift the number to new array
+// repeat the process to the rest of array
+
+
+var largestNum = function(array){
+	var largest = array[0];
+		for (var i = 1; i < array.length; i++) {
+			if (array[i] > largest){
+				largest = array[i];
+			} 		
+}
+//temp.unshift(largest);
+return largest;
+}
+
+
+bubbleSort([2, 1, 3]);
