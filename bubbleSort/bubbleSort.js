@@ -30,5 +30,34 @@
 // Feel free to add helper functions if needed
 
 var bubbleSort = function(array) {
-
+	for (var i=0;i<array.length;i++){//o(n)
+		for (var j=0;j<array.length;j++){//o(n)
+		   if (array[j]>array[j+1]){//o(1)
+		   	var temp=array[j];
+		   	array[j]=array[j+1];
+		   	array[j+1]=temp;
+		   }
+		}
+	}
+   return array;
 };
+///time complexity : o(n^2)
+/// time complexity is quadratic time 
+////this Optimization  
+  var bubbleSort1 = function(array) {
+  	counter=0;
+	for (var i=0;i<array.length;i++){
+		for (var j=0;j<array.length;j++){
+		   if (array[j]>array[j+1]){
+		   	var temp=array[j];
+		   	array[j]=array[j+1];
+		   	array[j+1]=temp;
+		   	counter=1;
+		   }
+		}
+		if (counter=0) return array;
+	}
+   return array;
+};
+///  yes time complexity is changed
+/// not need to test all elem in the first loop if i finished the the second loop without any changes

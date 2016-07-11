@@ -10,13 +10,33 @@ Your tree should have methods named "addChild" and "contains".
 
 var treeMaker = function(value){
  //tree code goes here!
+ 
+ var tree=Object.create(treeMakerMethods);
+  tree.value=value;
+ tree.children=[];
+ tree.storage=[];
+ return tree;
 };
 
 //methods go here!
-treeMaker.methods = {};
+treeMakerMethods = {};
 
-treeMaker.methods.addChild = function(){
+treeMakerMethods.addChild = function(value,parent){
+      var child={value:value,children:[]};
+      for (var i=0;i<this.storage.length;i++){
+      	   if (this.storage[i].value===parent){
+      	   	  this.storage[i].children.push(value);
+      	   }
+      }
+      this.storage.push(child);
+      return this.storage;
 };
 
-treeMaker.methods.contains = function(){
+treeMakerMethods.contains = function(value){
+	  for (var i=0;i<this.storage.length;i++){
+      	   if (this.storage[i].value===value){
+      	   	return true;	  
+      	   }
+      	}
+      	return false;
 };

@@ -19,6 +19,12 @@
 
 
 var bind = function(func, context) {
+     // for (var i=0;i<arguments.length;i++){
+     // 	if (arguments[i]===null){
+     // 		arguments.splice(i,1);
+     // 	}
+     // }
+	return func.call(context,arguments);
 };
 
  // * Function.prototype.bind:
