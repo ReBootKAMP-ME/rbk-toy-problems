@@ -32,9 +32,12 @@
 var temp = [];
 var bubbleSort = function(array) {
 	// take the largest num from the array unshift it to the temp arr and splice it
+	if (array.length === 0){return temp}
 	var largest = largestNum(array);
 	temp.unshift(largest);
-	bubbleSort (array.splice(array.indexOf(largest),1));
+	array.splice(array.indexOf(largest),1)
+	bubbleSort (array);
+
 };
 
 
