@@ -1,9 +1,10 @@
-var FishTable = () => (
+var FishTable = ({data}) => (
   <table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+      // <FishTableRow />
+      // <FishTableRow />
+      // <FishTableRow />
+      {data.map(image => <FishTableRow />)}
     </tbody>
   </table>
 );

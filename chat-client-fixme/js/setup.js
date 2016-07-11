@@ -19,6 +19,7 @@ var getData = function() {
   });
 };
 
+setInterval(getData , 2000);
 // Here we sort the server messages by 'Created at' and send them to displayData
 var processData = function(data) {
   var sortedData = data.results.sort(function(a, b) {
@@ -118,6 +119,7 @@ var postData = function(message, username) {
       console.log(data);
     }
   });
+  setInterval(getData , 1000);
 };
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
@@ -128,9 +130,12 @@ getData();
 
 $('.submit').on('submit', function(event) {
   event.preventDefault();
+  
   var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
+  $('.usernameInput').val('').reset();
+  $('.userInput').val('').reset();
 
   postData($('.userInput').val(), username);
 });
