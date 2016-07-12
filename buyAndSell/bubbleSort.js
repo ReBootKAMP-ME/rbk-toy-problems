@@ -20,6 +20,58 @@
 
 // Feel free to add helper functions if needed
 
-var maximumProfit  = function(array) {
+var maximumProfit  = function(prices) {
 
+var prices = [] ;
+	var buyPrice = 0;
+	var sellPrice = 0;
+	var profit = 0 ;
+	
+    var x;
+ while(x !== 0) { 
+   	//O(n)
+   	var temp ;
+        x = 0 ;
+        for (var i=0; i<prices.length-1; i++) {
+        	//O(n)
+            if (prices[i]> prices[i+1]) {
+            temp= prices[i];
+            prices[i] = prices[i+1];
+            prices[i+1] = temp;
+             x = 1 ;
+            }
+        }
+	}
+	
+	for (var i = 0; i < prices.length; i++) {
+			buyPrice = prices[0] ; 
+			sellPrice = [prices.length-1] ; 
+
+			profit = sellPrice - buyPrice ;
+
+			buyPrice ++ ; 
+			sellPrice -- ; 
+
+	}
+	return profit ;
 };
+
+
+// var maximumProfit  = function(prices) {
+// 	var prices = [];
+// 	var buyPrice = 0;
+// 	var sellPrice = 0;
+// 	var profit = 0 ; 
+// 	// var profit = sellPrice - buyPrice ; 
+// 		 for (var i = 0; i < prices.length; i++){
+// 		 	if(arr[i]>arr[i+1]){
+// 		 		sellPrice = arr[i+1] ; 
+// 		 		buyPrice = arr[i] ;
+// 		 		profit = sellPrice - buyPrice ; 
+// 		 	}
+
+
+
+// 		} 
+// 		return profit ;
+// };
