@@ -22,4 +22,20 @@
 
 var maximumProfit  = function(array) {
 
+	var min=Math.min.apply(null,array);
+	var minIndex = array.indexOf(min);
+	var arr=array.slice(minIndex)
+	var max=Math.max.apply(null,arr);
+	var maxIndex = array.indexOf(max);
+	
+	var profit=0;
+	
+	if(minIndex<maxIndex){
+		profit = max-min;
+	}else{
+		profit = 0;
+	}
+return profit;
 };
+
+
