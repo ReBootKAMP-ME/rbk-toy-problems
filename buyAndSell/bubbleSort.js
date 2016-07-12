@@ -45,6 +45,5 @@ var maximumProfit  = function(array) {
 		earned=0;
 	}
 }
-	debugger;
 	return earned;
 }
