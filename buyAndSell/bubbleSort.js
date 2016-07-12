@@ -21,5 +21,18 @@
 // Feel free to add helper functions if needed
 
 var maximumProfit  = function(array) {
+	var low = array[0];
+	var maxProf = -Infinity;
+	var currProf;
 
+	for ( var i=0; i < array.length; i++ ){
+		currProf = array[i] - low; 
+		if ( currProf > maxProf ){
+			maxProf = currProf;
+		};
+		if ( array[i] < low ){
+			low = array[i];
+		};
+	};
+	return maxProf;
 };
