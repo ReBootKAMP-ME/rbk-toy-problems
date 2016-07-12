@@ -21,5 +21,20 @@
 // Feel free to add helper functions if needed
 
 var maximumProfit  = function(array) {
+	var newArr =[];
+	for (var i = 0; i < array.length; i++) {
+		var arrForSingleNum=[];
+		var defference;
+		for (var j = i+1; j < array.length; j++) {
+			if(array[i]<array[j]){
+				defference = array[j]-array[i];
+				arrForSingleNum.push(defference);
+			}
+		}
+		// using apply with math.max because it gives me NaN when I use it with arr
+		newArr.push(Math.max.apply(Math,arrForSingleNum))
 
+	}
+	var maxProfit = Math.max.apply(Math,newArr)
+	return maxProfit;
 };
