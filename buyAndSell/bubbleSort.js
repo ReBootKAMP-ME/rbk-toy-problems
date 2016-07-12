@@ -20,6 +20,52 @@
 
 // Feel free to add helper functions if needed
 
-var maximumProfit  = function(array) {
 
+// find the least price in the array
+   // buy at that day
+
+   // compare the price with the second day
+   		// if it is less do nothing
+   		// if it is higher sell it
+
+//var arr  = [100, 80, 120, 130, 70, 60, 100, 125];
+var arr = [100, 80, 70, 65, 60, 55, 50]
+
+var maximumProfit  = function(array) {	
+	var buyAt = min(array);
+	console.log('buy at:', buyAt);
+	var sellAt = max(array.slice(array.indexOf(buyAt)));
+	console.log('sell At:', sellAt);
+	var profit = sellAt - buyAt;
+	console.log('the profit:', profit);
+	
+	return profit;
+	
 };
+
+
+var max  = function(array) {
+	// find the largest price
+	var sellAt = array[0];
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] > sellAt){
+			sellAt = array[i];
+		}
+	}
+return sellAt;
+}
+
+
+var min  = function(array) {
+	// find the least price
+	var buyAt = array[0];
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] < buyAt){
+			buyAt = array[i];
+		}
+	}
+return buyAt;
+}
+
+
+
