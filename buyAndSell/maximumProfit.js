@@ -20,6 +20,18 @@
 
 // Feel free to add helper functions if needed
 
-var maximumProfit  = function(array) {
+var min = function( array ){
+    return Math.min.apply( Math, array );
+};
 
+var max = function (array){
+	return Math.max.apply(Math, array);
+}
+
+var maximumProfit  = function(array) {
+	var lowest = min(array);
+	var start = array.indexOf(lowest);
+	var newarr = array.slice(start);
+	var highest = max(newarr);
+	return highest-lowest>0? highest-lowest : 0;
 };
