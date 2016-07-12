@@ -22,18 +22,17 @@
 
 var maximumProfit  = function(array) {
   	var x = 0;
-  	var c = 0;
-  	var b = 0;
   		for (var i = 0; i < array.length; i++) {
   			for (var j = 0; j < array.length; j++) {
-  				if(array[i]<array[j]){
-  					// x = array[i]- array[j]
-  					if(array[i]-array[j]>x){
-  						x = array[i]-array[j]
-  					}
+  				if(array[i]-array[j]>x){
+  					x = array[i]-array[j]
+	  					if(array[i]<array[j]){
+	  					      x = array[i]- array[j]
+	  					}
   				}
   			}
   		}
-  		return -x;
+  		return x;
 
 };
+
