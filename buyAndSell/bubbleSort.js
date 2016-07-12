@@ -19,7 +19,54 @@
 */
 
 // Feel free to add helper functions if needed
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+function getMinOfArray(numArray) {
+  return Math.min.apply(null, numArray);
+}
 
+	//check if maximum value is at index[0] then profit is zero
+	//check where is the maximum value
+	//check where is the mininmum value that is befor the maximum value
+	//calculate the profit
+	//return the profit
 var maximumProfit  = function(array) {
-
+	var max=getMaxOfArray(array);
+	var min=getMinOfArray(array);
+	var object={};
+	var minDay;
+	var maxDay;
+	var profit=0;
+	if(max === array[0]){
+		return 0;
+	}
+	else{
+		for (var i = 0; i < array.length; i++) {
+			object[array[i]]=i
+		}
+	}
+	var keymax;
+	var keymin;
+	for(var key in object){
+		if(key=max)
+			keymax=object[key];
+		else if(key=min)
+			keymin=object[key];
+	}
+	if(keymax < keymin)
+		profit=max-min;
+		else{
+			var newmin=0;
+			for(var key in object){
+					if(key > newmin && key < max && key > min){ 
+							newmin=key;
+							keymin=object[key];
+					}
+					if(keymax > keymin){
+						profit=max-newmin;
+					}
+			}
+		}
+return profit;
 };
