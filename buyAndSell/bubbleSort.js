@@ -28,8 +28,8 @@
    		// if it is less do nothing
    		// if it is higher sell it
 
-//var arr  = [100, 80, 120, 130, 70, 60, 100, 125];
-var arr = [100, 80, 70, 65, 60, 55, 50]
+var arr  = [100, 80, 120, 130, 70, 60, 100, 125];
+//var arr = [100, 80, 70, 65, 60, 55, 50]
 
 var maximumProfit  = function(array) {	
 	var buyAt = min(array);
