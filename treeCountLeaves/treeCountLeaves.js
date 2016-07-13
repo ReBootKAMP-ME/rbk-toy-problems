@@ -42,8 +42,8 @@ Tree.prototype.countLeaves = function () {
 	//if there is no childs the leaves counter equal zero
 	//looping over the tree to count leaves added
 		this.counter=0;
-		if(this.children.addChild (child)){
-			this.counter++;
+		if(this.children.length===0){
+			this.counter=0
 		}
 	for (var i=0; i<this.children.length; i++){
 		if(this.children[i].countLeaves()){
