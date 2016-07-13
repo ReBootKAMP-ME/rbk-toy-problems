@@ -29,31 +29,31 @@
 
 // Feel free to add helper functions if needed
 
-var bubbleSort = function(array) {
+// var bubbleSort = function(array) {
 	
-	var solution = function(border){
-		if(border === 1){
-			return;
-		}
-		else {
-			var compToken = array[0]
-			var swaps = 0;
-			for (var i=1; i<border; i++){
-				if (array[i]<=compToken){
-					array.splice(border, 0, array[i]);
-					array.splice(i,1);
-					border --;
-					i--;
-				}
-			}
-			array.splice(border, 0, compToken)
-			array.splice(0,1);
-		}
-		return solution(border);
-	}
-	solution(array.length);
-return array;
-};
+// 	var solution = function(border){
+// 		if(border === 1){
+// 			return;
+// 		}
+// 		else {
+// 			var compToken = array[0]
+// 			var swaps = 0;
+// 			for (var i=1; i<border; i++){
+// 				if (array[i]<=compToken){
+// 					array.splice(border, 0, array[i]);
+// 					array.splice(i,1);
+// 					border --;
+// 					i--;
+// 				}
+// 			}
+// 			array.splice(border, 0, compToken)
+// 			array.splice(0,1);
+// 		}
+// 		return solution(border);
+// 	}
+// 	solution(array.length);
+// return array;
+// };
 /*
 	The above is an incomplete function to sort the array using a compare Token, where a border is chosen
 	this algorithm takes less time, with a time complexity of O(logn)
