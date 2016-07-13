@@ -46,7 +46,7 @@ var prices = [] ;
 	for (var i = 0; i < prices.length; i++) {
 			buyPrice = prices[0] ; 
 			sellPrice = [prices.length-1] ; 
-
+k
 			profit = sellPrice - buyPrice ;
 
 			buyPrice ++ ; 

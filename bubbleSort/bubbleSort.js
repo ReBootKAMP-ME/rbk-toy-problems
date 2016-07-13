@@ -28,7 +28,6 @@
 */
 
 // Feel free to add helper functions if needed
-
 //time complexty is O(n^2)
 var bubbleSort = function(array) {
 
@@ -50,4 +49,3 @@ var bubbleSort = function(array) {
 	}
 	return array ;
 }
-
