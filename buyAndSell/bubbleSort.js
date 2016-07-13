@@ -29,5 +29,4 @@ var maximumProfit  = function(array) {
 		}
 	}
 	return maxProfit;
-
 };
