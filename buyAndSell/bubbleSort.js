@@ -21,5 +21,29 @@
 // Feel free to add helper functions if needed
 
 var maximumProfit  = function(array) {
-
-};
+	//defined how i earned
+	var earend=0;
+	
+    var sellIndex = 0;
+    var buy=Math.max.apply(Math,array)
+    buyIndex=array.indexOf(Math.min.apply(Math, array))
+	// sell Value witch is the lowest 
+	//defined buy value witch is the biggest 
+	
+	//if index of sell is before indexof
+	 //minus to fined how i earned
+	 for(var i=0; i<array.length; i++){
+	 	var sell = array[0];
+	 if (array[i] > sell) {
+            sellIndex = i;
+            sell = array[i];
+        if(sellIndex>buyIndex){
+            	earned=sell-buy
+            }
+	//otherwise i i will earn 0
+	}else{
+		earned=0;
+	}
+}
+	return earned;
+}

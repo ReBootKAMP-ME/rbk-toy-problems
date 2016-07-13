@@ -5,9 +5,32 @@
  */
 
 var primeTester = function(n) {
-  // to do
-};
+	for (var i = 2 ; i<=n ; i++) {
+		if(n===2||n===0){
+			return false;
+		}
+	else if( n%i===0){
+		return false;
+	}
+	}
+	return true;
+}
 
+//other way 
+var primeTester = function (n) {
+  if (typeof n !== 'number' || n < 2 || n % 1 !==0) {
+    return false;
+  }
+  
+  var upperLimit = Math.sqrt(n);
+  
+  for (var i = 2; i <= upperLimit; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
  /* Extra credit: Write a function that generates a list of all prime numbers
   * in a user-specified range (inclusive). If you're not quite sure where to start,
   * check out the Sieve of Eratosthenes on Wikipedia. (And if you're feeling
@@ -16,5 +39,19 @@ var primeTester = function(n) {
 
 
 var primeSieve = function(start, end) {
-  // to do
+var primeSieve = function(start, end) {
+  var sieve = [], i, j, primes = [];
+  for (i = 2; i <= end; ++i) {
+    if (!sieve[i]) {
+      // i has not been marked -- it is prime
+      if(i>=start){
+        primes.push(i)
+      };
+      for (j = i*2; j <= end; j += i) {
+          sieve[j] = true;
+      }
+    }
+  }
+  return primes;
+};
 };

@@ -18,7 +18,8 @@ var getData = function() {
     }
   });
 };
-
+//added this line here
+setInterval(getData,3000)
 // Here we sort the server messages by 'Created at' and send them to displayData
 var processData = function(data) {
   var sortedData = data.results.sort(function(a, b) {
@@ -131,6 +132,10 @@ $('.submit').on('submit', function(event) {
   var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
-
   postData($('.userInput').val(), username);
+
+  //added this line here taking the id from the index.html and give the value of it  an empty string 
+  $('#userName').val('');
+  //the same above i toke the class name from the index.html and give the value of it  an empty string 
+  $('.userInput').val('');
 });

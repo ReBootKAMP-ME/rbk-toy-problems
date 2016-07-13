@@ -34,14 +34,25 @@
 var Tree = function(value){
   this.value = value;
   this.children = [];
+  this.counter=1;
+
 };
 
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
-}
+	//defined a counter to count the leaves
+	//if there is no childs the leaves counter equal zero
+	//looping over the tree to count leaves added
+		if(this.children.length===0){
+			this.counter
+		}
+	for (var i=0; i<this.children.length; i++){
+		this.children[i].countLeaves()
 
-/**
-  * You shouldn't need to change anything below here, but feel free to look.
+	}
+	return this.counter;
+	}
+
+/**  * You shouldn't need to change anything below here, but feel free to look.
   */
 
 /**

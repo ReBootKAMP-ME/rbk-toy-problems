@@ -16,11 +16,16 @@
  * See http://en.wikipedia.org/wiki/Subset for more on the definition of a
  * subset.
 */
-
-
 /*
  * Extra credit: Make the method work for arrays that contain objects and/or arrays as elements.
 */
+ 
 
 Array.prototype.isSubsetOf = function (arr) {
+	for (var i = 0; i < this.length; i++) {
+		if(arr.indexOf(this[i]) === -1){
+			return false;
+		}
+	}
+	return true;
 }
