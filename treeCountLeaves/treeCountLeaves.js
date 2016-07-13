@@ -36,18 +36,18 @@ var Tree = function(value){
   this.children = [];
 };
 
-Tree.prototype.countLeaves = function (currentChild,count) {
-  count = count || 0;
-  currentChild = currentChild || this;
-  if (currentChild.children.length === 0){
+Tree.prototype.countLeaves = function () {
+  var count =  0;
+  if (this.children.length === 0){
     count ++;
-  }else{
-    for (var i = 0; i < currentChild.children.length; i++){
-      if(this.countLeaves(currentChild.children[i],count))  {
-        count++;
-      }
+    return count;
+  }
+  for (var i = 0; i < this.children.length; i++) {
+    if(this.children[i].children.length === 0){
       count++;
-    } 
+    }else{
+      count+= this.children[i].countLeaves();
+    }
   }
   return count;
 }
