@@ -1,0 +1,11 @@
+{
+    "src": [
+        "lib/babel-core/browser.js",
+        "lib/react/react.js",
+        "lib/react/react-dom.js",
+        "Fish.js",
+        "FishList.js",
+        "index.html"
+    ],
+    "tests": []
+}
