@@ -36,9 +36,32 @@ var Tree = function(value){
   this.children = [];
 };
 
+/*
+ When there is no children, Node itself is leaves
+     leaves counts +1
+ When there is children, Node itself is just branch
+     traverse the nodes to find out the who is the leaves
+*/
+
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
+  var numberOfLeaves = 0;
+
+  var traverseChild =function(node){
+    if(!node.children.length){
+      numberOfLeaves++;
+    }else{
+      for(var i = 0; i < node.children.length; i++){
+        traverseChild(node.children[i]);
+      }
+    }
+  }
+
+  traverseChild(this);
+  return numberOfLeaves;
 }
+
+
+
 
 /**
   * You shouldn't need to change anything below here, but feel free to look.
@@ -81,7 +104,7 @@ Tree.prototype.isDescendant = function(child){
   }
 };
 
-/**
+/** 
   * remove an immediate child
   */
 Tree.prototype.removeChild = function(child){
