@@ -43,3 +43,48 @@ var bubbleSort = function(array) {
 	}
 	return array;
 };
+var bubbleSort = function(array) {
+
+};
+
+/*
+procedure bubbleSort( A : list of sortable items )
+    n = length(A)
+    repeat
+       newn = 0
+       for i = 1 to n-1 inclusive do
+          if A[i-1] > A[i] then
+             swap(A[i-1], A[i])
+             newn = i
+          end if
+       end for
+       n = newn
+    until n = 0
+end procedure
+*/
+/*
+var bubbleSort = function(arr){
+  n = arr.length
+  var swapped;
+  do {
+    swapped = false;
+    var newn = 0;
+    for (var i = 0; i < n - 1; i++) {
+      if(arr[i+1] < arr[i]){
+        var temp = arr[i+1];
+        arr[i+1] = arr[i];
+        arr[i] = temp;
+        newn = i;
+        swapped = true;
+      }
+    }
+  }while(swapped)
+}
+
+var a = [34, 203, 3, 746, 200, 984, 198, 764, 9];
+
+bubbleSort(a);
+console.log(a);
+
+// Remember to look here http://visualgo.net/sorting
+*/
