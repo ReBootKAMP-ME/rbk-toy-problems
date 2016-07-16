@@ -29,8 +29,6 @@
 
 // Feel free to add helper functions if needed
 
-
-
 var bubbleSort = function(array) {
  	var temp=0;
  	var sort=false;
