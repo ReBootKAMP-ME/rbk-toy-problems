@@ -51,3 +51,20 @@ var primeSieve= function(end){
 
 	return results;
 }
+
+//lecure solution
+var primeSieve = function(start, end) {
+  var sieve = [], i, j, primes = [];
+  for (i = 2; i <= end; ++i) {
+    if (!sieve[i]) {
+      // i has not been marked -- it is prime
+      if(i>=start){
+        primes.push(i)
+      };
+      for (j = i*2; j <= end; j += i) {
+          sieve[j] = true;
+      }
+    }
+  }
+  return primes;
+};
