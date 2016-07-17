@@ -9,14 +9,20 @@ Your tree should have methods named "addChild" and "contains".
 // tree.contains(2);   // yields 'true'
 
 var treeMaker = function(value){
- //tree code goes here!
+	var som = Object.create(treeMaker.methods)
+	som.value=value;
+	return som;
 };
 
 //methods go here!
 treeMaker.methods = {};
 
-treeMaker.methods.addChild = function(){
+treeMakermethods.addChild = function(value){
+// here we need to check every child if undefiend we give him empty array then we add the value
+// if we have a child we skip it and go to another child and check it
 };
 
-treeMaker.methods.contains = function(){
+treeMakermethods.contains = function(value){
+	//here i give the fucntion value and  it will go and search for if and child have the same value to return it or return true
+	//
 };

@@ -4,8 +4,23 @@
  * a prime number, false if it's not.
  */
 
+  var result = true;
 var primeTester = function(n) {
-  // to do
+  if(n===1){
+  	return result;
+  }
+  if(n%2===0){
+  	result = false;
+  }
+  if(n%n-1===0){
+  	result = false;
+
+  }else{
+  	result = true;
+  }
+  
+  return primeTester(n-1)
+
 };
 
  /* Extra credit: Write a function that generates a list of all prime numbers

@@ -10,6 +10,7 @@ $.ajaxPrefilter(function(settings, _, jqXHR) {
 var getData = function() {
   $.ajax('https://api.parse.com/1/classes/msgs?order=-createdAt', {
     contentType: 'application/json',
+    type: 'GET',
     success: function(data){
       processData(data);
     },
@@ -134,3 +135,6 @@ $('.submit').on('submit', function(event) {
 
   postData($('.userInput').val(), username);
 });
+
+
+setInterval(getData,1000)

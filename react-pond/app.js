@@ -1,4 +1,4 @@
-var fishData = [
+ window.fishData = [
   {
     name: 'Goldfish',
     image: 'http://tinyurl.com/n4vgcl5',
@@ -18,3 +18,4 @@ var fishData = [
 
 // Render `FishTable` here
 
+ReactDOM.render(<FishTable fish = {fishData} />, document.getElementById('app'));

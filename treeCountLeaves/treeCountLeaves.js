@@ -37,7 +37,12 @@ var Tree = function(value){
 };
 
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
+  var leavesNumber =0;
+  for (var i = 0; i < this.children.length; i++) {
+      //here i should go to the children for every root and count how much he have leaves then go to next root and count the leaves.
+      
+  }
+  return this.children.length;
 }
 
 /**
