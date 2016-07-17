@@ -40,6 +40,8 @@ Tree.prototype.countLeaves = function (node) {
 	var count=0
 	if(node === null){
 	count++ ;
+	}
+	else {
 	countLeaves(node.children)
 	}
 	return count; // it's not working , and it's not the solution ,, but what i was trying to do
