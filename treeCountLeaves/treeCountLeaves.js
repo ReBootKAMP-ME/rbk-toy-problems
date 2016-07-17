@@ -45,10 +45,11 @@ function leaf(node){
     return counter;
    }
    for (var i=0;i<node.children.length;i++){
-      return  counter=counter+leaf(node.children[i]);
+       counter=counter+leaf(node.children[i]);
   }
 }
-  return leaf(this);
+   leaf(this);
+   return counter;
 }
 
   
