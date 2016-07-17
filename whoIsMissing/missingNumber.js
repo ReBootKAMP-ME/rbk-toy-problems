@@ -7,9 +7,21 @@
 // The input will be in order.
 // Try to solve with O(1) time complexity
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
+	//calculate the differnces between two numper
+	//check if they are equal
+	//check if its not ecual
+	//guess the number
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
 	// Your code here..
+	var results=0;
+	for(var i=0; i < orderedInputArray.length-1 ; i++){
+		var next=i+1;
+		if(orderedInputArray[next]-orderedInputArray[i] !== 1){
+			results=orderedInputArray[i]+1;
+			return results;
+		}
+	}
 }
 
 // Input will not be in order.
@@ -18,4 +30,9 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	// Your code here..
+	var results=0;
+	var newArr=unorderedInputArray.sort();
+	var results=0;
+	results=orderedArrayMissingNumber(newArr);
+	return results;
 }
