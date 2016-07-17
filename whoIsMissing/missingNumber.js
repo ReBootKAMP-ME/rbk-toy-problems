@@ -9,7 +9,15 @@
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
-	// Your code here..
+	// Your code here.
+	var counter=orderedInputArray[0];
+	for (var i=0;i<orderedInputArray.length;i++){
+		if(orderedInputArray[i]!==counter){
+			return orderedInputArray[i]-1;
+		}
+		counter++;
+	}
+
 }
 
 // Input will not be in order.
@@ -18,4 +26,6 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	// Your code here..
+	var array=unorderedInputArray.sort();
+	orderedArrayMissingNumber(array);
 }
