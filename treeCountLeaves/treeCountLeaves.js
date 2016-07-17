@@ -43,18 +43,19 @@ Tree.prototype.countLeaves = function () {
   console.log(this.children);
   for (var i = 0; i <= this.children.length-1; i++) {
          // console.log("jo",this.children.length)
-        if(this.children.length!==0){
+        if(this.children.length === 0){
           //console.log("in if ")
-          numberofleve=numberofleve+1;
+          
         }else{
               this.children[i].countLeaves();
         }
   }
-
-  var temNum=numberofleve;
-  numberofleve=0;
- console.log(temNum);
-  return temNum;
+numberofleve=numberofleve+1;
+          var temNum=numberofleve;
+           numberofleve=0;
+           console.log(temNum);
+            return temNum;
+  
 }
 
 
