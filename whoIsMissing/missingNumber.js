@@ -8,14 +8,24 @@
 // Try to solve with O(1) time complexity
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 
+// i don't know how to solve it with O(1) without for loop but i try to solve the main problem.
 var orderedArrayMissingNumber = function(orderedInputArray) {
-	// Your code here..
+	var missing = [];
+	for (var i = 0; i<orderedInputArray.length-1; i++){ // O(n)
+		if (!((orderedInputArray[i]+1)===orderedInputArray[i+1])){
+			missing.push(orderedInputArray[i]+1);
+		}
+	}
+return missing;
 }
+// time complexity is O(n)
 
 // Input will not be in order.
 // EXAMPLE: When inputArray is [6,5,7,3,2], output should be 4.
 
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
-	// Your code here..
+	var ordered = unorderedInputArray.sort(); // O(n^2)
+	return orderedArrayMissingNumber(ordered); // O(n)
 }
+// time complexity is O(n^3)
