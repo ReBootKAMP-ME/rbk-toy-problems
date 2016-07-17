@@ -13,6 +13,15 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 		if(orderedInputArray[i+1]-orderedInputArray[i]>1)
 			return orderedInputArray[i+1]-1;
 	}
+
+	// var num1=orderedInputArray.pop();
+	// var num2=orderedInputArray[length-1];
+	// if(num1-num2>1)
+	// 	return num1-1;
+	// if(orderedInputArray.length-1===1)
+	// 	return  'not found'
+	// return orderedArrayMissingNumber(orderedInputArray);
+
 }
 
 // Input will not be in order.
@@ -22,3 +31,4 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	return orderedArrayMissingNumber(unorderedInputArray.sort());
 }
+// o(2n)=> o(n) : n for sort and n for orderedArrayMissingNumber
