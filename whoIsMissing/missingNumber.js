@@ -22,13 +22,6 @@ for (var i = 0; i < orderedInputArray.length-1; i++) {
 
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
-	var n = unorderedInputArray.length+1 ; 
-  	var sum = 0 ;
- 	var expectedSum = 0
-  for(var i = 0; i < unorderedInputArray.length ; i++){
-  	expectedSum = i*(2 * unorderedInputArray[i] + (i-1))/2 // i used the sum of a series formula 
-    sum += unorderedInputArray[i];
-  }
-  
-  return expectedSum - sum;
+	var array = unorderedInputArray.sort();
+	return orderedArrayMissingNumber(array)
 }
