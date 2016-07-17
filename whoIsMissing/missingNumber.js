@@ -9,8 +9,26 @@
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
-	// Your code here..
+	var Missing = [] ;
+	var orderedInputArray = [] ; 
+	for (var i = 0; i < orderedInputArray.length; i++) {
+		if (orderedInputArray[i] - orderedInputArray[i-1] > 0) {
+		var test = orderedInputArray[i]-orderedInputArray[i-1] ;
+		var one = 1 ; 
+			while(one>test) { 
+				Missing.push(orderedInputArray[i-1]+1)
+				one++
+
+			}
+	}
+
 }
+				return Missing ;
+
+}
+	
+
+
 
 // Input will not be in order.
 // EXAMPLE: When inputArray is [6,5,7,3,2], output should be 4.
