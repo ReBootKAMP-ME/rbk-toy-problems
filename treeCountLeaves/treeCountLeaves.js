@@ -37,20 +37,18 @@ var Tree = function(value){
 };
 // what if we make a helper function that is like this
 
-Tree.prototype.countLeaves = function () {
-  var counter = 0;
-  var checkChild = function(parent){ 
-    // WHY CANNOT WE COMPARE THE PARENT WITH AN EMPTY ARRAY!!!!!!
-    // THANK YOU :D
+Tree.prototype.countLeaves = function (parent,counter) { 
+    console.log(counter)
+    parent = parent || this;
+    counter = counter || 0;
+    // console.log(parent.children.length);
     if(parent.children.length === 0){
+      console.log('Here or not ?')
       return ++counter;
     } 
     for(var i = 0 ; i < parent.children.length;  i++){
-       checkChild(parent.children[i]);
-      
+       parent.countLeaves(parent.children[i] , counter);  
     }
-  }
-  checkChild(this)
   return counter;
 }
 
