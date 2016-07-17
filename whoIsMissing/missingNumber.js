@@ -9,7 +9,12 @@
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
-	// Your code here..
+	var missingNum= [];
+for (var i = 0; i < orderedInputArray.length-1; i++) {
+	if(orderedInputArray[i]+1!==orderedInputArray[i+1]  ){
+		missingNum.push(orderedInputArray[i]+1)	
+	}
+} return missingNum ;
 }
 
 // Input will not be in order.
@@ -17,5 +22,13 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
-	// Your code here..
+	var n = unorderedInputArray.length+1 ; 
+  	var sum = 0 ;
+ 	var expectedSum = 0
+  for(var i = 0; i < unorderedInputArray.length ; i++){
+  	expectedSum = i*(2 * unorderedInputArray[i] + (i-1))/2 // i used the sum of a series formula 
+    sum += unorderedInputArray[i];
+  }
+  
+  return expectedSum - sum;
 }
