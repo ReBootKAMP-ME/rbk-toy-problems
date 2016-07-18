@@ -38,5 +38,12 @@
  */
 
 var rotateMatrix = function(matrix){
+for (var i = 0; i < matrix.length; i++) {
+for (var j = 0; j < matrix.length; j++) {
+	matrix[i][j] = [matrix.length - i -1 ][i] ;
+	//we should swap the coulms with the raws 
+	}
+	}
 
+return matrix ;
 };
