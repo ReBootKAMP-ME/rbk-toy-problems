@@ -38,5 +38,17 @@
  */
 
 var rotateMatrix = function(matrix){
+	// we need to solve this function by entering each row then enter each col in that row , 
+	// then we should get the elements that is in the last col of the array,  and push it into new 
+	// array , just like what we did on the n-queens , but i did it in a wronge way here and it's not working 
+	var innerArray  = []; 
+	var bigArray = []
+	for (var i = 0; i < matrix.length; i++) {
+		for (var j = matrix[i].length-1 ; j >=0 ; j--) {
+			innerArray.push(matrix[i][j])
+					bigArray.push(innerArray)
 
+		}
+	}
+	return bigArray ;
 };
