@@ -9,11 +9,12 @@
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 var orderedArrayMissingNumber = function(orderedInputArray) {
 	var missing;
+	var array = orderedInputArray
 	var l = array.length
 	var first = array[0]
 	for (var i=0; i<l; i++){
-		if (array[i] > i+first){
-			missing = i;
+		if (array[i] > (i+first)){
+			missing = i + first;
 			break;
 		}
 	}	
@@ -44,7 +45,7 @@ var order = function (unOrderedArray) {
 		}
 	}
 	solution (unOrderedArray);
-	return array;
+	return sol;
 }
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	var ordered = order(unorderedInputArray);
