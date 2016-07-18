@@ -12,12 +12,12 @@
  *
  * Example rotation of a 4x4 matrix:
  *
- * var matrix = [
- *  [1,2,3,4],
- *  [5,6,7,8],
- *  [9,'A','B','C'],
- *  ['D','E','F','G']
- * ];
+  var matrix = [
+   [1,2,3,4],
+   [5,6,7,8],
+   [9,'A','B','C'],
+   ['D','E','F','G']
+  ];
  *
  * matrix[0][0]; // 1
  * matrix[3][2]; // 'F'
@@ -37,6 +37,60 @@
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
 
-var rotateMatrix = function(matrix){
+ [
+ 	[1,2,3,4,5,6,7],
+ 	[8,9,10,11,12,13,14]
+ ]
 
+var rotateMatrix = function(matrix , setDirection){
+	var newMatrix = [];
+	if(setDirection === 1){
+		for(var column = 0 ; column < matrix[1].length ; column++){
+			var innerArray = [];
+			for (var row = matrix.length-1 ; row >= 0 ; row--){
+				innerArray.push(matrix[row][column]);
+
+			}
+			newMatrix.push(innerArray);
+		}
+	} else {
+		for(var column = matrix.length-1 ; column >= 0 ; column--){
+			var innerArray = [];
+			for (var row = 0 ; row < matrix.length  ; row++){
+				innerArray.push(matrix[row][column]);
+
+			}
+			newMatrix.push(innerArray);
+		}
+	}
+	return newMatrix;
 };
+
+//what if everytime we took one column ... so we take a column .. start from the last and go back each time one step 
+// when the array is over ... we switch to the next column
+// so first we'r gonna start with column 0.
+
+// wee have to rotate them all , we need to start from the last array and take the first element .
+// and go back one array .. so we'll start from the end . 
+// we start from the end . and everytime we go back one element . 
+// inside that element we will go bac
+// time complexity is bad in this .. it can work recursively 
+// should try that if i finish the extra credit]
+// now its working for rectangularss
+// lets try making it work clockwise and anti clockwise
+// i think all the extra credits now are working but that is DRY , so now we need to make our code cleaner.
+// ran out of time .. TOO DRY!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
