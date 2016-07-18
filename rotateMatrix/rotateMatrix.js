@@ -62,9 +62,14 @@
 	4-for every item in array, push item in array number (item index) of mapped matrix
 
 	Extra Credit:
-	Ok, so the solution below works, however before we jump into extra credit, we can enhance it a little, that is do the item and its mirror at the same time, this will save us time and space
+	For rectangular I would start with something like this:
 
-	
+	var storage = matrix[0].map(function(e){
+			return matrix.map(function(e){
+				return 0;
+			});
+	})
+	Which will rotate the rectangle, what is remaining is to assign the values from the matrix to the new rectangle.
  */
 
 var rotateMatrix = function(matrix){
