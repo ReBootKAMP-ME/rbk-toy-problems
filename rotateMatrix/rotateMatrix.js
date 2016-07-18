@@ -1,7 +1,8 @@
 /**
  * Write a function that rotates a NxN matrix 90 degrees.
  *
- * A matrix, also called a 2-D array, is simply an array of arrays of values.
+ * A matrix, also called a 2-D array, 
+ is simply an array of arrays of values.
  *
  * Example 1x1 matrix:
  *   [ [1] ]
@@ -36,7 +37,48 @@
  *  - Make your function operate on rectangular matrices (MxN rather than NxN).
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
+ /*
+	Problem analysis:
+	I/O:
+	input: NxN matrix
+	output: NxN matrix
+
+	functionality:
+	Rotate 90 degrees clockwise.
+
+	Analysis:
+	the first thing I notice is that the last array in the matrix becomes the first element of every array verically
+	and the first array becomes the last element on each array, the second array becomes the the third, and third becomes second
+	for N is odd, the middle element stays middle but vertically.
+
+	So first, we take the horizental index of the array and subtract it from the last array index
+
+	so for N=4 every item on array 0 will take index (3-0=3) and so on
+	this way will also work for odd, if N=3, array 1 elements, will take (2-1=1) position vertically.	
+	
+	1- create empty array of arrays to store the data
+	2- take the last array in original matrix
+	3- for every array in matrix from last
+	4-for every item in array, push item in array number (item index) of mapped matrix
+
+	Extra Credit:
+	Ok, so the solution below works, however before we jump into extra credit, we can enhance it a little, that is do the item and its mirror at the same time, this will save us time and space
+
+	
+ */
 
 var rotateMatrix = function(matrix){
-
+	var storage = matrix.map(function(e){
+		return e.map(function(e){
+			return 0;
+		})
+	})
+	var lmat = matrix.length
+	var li = matrix.length-1;
+	for (j=li; j>=0; j--){
+		for (i=0; i<lmat; i++){
+			storage[i][li-j] = matrix[j][i]
+		};
+	};
+	return storage
 };
