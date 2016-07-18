@@ -15,6 +15,7 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 			return currentNumber;
 		}
 	}
+	
 }
 Array.prototype.min = function() {
   return Math.min.apply(null, this);
