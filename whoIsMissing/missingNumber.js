@@ -17,16 +17,15 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 	//if it is not return that element
 	var result;
 	for (var i = 1; i < orderedInputArray.length; i++) {
-		for(var j = 0; j < orderedInputArray.length-1; j++){
+		for(var j = 0; j < orderedInputArray.length; j++){
  			if(orderedInputArray[i] !== orderedInputArray[j+1]){
- 				 var result=orderedInputArray[i]
+ 				 var result=orderedInputArray[i]+1
  			}
 		}
 	}
 	return result;
 }
 //time complexity is O(n) because of nested loops
-
 
 
 // Input will not be in order.
@@ -40,7 +39,7 @@ var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	var result;
 	for (var i = 1; i < sortedArray.length; i++) {
 		for(var j = 0; j < sortedArray.length-1; j++){
- 			if(sortedArray[i] !== sortedArray[j+1]){
+ 			if(sortedArray[i] !== sortedArray[j]+1){
  				result=sortedArray[i]
  			}
 		}
