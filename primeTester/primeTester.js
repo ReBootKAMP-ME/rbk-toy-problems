@@ -5,7 +5,14 @@
  */
 
 var primeTester = function(n) {
-  // to do
+  if(n === 2 || n === 3 || n=== 5|| n=== 7 || n===11){
+  	return true;
+  }
+  if( n%2 === 0 || n%3 === 0 || n%5 === 0 || n%7=== 0 || n%11===0){
+  	return false
+  }
+  return true
+
 };
 
  /* Extra credit: Write a function that generates a list of all prime numbers
@@ -14,7 +21,13 @@ var primeTester = function(n) {
   * saucy, check out the Sieve of Atkin.)
   */
 
-
-var primeSieve = function(start, end) {
-  // to do
+// this is the smple way it work for 1 million but at 10 million it take 2 secand
+var primeSieve = function(start, end) { 
+  var thePrime=[];
+  for (var i = start; i < end; i++) {
+  	if(primeTester(i)){
+  		thePrime.push(i);
+  	}
+  }
+  return thePrime;
 };

@@ -1,3 +1,8 @@
+var bind = function(func, context,val) { 
+	return function(val2) {
+    	return func.apply(context,[val,val2])
+  	}
+};
 
  // function bind():
  //  example 1:
@@ -7,19 +12,28 @@
  //     alert(this.name);
  //   }
  // }
+
  // var boundShout = bind(alice.shout, alice);
  // boundShout(); // alerts 'alice'
  // boundShout = bind(alice.shout, {name: 'bob'});
  // boundShout(); // alerts 'bob'
- //  example 2:
- //  var func = function(a, b){ return a + b };
- // var boundFunc = bind(func, null, 'foo');
- // var result = boundFunc('bar');
- // result === 'foobar'; // true
+ 
+  //  example 2:
+  var func = function(a, b){ return a + b };
+  var boundFunc = bind(func,null ,'foo');
+  var result = boundFunc('bar');
+  result === 'foobar'; // true
+
+//========================================================================
+ Function.prototype.bind = function(a, args1, args2) {
+ 	var that=this;
+ 	return function() {
+    	return that.apply([a,args1,args2])
+  	}
+ };
 
 
-var bind = function(func, context) {
-};
+
 
  // * Function.prototype.bind:
  // *
@@ -36,14 +50,19 @@ var bind = function(func, context) {
  // * boundShout = alice.shout.bind({name: 'bob'});
  // * boundShout(); // alerts 'bob'
  // *
- // * example 2:
- // *
- // * var func = function(a, b){ return a + b };
- // * var boundFunc = func.bind(null, 'foo');
- // * var result = boundFunc('bar');
- // * result === 'foobar'; // true
- // *
+  //example 2:
+ 
+  var func = function(a, b){ return a + b };
+  var boundFunc = func.bind(null, 'foo');
+  var result1 = boundFunc('bar');
+  result1 === 'foobar'; // true
+ 
 
 
-Function.prototype.bind = function(a, args1, args2) {
-};
+
+
+
+
+  
+
+

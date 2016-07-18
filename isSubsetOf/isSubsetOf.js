@@ -23,4 +23,38 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
+	//first solution 
+	//var bigArray=arr;
+	// var isAll=0;
+	// for (var i in  bigArray) {
+	// 	for (var j in this ) {
+	// 		if(this[j] === bigArray[i]){
+	// 			if (typeof this[j] === "object"){
+	// 				this[j].isSubsetOf(bigArray[i]);
+	// 			 }
+	// 			 isAll++;
+	// 		}
+	// 	}
+	// }
+	// if(isAll === this.length){
+	// 	return true
+	// }
+	// return false;
+
+
+
+	//secand solution
+	var bigArray=arr;
+	var isAll=0;
+	for (var i = 0; i < bigArray.length; i++) {
+		for (var j = 0; j < this.length; j++) {
+			if(JSON.stringify(this[j]) === JSON.stringify(bigArray[i])){
+				isAll++;
+			}
+		}
+	}
+	if(isAll >= this.length){
+		return true
+	}
+	return false;
 }

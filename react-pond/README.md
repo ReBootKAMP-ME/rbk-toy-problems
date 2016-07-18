@@ -9,6 +9,6 @@ Create a fish pond in React:
 * [ ] If it doesn't already, refactor `FishTable` to render exactly one `FishTableRow` for each fish object inside of `fishData`
 
 ### Available Resources for this Prompt
-* React Docs
-* MDN
-* Google
+	* React Docs
+	* MDN
+	* Google
