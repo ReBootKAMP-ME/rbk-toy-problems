@@ -41,9 +41,10 @@ var rotateMatrix =function (matrix) {
 	var result=[];
 	for (var i = 0; i < matrix.length; i++) {
 		result[i]=[];
-		for (var j = matrix[i].length; j > 0 ; j--) {
+		for (var j = matrix[i].length-1; j >= 0 ; j--) {
 			result[i].push(matrix[j][i]);
 		}
 	}
 	return result;
 }
+///////////////////
