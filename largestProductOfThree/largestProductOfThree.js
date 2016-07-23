@@ -8,4 +8,19 @@
  */
 
 var largestProductOfThree = function(array) {
+  var larg = 1;
+  var arr = array.sort();
+  for (var i = arr.length-1; i > arr.length-4; i--) {
+    larg = larg * arr[i];
+  }
+  return larg;
+};
+
+var largestProductOfThreeNegative = function(array) {
+  var larg = 1;
+  var arr = array.sort();
+  for (var i = 0; i < 3; i++) {
+    larg = larg * arr[i];
+  }
+  return larg;
 };
