@@ -19,8 +19,15 @@
 
 
 var bind = function(func, context) {
-};
+    
+   return function(){
+   	func.call(this , context)
+   };
 
+   //we must send aparameter with fun
+
+	//return "function ("+context+") { "+func(context)+"}"
+ 
  // * Function.prototype.bind:
  // *
  // * example 1:

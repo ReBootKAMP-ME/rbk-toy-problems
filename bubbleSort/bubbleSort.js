@@ -29,6 +29,21 @@
 
 // Feel free to add helper functions if needed
 
+var bubbleSort = function(array) {
+	for (var i = 0; i < array.length; i++) {
+        if(array[i+1]< array[i]){
+        	var swap=array[i];
+        	array[i]=array[i+1];
+        	array[i+1]=swap;
+        	i=0;
+
+
+        }
+	}
+	return array;
+
+};
+// the complexcity is n^2
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
@@ -43,7 +58,7 @@ procedure bubbleSort( A : list of sortable items )
        n = newn
     until n = 0
 end procedure
-*/
+
 
 var bubbleSort = function(arr){
   n = arr.length
@@ -68,4 +83,4 @@ var a = [34, 203, 3, 746, 200, 984, 198, 764, 9];
 bubbleSort(a);
 console.log(a);
 
-// Remember to look here http://visualgo.net/sorting
+*/
