@@ -10,8 +10,14 @@
 var largestProductOfThree = function(array) {
 	var arr= array.sort();
 	var product = 1
+	if(arr[arr.length-1] > 0){
 	for (var i = arr.length - 1; i >= arr.length-3; i--) {
 			product=product*arr[i];
-		}	
+		}	} else {
+			for (var i =0 ; i<3 ; i++) {
+				product=product * arr[i] ;
+				
+			}
+		}
 		return product
 };
