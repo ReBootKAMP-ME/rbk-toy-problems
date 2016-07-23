@@ -8,4 +8,17 @@
  */
 
 var largestProductOfThree = function(array) {
+	var largest=0;
+	var product=0;
+	for (var i=0;i<array.length;i++){
+		for (var j=i;j<array.length;j++){
+			if(array[j+1]!==undefined && array[j+2]!==undefined){
+				product=array[i]*array[j+1]*array[j+2];
+			}
+			if(product>largest){
+				largest=product;
+			}
+		}
+	}
+	return largest;
 };
