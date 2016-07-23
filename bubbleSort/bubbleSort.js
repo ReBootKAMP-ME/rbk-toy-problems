@@ -29,6 +29,31 @@
 
 // Feel free to add helper functions if needed
 
+<<<<<<< HEAD
+var bubbleSort = function(array) {
+	var arr=[];
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < array.length-1; j++) {
+			if(array[j]>array[j+1]){
+		// 	arr.push(array[j+1]);
+		// 	//array.splice(0,1);
+		// }else{
+			var x=array[j];
+			array[j]=array[j+1];
+			array[j+1]=x;
+			}
+		}
+	}
+	return array;
+};
+
+
+//the time complexity of this function is O(N^2) where n is the length if the array.
+
+//the time complexity would be the same if the array was sorted since every two adjacent elements would be
+//checked.
+
+=======
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
@@ -69,3 +94,4 @@ bubbleSort(a);
 console.log(a);
 
 // Remember to look here http://visualgo.net/sorting
+>>>>>>> 887eeab433fb4932a3de88094dc9e48d73647ee5

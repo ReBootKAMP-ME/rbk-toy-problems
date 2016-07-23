@@ -25,5 +25,29 @@
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+   input=input.split("");
+   var openBracket=0;
+   var closeBracket=0;
+   var openCurly=0;
+   var closeCurly=0;
+   var openSq=0;
+   var closeSq=0;
+   var brackets=[];
+   for (var i = 0; i < input.length; i++) {
+   	if(input[i]==="("){
+   		openBracket++;
+   	}else if(input[i]===")"){
+   		closeBracket++
+   		if(closeBracket>openBracket){return false;}
+   	}else if(input[i]==="{"){
+   		openCurly++;
+   	}else if(input[i]==="}"){
+   		closeCurly++;
+   	}
+   }
+   if(openBracket===closeBracket && openCurly===closeCurly && openSq===closeSq){
+   	return true;
+   }else{
+   	return false;
+   }
  };

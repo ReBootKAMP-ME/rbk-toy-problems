@@ -39,4 +39,17 @@
 
 var rotateMatrix = function(matrix){
 
+	var n = matrix.length; // 4
+	var rotatedMatrix=[]; 
+
+	for (var j = 0; j < matrix.length; j++) {
+		for (var i = 0; i < matrix.length; i++) {
+			rotatedMatrix[i]=[];
+			rotatedMatrix[i].unshift(matrix[j][i]);
+		}
+	}
+
+	return rotatedMatrix;
 };
+
+

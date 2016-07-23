@@ -5,6 +5,22 @@
   * traverse the tree, and return the number of leaf nodes the tree contains.
   *
   * Illustration of a tree with three leaves:
+
+  // tree = [
+  {x:2, 
+  children:[
+      {x:1},
+      {x:2, children:[
+            {x:1},
+            {x:2,children:[
+                  {1}
+                ]
+            }
+            ]
+      }
+      ]
+  }
+]
   *
   *       * <- root
   *      / \
@@ -36,8 +52,18 @@ var Tree = function(value){
   this.children = [];
 };
 
+
+var count=1;
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
+
+  for (var i = 0; i < this.children.length; i++) {
+   if(this.children[i].children === null){
+    count++;
+   }else{
+    this.children[i].children.countLeaves();
+   }
+  }
+  return counter;
 }
 
 /**

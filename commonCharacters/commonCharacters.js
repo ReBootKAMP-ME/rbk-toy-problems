@@ -11,6 +11,44 @@
  */
 
 //Works for any number of input strings:
+
+//for two strings only
 var commonCharacters = function(string1, string2) {
-  
+  str1=string1.split("");
+  str2=string2.split("");
+  var common=[];
+  var result=[];
+
+  for (var i = 0; i < str1.length; i++) {
+  	for (var k = 0; k < str2.length; k++) {
+  		if(str1[i]===str2[k]){
+  			common.push(str1[i]);
+  		}
+  	}
+  }
+  // to return common characters without duplication
+  for (var i = 0; i < common.length; i++) {
+  	 	if(result.indexOf(common[i])<=-1){
+  		result.push(common[i]);
+  		}
+  }
+
+  return result.join("");
+  console.log(result.join(""));
 };
+
+
+//Extra credit
+
+var commonCharacters2 = function(string1, string2, string3) {
+  var strings= arguments;
+  var result="";
+  for (var i = 1; i < strings.length; i++) {
+  	result = commonCharacters(strings[0],strings[i]);
+  }
+
+  return result;
+};
+
+
+

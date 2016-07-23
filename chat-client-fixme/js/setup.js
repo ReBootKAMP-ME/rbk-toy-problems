@@ -124,6 +124,10 @@ var postData = function(message, username) {
 
 getData();
 
+//refresh message content every 3 seconds
+window.setInterval(function(){
+   getData();
+}, 3000);
 
 
 $('.submit').on('submit', function(event) {
@@ -133,4 +137,13 @@ $('.submit').on('submit', function(event) {
   $('.title').text('Chat with JSON');
 
   postData($('.userInput').val(), username);
+  //refresh the page to check for new messeges
+  getData();
+  // clear the username and message content after submiting message
+  $('#userInput').val('');
+  $('#userName').val('');
+  
 });
+
+
+
