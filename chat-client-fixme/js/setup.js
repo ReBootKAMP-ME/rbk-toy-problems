@@ -120,9 +120,17 @@ var postData = function(message, username) {
   });
 };
 
+//function declaration for clearing messages
+var clearMessages=function(){
+  $('#main').find('ul').html('');
+};
+
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
 
-getData();
+//updated mechanism for retriving data every 1-3 seconds.
+window.setInterval(function(){
+  getData();
+},1500)
 
 
 
@@ -131,6 +139,12 @@ $('.submit').on('submit', function(event) {
   var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
-
+  
+  //clear messages after submitting data
+  clearMessages();
+  
+  //when submitting a message, it checks for new messages.
+  getData();
+  
   postData($('.userInput').val(), username);
 });

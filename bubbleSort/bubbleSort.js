@@ -29,6 +29,22 @@
 
 // Feel free to add helper functions if needed
 
+var bubbleSort = function(array) {
+	var swapp=0;
+	var temp=0;
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < array.length; j++) {
+			temp=array[j+1];
+			if(temp < array[j]){
+				swapp=array[j]
+				array[j]=temp;
+				array[j+1]=swapp;
+			}
+		}
+	}
+	return array;
+};
+
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)

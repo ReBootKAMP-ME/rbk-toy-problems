@@ -17,6 +17,35 @@
 * rockPaperScissors(5); // => [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 *
 */
+var array=[];
+var generates=function(valueslength,values){
+	var guess=[];
+	var flag=[];
+	for (var i = 0; i < valueslength; i++) {
+	  guess.push(values[Math.floor((Math.random()*valueslength))]);
+	}
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < array[i].length; j++) {
+			if(array[i][j]=== guess[j])
+			  flag.push(false);
+		}
+		
+	}
+	if(flag.length !== guess.length){
+		array.push(guess);
+		return array;
+	}
+	else
+		generates(valueslength,values);
 
-var rockPaperScissors = function(n) {
+}
+var rockPaperScissors = function() {
+	var values=["rock","paper","scissors"];
+	for (var i = 0; i < Math.pow(values.length,values.length); i++) {
+		generates(values.length,values);
+	}
+
+	return array;
+
+
 };
