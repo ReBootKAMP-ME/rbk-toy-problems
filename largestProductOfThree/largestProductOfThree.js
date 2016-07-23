@@ -8,4 +8,11 @@
  */
 
 var largestProductOfThree = function(array) {
+	array = array.sort();
+	var threeNum = array.splice(array.length-3,3)
+	var result = 1;
+	for (var i = 0; i < threeNum.length; i++) {
+		result = result * threeNum[i]
+	}
+	return result;
 };
