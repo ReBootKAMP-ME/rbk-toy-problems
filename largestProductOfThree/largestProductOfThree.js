@@ -21,12 +21,12 @@
  // i think that also handles negative numbers
  // i dont know i havent made anything
  // but it handles it.
- 
+
 
 
 var largestProductOfThree = function(array) {
 	var newArr = [];
-	var largestThree = function(array){
+	var largestThree = function(array){ 
 		var largest = array[0];
 		for(var i = 0; i<array.length; i++){
 			if(array[i] > largest){
