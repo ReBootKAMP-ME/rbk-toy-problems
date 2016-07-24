@@ -37,10 +37,39 @@
 
 
 var largestProductOfFour = function(array) {
+	var product=0;
+	var largest=0;
+	var temp=0;
+	for (var i=0;i<array.length;i++){
+		for(var j=0;j<array[i].length;j++){
+			if(array[i][j+1] !== undefined && array[i][j+2] !== undefined && array[i][j+3] !== undefined){
+				temp=array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3];
+				if(temp>product){
+					product=temp;
+				}
+			}
+			if(array[j][i+1] !== undefined && array[j][i+2] !== undefined && array[j][i+3] !== undefined){
+				temp=array[j][i]*array[j+1][i]*array[j+2][i]*array[j+3][i];
+				if(temp>product){
+					product=temp;
+				}
+			}
+			if(array[j+1][j+1] !== undefined && array[j+2][j+2]!==undefined && array[j+3][j+3]!==undefined){
+				temp=array[j][j]*array[j+1][j+1]*array[j+2][j+2]*array[j+3][j+3];
+				if(temp>product){
+					product=temp;
+				}
+			}
+			if(product>largest){
+				largest=product;
+			}
+		}
+	}
+return largest;
 };
 
 
-
+[[08 ,02 ,22 ,97 ,38 ,15 ,00 ,40 ,00 ,75 ,04 ,05 ,07 ,78 ,52 ,12 ,50 ,77 ,91 ,08],[49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00]]
 
 
 
