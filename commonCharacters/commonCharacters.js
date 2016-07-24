@@ -12,5 +12,45 @@
 
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
+  var arrOfsttring1=string1.split("");
+  var arrOfsttring2=string2.split("");
+  var result=[];
+  for (var i = 0; i < arrOfsttring1.length; i++) {
+  	for (var j = 0; j < arrOfsttring2.length; j++) {
+  		if(arrOfsttring1[i] === arrOfsttring2[j] && arrOfsttring2[j] !== " " )
+  			result.push(arrOfsttring2[j])
+  		}
+  	}
   
+  return result.join("");
 };
+
+console.log(commonCharacters('acexivou', 'aegihobu'))
+
+
+
+
+//===================================================================
+
+// var commonCharacters1 = function(string1, string2) {
+// 	var length = arguments.length;
+// 	var result=[];
+
+	
+
+// 	for (var a = 0; a < arguments.length; a++) {
+// 		for (var i = 0; i < arguments.length; i++) {
+// 			for (var j = 0; j < arguments[0].length; j++) {
+// 				if(arguments[a][j] === arguments[i][j] && arguments[a] !== arguments[i])
+// 					result.push(arguments[i][j]);
+// 			}
+// 		}
+// 	}
+//   	return result.join("");
+  	  
+// };
+
+// console.log(commonCharacters1('acexivou', 'aegihobu'));
+
+
+

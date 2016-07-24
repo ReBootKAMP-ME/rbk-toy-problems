@@ -8,4 +8,10 @@
  */
 
 var largestProductOfThree = function(array) {
+	var products=array.sort();
+	return products[products.length-1] * products[products.length-2] * products[products.length-3]
 };
+
+
+
+

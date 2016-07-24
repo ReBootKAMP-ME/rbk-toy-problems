@@ -26,7 +26,8 @@
 *
 * The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 *
-* What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+* What is the greatest product of four adjacent numbers in the same direction
+ (up, down, left, right, or diagonally) in the 20×20 grid?
 *
 * 
 *
@@ -34,9 +35,52 @@
 *
 *
 */
+function right(array) {
+	var max=0;
+	for (var i = 0; i < array.length - 3; i++) {
+		if ( array[i] * array[i+1] * array[i+2] * array[i+3] > max) {
+			max = array[i] * array[i+1] * array[i+2] * array[i+3];
+		} 
+	}
+	return max;
+}
+function down(array) {
+ 	var max =0;
+ 	for (var i = 0; i < array.length; i++) {
+ 		for (var j = 0; j < array.length -3; j++) {
+ 			if (array[j][i] * array[j+1][i] * array[j+2][i] * array[j+3][i] > max)
+ 			max = array[j][i] * array[j+1][i] * array[j+2][i] * array[j+3][i]
+ 		}
+ 	}
+ 	return max;
+ } 
 
+ function diagonally(array,i) {
+ 	var max=0;
+ 	for (var i = i || 0; i < array.length -3; i++) {
+ 		for (var j = 0; j < array.length -3; j++) {
+ 			Math.max(max,array[i][j] * array[i+1][j+1] * array[i+2][j+2] * array[i+3][j+3])
+ 		}
+ 	}
+ }
 
 var largestProductOfFour = function(array) {
+	var LPOF = -Infinity;
+	var maxRight= -Infinity;
+	var maxdiagonal=- Infinity;
+	for (var i = 0; i < array.length; i++) {
+		if(right(array[i]) > maxRight){
+			maxRight = right(array[i]);
+		}
+	}
+
+	for (var i = 0; i < array.length; i++) {
+		Math.max(diagonally(array,i),maxdiagonal)
+	}
+
+	LPOF = Math.max(maxRight,down(array));
+	LPOF = Math.max(LPOF,maxdiagonal)
+
 };
 
 
