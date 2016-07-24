@@ -34,9 +34,42 @@
 *
 *
 */
-
+// //array = [[1,2,3,4],
+// 			  [2,4,5,2],
+// 			  [3,6,4,1],
+// 			  [9,5,8,4]
+// 			]
 
 var largestProductOfFour = function(array) {
+	var rightProducts=[];
+	for (var j = 0; j < array.length; j++) {
+		var rightProduct=1;
+		for (var i = 0; i < array.length; i++) {
+		rightProduct = rightProduct * array[j][i];
+		}
+		rightProducts.push(rightProduct);
+	}
+	var downProducts=[];
+	for (var i = 0; i < array.length; i++) {
+		var downProduct = 1;
+		for (var j = 0; j < array.length; j++) {
+			downProduct=downProduct*array[j][i];
+		}
+		downProducts.push(downProduct);
+	}
+
+	var diagonalProducts=[];
+	var rightdiagonalProduct=1;
+	var leftdiagonalProduct=1;
+	for (var i = 0; i < array.length; i++) {
+		rightdiagonalProduct=rightdiagonalProduct*array[i][i];
+		leftdiagonalProduct=leftdiagonalProduct*array[i][array.length-1-i];
+	}
+	diagonalProducts.push(rightdiagonalProduct,leftdiagonalProduct);
+
+	var products=rightProducts.concat(downProducts,diagonalProducts);
+	return Math.max.apply(null, products);
+	
 };
 
 
