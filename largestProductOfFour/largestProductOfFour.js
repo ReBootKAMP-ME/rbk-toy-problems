@@ -69,6 +69,7 @@ var largestProductOfFour = function(array) {
 
 	for (var i = 0; i < array.length; i++) {
 		for (var j = 0; j < array[j].length-3; j++) {
+			tempLeftToRight = [];
 			tempLeftToRight = array[i].slice(j,j+4)
 			for (var h = 0; h < tempLeftToRight.length; h++) {
 				tempProductOfFour = tempLeftToRight[h] * tempProductOfFour;
