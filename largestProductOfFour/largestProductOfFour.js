@@ -36,8 +36,38 @@
 */
 
 
+var product = function (array) {
+	var productOf = 1;
+	for (var i=0; i<array.length; i++){
+		productOf = productOf * array[i];
+	}
+	return productOf;
+}
+
 var largestProductOfFour = function(array) {
+	var max = 0
+	for (var i=0; i<array.length; i++){
+		var subArrayHor = array[i];
+		for (var j=0; j<subArrayHor.length-4; j++){
+			var newProdHor = product(subArrayHor.slice(j, j+4));
+			var newProdVer = product([array[j][i], array[j+1][i], array[j+2][i], array[j+3][i]])
+			//TODO make it for diagonal major, then diagonal minor, (just a thought of nqueens, it may be done recursively)
+			if (newProdHor > max){
+				max = newProdHor
+			}
+			if(newProdVer > max){
+				max = newProdVer
+			}
+		}
+	}
+	return max;
 };
+
+var m = [[1,2,3,4,5],
+		[7,6,8,4,6],
+		[2,4,6,8,4],
+		[4,6,2,7,3],
+		[3,6,4,8,4]]
 
 
 
