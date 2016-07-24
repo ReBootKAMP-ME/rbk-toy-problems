@@ -37,7 +37,50 @@
 
 
 var largestProductOfFour = function(array) {
+	var max = 0
+	var maxProduct=1
+	var product1=1
+	var product2=1
+	var product3=1
+	var down ;
+	var diagonal ;
+	var right ;
+	// we need 2 for loops to check each coloum and row
+	 // for the diagonal path  
+	 // after we check the max of each row , col or diagonal we should 
+	 // repeat this process 4 times , so we can get the max 4 ; 
+	 // and we need if statment to check in which case we have the maximum product ;
+	for (var i = 0; i < 20; i++) {
+		for (var j = 0; j < 20; j++) {
+			diagonal=array[i][j]
+			max=Math.max(diagonal)
+			product1=product1*max;
+			maxProduct=product1
+		}
+	}
+	// for the right path we should define right = array[0][j]
+		for (var j = 0; j < 20; j++) {
+			right=array[0][j]
+			max=Math.max(right)
+			product2=product2*max;
+			if(product2>maxProduct){
+				maxProduct=product2
+			}
+		}
+
+		// for the down path we shuld define down = array[i][0] 
+		for (var i = 0; i < array.length; i++) {
+			down=array[i][0]
+			max=Math.max(down)
+			product3=product3*max
+			if(product3>maxProduct){
+				maxProduct=product3
+			} 
+		}
+	// we need to return the maxProduct
+	return maxProduct
 };
+
 
 
 
