@@ -37,6 +37,58 @@
 
 
 var largestProductOfFour = function(array) {
+	
+	var maxLeft = array[0][0]*array[0][1]*array[0][2]*array[0][3];
+	var maxDown = array[0][0]*array[1][0]*array[2][0]*array[3][0];
+	var maxDiagonalLeftToRight = array[0][0]*array[1][1]*array[2][2]*array[3][3];
+	var maxDiagonalRightToLeft = array[0][20]*array[1][19]*array[2][18]*array[3][17];
+	for (var i=0 ;i<array.length ;i++){
+		for (var j = 0; j < array.length; j++) {
+			//greatest number to the left or right
+			var fourToLeft = array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3]
+			if( fourToLeft > maxLeft){
+				maxLeft = fourToLeft;
+			}
+			//greatest number down or up
+			var fourDown = array[j][i]*array[j][i+1]*array[j][i+2]*array[j][i+3];
+			if( fourDown > maxDown){
+				maxDown = fourDown
+			}
+			
+
+		}
+	}
+
+	for (var i = 16; i > 0; i--) {
+		for (var j = 16; j < 0; j--) {
+			//greatest number diagonally right to left
+			var fourDiagonalRightToLeft = array[i-4][j-4]*array[i-5][j-5]*array[i-6][j-6]*array[i-7][j-7];
+			if ( fourDiagonalRightToLeft > maxDiagonalRightToLeft ){
+				maxDiagonalRightToLeft = fourDiagonalRightToLeft
+			}
+		}
+		//greatest number diagonally other side
+		for (var j = 0; j < 16; i++) {
+			var fourDiagonalLeftToRight = array[j][i]*array[j+1][i-1]*array[j+2][i-2]*array[j+3][i-3]
+			if (fourDiagonalLeftToRight > maxDiagonalLeftToRight){
+				maxDiagonalLeftToRight = fourDiagonalLeftToRight;
+			}
+		}
+	}
+
+	var maxNumber = maxLeft;
+	if (maxDown > maxNumber){
+		maxNumber = maxDown
+	}
+	if (maxDiagonalLeftToRight > maxNumber ){
+		maxNumber = maxDiagonalLeftToRight
+	}
+	if(maxDiagonalRightToLeft > maxNumber){
+		maxNumber = maxDiagonalRightToLeft
+	}
+
+	return maxNumber;
+
 };
 
 
