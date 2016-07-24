@@ -25,18 +25,31 @@
 * 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 *
 * The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
-*
 * What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
-*
-* 
-*
-*
-*
-*
 */
-
-
 var largestProductOfFour = function(array) {
+	 //for up and down 
+	 //sorting the rows from biggest to smallest
+	 //push the biggst in each row to new array
+	 //find the largest product in that new array
+	 var newarr=[]
+	 var largest=0;
+	 for(var i=0; i<array[i].length; i++){
+	 array[i].sort(function(a, b){return b-a});
+	 newarr.push(array[i][0])
+	}
+	newarr.sort(function(a, b){return b-a});
+	  largest= newarr[0]*newarr[1]*newarr[2]*newarr[3]
+
+	 //for rigth and left
+	 for(var i=0; i<array[i].length; i++){
+	 arr[i].sort(function(a, b){return b-a});
+	}
+	  largest=array[0]*array[1]*array[2]*array[3]
+
+	  //for diagonally
+	  for(var i=0; i<array[i].length; i++){
+	  	var max=Math.max(...array[i][i]);
 };
 
 
