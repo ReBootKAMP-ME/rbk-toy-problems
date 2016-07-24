@@ -37,6 +37,64 @@
 
 
 var largestProductOfFour = function(array) {
+	var product;
+
+	var myRecursiveFunc = function(accum,numOfIterations,remainingValues){
+		if(numOfIterations < 4 && remainingValues.length == 0){
+			return;
+		}
+		if(numOfIterations === 4){
+			if(!product){
+				product = accum;
+			} else if(accum > product){
+				product = accum;
+			}
+			return;
+		}
+		for(var i=0; i<remainingValues.length; i++){
+			var tempArray = remainingValues.slice();
+			var tempValue = tempArray.splice(i,1);
+			myRecursiveFunc(accum*tempValue,numOfIterations+1,tempArray);
+		}
+	}
+
+	var produceArrays = function(arr){
+		// getting horizontal arrays
+		for(var i=0; i<arr.length; i++){
+			myRecursiveFunc(1,0,arr[i]);
+		}
+
+		// getting vertical arrays
+		var myNewArr = [];
+		for(var i=0; i<arr.length; i++){
+			var tempArr = [];
+			for(var j=0; j<arr.length; j++){
+				tempArr.push(arr[j][i]);
+			}
+			myNewArr.push(tempArr);
+		}
+		for(var i=0; i<myNewArr.length; i++){
+			myRecursiveFunc(1,0,myNewArr[i]);
+		}
+
+		// getting diagonal arrays
+		var myNewArr = [];
+		for(var i=-(arr.length-4); i<=arr.length-4; i++){
+			var tempArr = [];
+			var tempIndex = Math.abs(i);
+			for(var j=0; j<arr.length - Math.abs(i); j++){
+				tempArr.push(arr[tempIndex++][j]);
+			}
+			myNewArr.push(tempArr);
+		}
+		for(var i=0; i<myNewArr.length; i++){
+			myRecursiveFunc(1,0,myNewArr[i]);
+		}
+	}
+
+	produceArrays(array);
+
+	return product;
 };
 
 
