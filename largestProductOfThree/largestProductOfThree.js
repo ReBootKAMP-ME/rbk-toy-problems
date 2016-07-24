@@ -59,3 +59,5 @@ var largestProductOfThree = function(array) {
 
 
 
+var largestProductOfThree = function(array) {
+};
