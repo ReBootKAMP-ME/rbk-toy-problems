@@ -27,3 +27,6 @@ var max = function (array) {
 	}
 	return max;
 }
+
+
+// .filter(function(element){return element < 0})
