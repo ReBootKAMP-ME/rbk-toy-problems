@@ -10,7 +10,18 @@
  * console.log(index); // 4
  */
 
+
 var binarySearch = function (array, target) {
-  
+  	if (array[Math.floor(array.length/2)] >= target){
+	  			console.log("the index will be less than or equal to: ", Math.floor(array.length/2))
+	  		if (array[Math.floor(array.length/2)] === target){
+	  			return Math.floor(array.length/2)
+	  		} else {
+	  			binarySearch(array.slice(0, Math.floor(array.length/2)), target)
+  		}
+  	
+  	} else {
+  		console.log("the index will be more than: ", Math.floor(array.length/2))
+  	}
 };
 
