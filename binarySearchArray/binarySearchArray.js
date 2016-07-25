@@ -11,6 +11,20 @@
  */
 
 var binarySearch = function (array, target) {
-  
+	var min=0
+	var max= array.length-1
+	while ( min <= max ) {
+	var guess= Math floor(min+max)/2
+	 if(array[guess] < target){
+		min= guess+1
+	}
+	else if(array[guess] > target){
+		 max=guess-1
+	}
+	else{
+		return guess
+	}
+	}
+	return -1
 };
 
