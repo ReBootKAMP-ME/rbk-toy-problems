@@ -11,6 +11,23 @@
  */
 
 var binarySearch = function (array, target) {
-  
+  var mid=array[Math.floor(array.length/2)];
+  var index=Math.floor(array.length/2);
+  var rec=function(node){
+  	if(node===target){
+  		return Math.floor(array.length-1);
+  	}
+  	if(target<node){
+  		index--;
+  		node=array[index];
+  		rec(node);
+  	}else if(target>node){
+  		index++;
+  		node=array[index];
+  		rec(node);
+  	}
+  }
+  rec(mid);
+  return index;
 };
 
