@@ -11,6 +11,22 @@
  */
 
 var binarySearch = function (array, target) {
+  var copyArray=[];
+  var mid=array.length/2;
+  mid=Math.floor(mid);
   
+  if(array[mid] === target){
+  	return mid;
+  }
+  else if(array[mid] > target && array.length >1){
+  	copyArray=array.slice(0,mid-1);
+  	binarySearch(copyArray,target)
+  }
+  else if(array[mid] < target && array.length > 1){
+  	copyArray=array.slice(mid+1,array.length);
+  	binarySearch(copyArray,target);
+  }else{
+  	return -1;
+  }
 };
 
