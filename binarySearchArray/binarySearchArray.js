@@ -11,17 +11,22 @@
  */
 
 var binarySearch = function (array, target) {
-  if(array.length === 1){
-  	if(array[0]=== target){
-  		return 0;
-  	} else {
-  		throw "Error: Target Not in the array";
-  	}
-  }
-  var midIndex = Math.floor(array.length / 2);
-  if(array[midIndex]<=target){
-  	return midIndex+binarySearch(array.slice(midIndex),target);
-  }
-  return binarySearch(array.slice(0,midIndex),target);
-};
 
+	var myRecursiveFunc = function(startIndex, EndIndex){
+		if(array[startIndex] === target){
+			return startIndex;
+		}
+		if(array[EndIndex] === target){
+			return EndIndex;
+		}
+		if( (EndIndex - startIndex) <= 1){
+			return -1;
+		}
+		var midIndex = Math.floor((EndIndex+startIndex)/2);
+		if(array[midIndex]<=target){
+			return myRecursiveFunc(midIndex,EndIndex);
+		}
+		return myRecursiveFunc(startIndex,midIndex-1)
+	}
+	return myRecursiveFunc(0,array.length-1);
+};
