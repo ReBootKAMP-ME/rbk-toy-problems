@@ -6,6 +6,7 @@
  *
  * Extra credit: Make your function handle negative numbers.
  */
+<<<<<<< HEAD
 //find the three numbers inside array that product of it give the max product number 
 var largestProductOfThree = function(array) {
 	a=array[0];
@@ -24,4 +25,8 @@ var largestProductOfThree = function(array) {
 
  return bb;
 	
+=======
+
+var largestProductOfThree = function(array) {
+>>>>>>> 3171703d55fd0175f40481116eafceabe6b77ad0
 };
