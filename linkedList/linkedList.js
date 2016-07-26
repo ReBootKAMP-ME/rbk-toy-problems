@@ -18,22 +18,31 @@
 
 
 var LinkedList = function(){
-  //fill me in!
+  this.list=[];
+  this.head=null;
+  this.tail=null;
 };
 
 //write methods here!
 
-LinkedList.prototype.addToTail = function(
-){
+LinkedList.prototype.addToTail = function(value){
+	this.list.push(value);
+	this.head=this.list[0];
+	this.tail=this.list[this.list.length - 1];
 };
 
 LinkedList.prototype.removeHead = function(){
+	this.list.shift()
+	this.head=[this.list[0]]
 };
 
-LinkedList.prototype.contains = function(
-){
+LinkedList.prototype.contains = function(value){
+	if(this.list.indexOf(value) !== -1){
+		return true;
+	} 
+	return false;
 };
 
-LinkedList.prototype.makeNode = function(
-){
+LinkedList.prototype.makeNode = function(){
+	this.list.push(new LinkedList());
 };

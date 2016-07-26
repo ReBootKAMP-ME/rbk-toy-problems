@@ -14,7 +14,37 @@
   * var anagrams = allAnagrams('abc');
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
+var random=function(max){
+	return Math.floor(Math.random() * max) ;	
+}
 
+var factorial = function(n) {
+    if(n == 0) {
+        return 1
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+var result=[];
 var allAnagrams = function(string) {
+	var indexOfString=string.split("");
+	
+	var word=[];
+
+	if (result.length === factorial(indexOfString.length) ) {
+		return result
+	}
+	
+	while(word.length !== indexOfString.length){
+		var char=indexOfString[random(indexOfString.length)];
+		if (word.indexOf(char) === -1){
+			word.push(char);
+		}
+	}
+	if(result.indexOf(word.join("")) === -1){
+		result.push( word.join(""))
+	}
+	return allAnagrams(string);
+//creat the arr of words
 
 };

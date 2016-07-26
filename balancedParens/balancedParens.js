@@ -21,9 +21,35 @@
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
  *
- *
+ *	"())"
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+	var arrOfInput=input.split("");
+	if(arrOfInput.length === 0 && open === close){
+		return true;
+	}
+		
+	var open = 0;
+	var close= 0;
+	for (var k = 0; k < arrOfInput.length; k++) {
+	   	if(arrOfInput[k].charCodeAt(0) === 40){
+	   		open++;
+	   	}   
+	   if (arrOfInput[k].charCodeAt(0) === 41) {
+	   	close++;
+	   }
+	}
+
+	for (var i = 0; i < arrOfInput.length; i++) {
+		 if(arrOfInput[i].charCodeAt(0) === 40){
+		 	for (var j = arrOfInput.length-1; j >= 0; j--) {
+		 		if(arrOfInput[j].charCodeAt(0) === 41){
+		 			return balancedParens(input.slice(i+1, j))
+		 		}
+		 	}
+		 }
+	}
+	return false;
  };
+	
