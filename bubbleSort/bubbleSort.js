@@ -29,6 +29,32 @@
 
 // Feel free to add helper functions if needed
 
+
+/*var bubbleSort = function(array) {
+	var result=array;
+	var swap= 0;
+	for (var i = 0; i < result.length; i++) {
+		if(result[i]>result[i+1]){
+			swap=result[i]
+			result[i]=result[i+1];
+			result[i+1]=swap
+			i=0;
+		}
+	}
+	return result;
+};*/
+
+var bubbleSort = function(array) {
+	for (var i = 0; i < array.length; i++) {
+		if(array[i]>array[i+1]){
+			array[i+1] = [array[i], array[i] = array[i+1]][0]
+			i=0;
+		}
+	}
+	return array;
+};
+// time comlexity O(n^c) because we have to reset the loop for each time it goes inside the 'if' statement
+
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
@@ -45,7 +71,7 @@ procedure bubbleSort( A : list of sortable items )
 end procedure
 */
 
-var bubbleSort = function(arr){
+var bubbleSort2 = function(arr){
   n = arr.length
   var swapped;
   do {
@@ -69,3 +95,4 @@ bubbleSort(a);
 console.log(a);
 
 // Remember to look here http://visualgo.net/sorting
+

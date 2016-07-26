@@ -1,11 +1,10 @@
-var FishTable = () => (
-  <table>
+var FishTable = ({fishData}) => (
+  <div><table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+      {fishData.map(fish =><FishTableRow/>)}
     </tbody>
   </table>
+  </div>
 );
 
 // Using Babel means that free floating `var` declarations normally

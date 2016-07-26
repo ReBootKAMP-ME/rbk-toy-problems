@@ -122,7 +122,7 @@ var postData = function(message, username) {
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
 
-getData();
+window.setInterval(getData, 2000);
 
 
 
@@ -131,6 +131,7 @@ $('.submit').on('submit', function(event) {
   var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
-
   postData($('.userInput').val(), username);
+ this.reset();
+  getData();
 });

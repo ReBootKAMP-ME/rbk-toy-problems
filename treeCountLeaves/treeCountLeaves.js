@@ -37,8 +37,17 @@ var Tree = function(value){
 };
 
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
+  var result=0;
+  for (var i = 0; i < this.children.length; i++) {
+    if(this.children){
+      return;
+    }// need to add bese case for the recursion 
+
+    result += this.countLeaves(this.children[i]);
+  }
+  return result;
 }
+
 
 /**
   * You shouldn't need to change anything below here, but feel free to look.

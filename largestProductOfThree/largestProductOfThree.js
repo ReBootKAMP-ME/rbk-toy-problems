@@ -8,4 +8,22 @@
  */
 
 var largestProductOfThree = function(array) {
+	function sorter(a,b) {
+		if(a> b) return -1;
+		if(a< b) return 1;   
+		return 0; 
+	}
+	var sorted=array.sort(sorter);
+	console.log(sorted)
+	return sorted[0]*sorted[1]*sorted[2]
 };
+
+var largestProductOfThree = function(array) {
+	var arr=array;
+	var largest= Math.max(...arr);
+	arr.splice(arr.indexOf(largest),1);
+	var secondLargest= Math.max(...arr);
+	arr.splice(arr.indexOf(secondLargest),1);
+	var thirdLargest=Math.max(...arr);
+	return largest*secondLargest*thirdLargest
+};//second solution

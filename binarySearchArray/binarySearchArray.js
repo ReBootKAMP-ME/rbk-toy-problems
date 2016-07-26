@@ -10,7 +10,23 @@
  * console.log(index); // 4
  */
 
-var binarySearch = function (array, target) {
-  
+var binarySearch = function (array, target) {;
+	var middle=Math.floor(array.length/2);
+	var index=-1;
+	if(array[middle]===target){
+		return index;
+	}
+	else if(array[middle]<target && array.length>1){
+		array.splice(middle, Number.MAX_VALUE);
+		index=index+middle;
+		return binarySearch(array, target);
+	}
+	else if(array[middle]>target && array.length>1){
+		console.log(middle);
+		index=index-array.length;
+		return binarySearch(array.splice(0, middle), target);
+	}
+	else  {
+		return -1;
+	}
 };
-

@@ -36,7 +36,14 @@
  *  - Make your function operate on rectangular matrices (MxN rather than NxN).
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
-
 var rotateMatrix = function(matrix){
-
-};
+	/*var top=matrix[0]
+	var bottom=matrix[matrix.length-1]*/
+	for (var i = 0; i < matrix.length; i++) {
+		for (var j = 0; j < matrix.length/2; j++) {
+			matrix[i][j]=matrix[matrix.length-j-1][i]
+		}
+	}
+	return matrix;
+};// not completed
+rotateMatrix([[1,2,3,4],[5,6,7,8],[9,'A','B','C'],['D','E','F','G']]);

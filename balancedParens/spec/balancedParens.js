@@ -1,5 +1,25 @@
 describe('balancedParens', function() {
   it('should return the right answer', function() {
-    expect(1).to.equal(1);
+    expect(balancedParens('(')).to.equal(false);
   });
+   it('should return the right answer', function() {
+    expect(balancedParens('()')).to.equal(true);
+  });
+   it('should return the right answer', function() {
+    expect(balancedParens(')(')).to.equal(false);
+  });
+   it('should return the right answer', function() {
+    expect(balancedParens('(())')).to.equal(true);
+  });
+    it('should return the right answer', function() {
+    expect( balancedParens('[](){}')).to.equal(true);
+  });
+     it('should return the right answer', function() {
+    expect(balancedParens('[({})]')).to.equal(true);
+  });
+      it('should return the right answer', function() {
+    expect(balancedParens('[(]{)}')).to.equal(false);
+  });
+ 
+  
 });

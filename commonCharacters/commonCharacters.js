@@ -9,8 +9,22 @@
  *
  * Extra credit: Extend your function to handle more than two input strings.
  */
-
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
-  
+	var result='';
+	for (var i = 0; i < string1.length; i++) {
+		if(string2.indexOf(string1[i])>-1 && result.indexOf(string1[i])===-1){
+			result=result+string1[i];
+		}
+	};
+	return result;
 };
+
+
+/*var commonCharacters2 = function() {
+	var result='';
+	for (var i = 0; i < arguments.length; i++) {
+		
+	};
+
+};*/

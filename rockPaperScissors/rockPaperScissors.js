@@ -18,5 +18,37 @@
 *
 */
 
-var rockPaperScissors = function(n) {
+var rockPaperScissors = function() {
+	var choices=["rock", "paper", "scissors"]
+	var result=[];
+	for (var i = 0; i < choices.length; i++) {
+		for (var j = 0; j < choices.length; j++) {
+			for (var k = 0; k < choices.length; k++) {
+				result.push([choices[i],choices[j],choices[k]])
+				
+			};
+		};
+	};
+
+	
+	return result;
+  // fill me out!
 };
+
+var rockPaperScissorsAdvanced=function(num){
+	var choices = ['rock','paper','scissors'];
+	var result = [];
+  
+	var iterate = function(arr){
+		if(arr.length === num){
+		  result.push(arr);
+		  return;
+		}
+		for (var i = 0; i < choices.length; i++) {
+		  iterate(arr.concat(choices[i]));
+		};
+	}
+	iterate([]);
+	return result;
+}
+
