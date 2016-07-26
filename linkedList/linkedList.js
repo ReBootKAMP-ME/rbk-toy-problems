@@ -19,21 +19,42 @@
 
 var LinkedList = function(){
   //fill me in!
+  this.head = null;
+  this.tail = null;
 };
 
 //write methods here!
 
-LinkedList.prototype.addToTail = function(
-){
+LinkedList.prototype.addToTail = function(value){
+	var node = this.makeNode(value);
+	if(this.head === null){
+		this.head = node;
+	} else {
+		this.tail.next = node;
+	}
+	this.tail = node;
 };
 
 LinkedList.prototype.removeHead = function(){
+	var tempVal = this.head.value;
+	this.head = this.head.next;
+	return tempVal;
 };
 
-LinkedList.prototype.contains = function(
-){
+LinkedList.prototype.contains = function(value){
+	var pointer = this.head;
+	while(pointer !== null){
+		if(pointer.value === value){
+			return true;
+		}
+		pointer = pointer.next;
+	}
+	return false;
 };
 
-LinkedList.prototype.makeNode = function(
-){
+LinkedList.prototype.makeNode = function(value){
+	var newNode = {};
+	newNode.value = value;
+	newNode.next = null;
+	return newNode;
 };
