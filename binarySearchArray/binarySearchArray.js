@@ -9,6 +9,7 @@
  * var index = binarySearch([1, 2, 7, 15, 27], 27);
  * console.log(index); // 4
  */
+<<<<<<< HEAD
 // since it is sorted then we can definetely split the array into half and check the one after and one before
 // if it is larger then we'll split the other part too 
 // when splitting 
@@ -33,5 +34,10 @@ var binarySearch = function (array, target, index) {
   	index2 = Math.floor((array.length+index2)/2);
   	return binarySearch(array,target,index2);
   }
+=======
+
+var binarySearch = function (array, target) {
+  
+>>>>>>> 71c256cfebbb5beb00344540a987d9e8e432a9f4
 };
 
