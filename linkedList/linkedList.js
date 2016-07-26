@@ -39,17 +39,17 @@ LinkedList.prototype.addToTail = function(value){
 		this.head = node;
 		this.tail = node;
 	} else {
-		var x = this.tail;
 		var node = new this.makeNode(value);
+		this.tail.next = node;
 		this.tail = node;
-		this.head.next = node;
 	}
 };
 
 
 LinkedList.prototype.removeHead = function(){
+	var x  = this.head.value;
 	this.head = this.head.next;
-	return this.head.value;
+	return x;
 };
 
 LinkedList.prototype.contains = function(value , head){
