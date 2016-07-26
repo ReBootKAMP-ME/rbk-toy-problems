@@ -18,22 +18,34 @@
 
 
 var LinkedList = function(){
-  //fill me in!
+  this.head = {}
+  this.tail = null
 };
 
 //write methods here!
 
-LinkedList.prototype.addToTail = function(
-){
+LinkedList.prototype.addToTail = function(value){
+	if(!this.head.value){
+		this.head = this.makeNode(value)
+		this.head.next = this.tail
+	} else if (!this.head.next) {
+		this.tail = this.makeNode(value)
+		this.head.next = this.tail
+	} 
+	
 };
 
 LinkedList.prototype.removeHead = function(){
 };
 
-LinkedList.prototype.contains = function(
-){
+LinkedList.prototype.contains = function(){
 };
 
-LinkedList.prototype.makeNode = function(
-){
+LinkedList.prototype.makeNode = function(value){
+	var node = {}
+
+	node.value = value
+	node.next = null
+
+	return node
 };
