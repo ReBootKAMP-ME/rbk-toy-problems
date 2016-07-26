@@ -44,6 +44,7 @@ function right(array) {
 	}
 	return max;
 }
+
 function down(array) {
  	var max =0;
  	for (var i = 0; i < array.length; i++) {
