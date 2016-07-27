@@ -15,5 +15,24 @@ coinCombination(200p) //-> 73682
 
 var coinCombination = function(totalAmount){
 	var totalNumberOfCombinations = 0;
+	var amount = totalAmount;
+	var newAmount = 0;
+	// sum each coin multible time untill reach the totalAmount
+	var coins = [200,100,50,20,10,5,2,1]
+	var result = 0;
+	var sumOfCoins = function (amount){
+		for (var j = 0; j < coins.length; j++) {	
+			for (var i = 0; i < coins.length; i++) {
+				if (amount > coins[j]){
+					result = result + coins[j] + coins[i];
+					newAmount = amount - result;
+					sumOfCoins(newAmount);
+				}
+			}
+		}	
+	}
+	// make a for loop to check the sum of the coins
+	// for each time reaching the totalAmount increase the totalNumberOfCombinations
+
 	return totalNumberOfCombinations
 }
