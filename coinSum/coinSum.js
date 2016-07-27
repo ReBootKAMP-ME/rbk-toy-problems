@@ -14,6 +14,9 @@ coinCombination(200p) //-> 73682
 */
 
 var coinCombination = function(totalAmount){
+
+	//so i tried to think of this problem in a mathmetical way i couldnt get one..
+	var coins=[ "1p", "2p", "5p", "10p", "20p", "50p", "£1","£2" ];
 	var totalNumberOfCombinations = 0;
 	return totalNumberOfCombinations
 }
