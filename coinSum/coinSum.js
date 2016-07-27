@@ -15,5 +15,30 @@ coinCombination(200p) //-> 73682
 
 var coinCombination = function(totalAmount){
 	var totalNumberOfCombinations = 0;
+	var currency = [1, 2, 5, 10, 20, 50, 100, 200]
+
+	var calc = function(array){
+		
+		for(var i = 0; i < array.length; i++){
+			var sum = 0
+			var sumation = function(num, sum){
+				if(sum === totalAmount){
+					//console.log(array[i])
+					totalNumberOfCombinations++
+					return calc(array.slice(1))
+				} else if (sum > totalAmount){
+					//console.log(array[i])
+					return 
+				}
+				//console.log(sum)
+				return sumation(num, sum + num)
+			}
+
+			sumation(array[i], sum)
+		}
+	}
+
+	calc(currency)
+
 	return totalNumberOfCombinations
 }
