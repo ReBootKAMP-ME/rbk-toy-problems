@@ -15,5 +15,6 @@ coinCombination(200p) //-> 73682
 
 var coinCombination = function(totalAmount){
 	var totalNumberOfCombinations = 0;
+	console.log("This is completely unsolvable")
 	return totalNumberOfCombinations
 }
