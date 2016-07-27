@@ -38,7 +38,7 @@ var coinCombination = function(totalAmount){
 					totalNumberOfCombinations++;
 				} else if (r !== rem){
 					solution(r);
-				};
+				} 
 			}
 		}
 	}
