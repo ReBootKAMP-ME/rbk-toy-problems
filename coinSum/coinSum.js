@@ -14,6 +14,37 @@ coinCombination(200p) //-> 73682
 */
 
 var coinCombination = function(totalAmount){
+	// if(totalAmount[totalAmount.length-1]==="£1"){
+	// 	totalAmount=100*totalAmount[totalAmount.length-1];
+	// }
+	// if(totalAmount[totalAmount.length-1]==="£2")
 	var totalNumberOfCombinations = 0;
+	var rec =function(rest){
+		if(rest===1){
+			return totalNumberOfCombinations;
+		}else{
+			if(rest>1 && rest<2){
+				rest=rest-1;
+				rec(rest);
+			}else if(rest>2 && rest<5){
+				rest=rest-2;
+				rec(rest);
+			}else if(rest>5 && rest<20){
+				rest=rest-5;
+				rec(rest);
+			}else if(rest>20 && rest<50){
+				rest=rest-20;
+				rec(rest);
+			}else if(rest>50 && rest<100){
+				rest=rest-50;
+				rec(rest);
+			}else if(rest>100 && rest<200){
+				rest=rest-100;
+				rec(rest);
+			}
+		}
+		totalNumberOfCombinations++;
+	}
+	rec(totalAmount)
 	return totalNumberOfCombinations
 }
