@@ -15,7 +15,30 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 
 var longestCollatzSeq = function(){
-  return 0;
+	var arrayOfseq = [];
+	for (var j = 999999; j>1; j--){
+		var i=j;
+		var arr = [];
+		while (i>0 && i!==1){
+			
+			arr.push(i);
+			if(i%2===0){
+				i=i/2;
+				arr.push(i)
+			}else{
+				i=3*i+1;
+				arr.push(i)
+			}
+		}
+		arrayOfseq.push(arr);
+	}
+	var longestSeq = arrayOfseq[0];
+	for (var i = 0; i < arrayOfseq.length; i++) {
+		if(arrayOfseq[i].length>longestSeq.length){
+			longestSeq=arrayOfseq[i];
+		}
+	}
+	return longestSeq[0];
 }
 
 
