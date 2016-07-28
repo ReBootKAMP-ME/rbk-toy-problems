@@ -13,9 +13,34 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 */
+var calculate=function(number){
+	var results=[];
+	while(number > 1){
+		results.push(number);
+		if(number % 2 !== 0){
+				number= 3 * number + 1;
+				results.push(number);
+			}else{
+				number= number / 2;
+				results.push(number);
+			}
+	}
+	return results.length;
+}
+
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
 
 var longestCollatzSeq = function(){
-  return 0;
+	var max=0;
+	var results=[];
+	//my console crashed when the number was million but it worked for 100 thousands
+	for (var i = 0; i < 100000; i++) {
+		results.push(calculate(i));
+	}
+	max=getMaxOfArray(results);
+	return results.indexOf(max); 
 }
 
 
