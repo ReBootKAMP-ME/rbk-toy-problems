@@ -8,4 +8,25 @@
  */
 
 var largestProductOfThree = function(array) {
+	var product;
+
+	var myRecursiveFun = function(accum,numOfIterations,remainingValues){
+		if(numOfIterations===3){
+			if(!product){
+				product = accum;
+			} else if(accum > product){
+				product = accum;
+			}
+			return ;
+		}
+		for(var i=0; i<remainingValues.length; i++){
+			var tempArray = remainingValues.slice();
+			var tempValue = tempArray.splice(i,1);
+			myRecursiveFun(accum*tempValue,numOfIterations+1,tempArray);
+		}
+	}
+
+	myRecursiveFun(1,0,array);
+	
+	return product;
 };

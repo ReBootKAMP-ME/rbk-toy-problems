@@ -1,9 +1,10 @@
-var FishTable = () => (
+var FishTable = ({fishData}) => (
   <table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+    {
+    	fishData.map( (fish)=> 
+    		<FishTableRow fish={fish}/>)
+    }
     </tbody>
   </table>
 );

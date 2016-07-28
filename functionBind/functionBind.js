@@ -19,6 +19,18 @@
 
 
 var bind = function(func, context) {
+	var args1 = Array.prototype.slice.call(arguments,2);
+	return function(){
+		var argumentsArr = [];
+		var args2 = Array.prototype.slice.call(arguments);
+		for(var i=0; i<args1.length; i++){
+			argumentsArr.push(args1[i]);
+		}
+		for(var i=0; i<args2.length; i++){
+			argumentsArr.push(args2[i]);
+		}
+		return func.apply(context,argumentsArr);
+	}
 };
 
  // * Function.prototype.bind:
@@ -46,4 +58,18 @@ var bind = function(func, context) {
 
 
 Function.prototype.bind = function(a, args1, args2) {
+	var args1A = Array.prototype.slice.call(arguments,1);
+	var func = this;
+	return function(){
+		var argumentsArr = [];
+		var args2A = Array.prototype.slice.call(arguments);
+		for(var i=0; i<args1A.length; i++){
+			argumentsArr.push(args1A[i]);
+		}
+		for(var i=0; i<args2A.length; i++){
+			argumentsArr.push(args2A[i]);
+		}
+		return func.apply(a,argumentsArr);
+	}
+
 };

@@ -9,9 +9,9 @@ This is an exercise in reading code, so expect to spend most of your time figuri
 
 **Note!** Please make comments above your changes so we can easily find them!
 
-* [ ] As soon as you submit a new message, you should check for new messages.
-* [ ] Create an update mechanism that's timed - the page should automatically get new messages every 1-3 seconds
-* [ ] Clear out the message submit area (area at the bottom where you enter username and message) after you submit a message.
+* [ 1 ] As soon as you submit a new message, you should check for new messages.
+* [ 1 ] Create an update mechanism that's timed - the page should automatically get new messages every 1-3 seconds
+* [ 1 ] Clear out the message submit area (area at the bottom where you enter username and message) after you submit a message.
 
 ###Available Resources for this Prompt
 * Google
