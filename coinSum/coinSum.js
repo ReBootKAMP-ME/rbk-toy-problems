@@ -13,6 +13,7 @@ Example:
 coinCombination(200p) //-> 73682
 */
 
+<<<<<<< HEAD
 
 // RUNS THROUGH INFINITE LOOP !!!
 
@@ -34,5 +35,9 @@ var coinCombination = function(totalAmount){
 	}
 	
 	getAllTryOuts(0);
+=======
+var coinCombination = function(totalAmount){
+	var totalNumberOfCombinations = 0;
+>>>>>>> aadc4a5dbd7e4242869af4d37ba019ab6fadf1e8
 	return totalNumberOfCombinations
 }
