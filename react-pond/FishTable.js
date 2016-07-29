@@ -1,12 +1,17 @@
-var FishTable = () => (
+var FishTable = (props) => (
   <table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+      {props.fishs.map(fish => {
+       return(  <FishTableRow fish = {fish} /> )
+     }
+    )} 
     </tbody>
   </table>
 );
+
+//make it general to display data from "fishData"
+
+
 
 // Using Babel means that free floating `var` declarations normally
 // expected to be available in the global scope will not exist
