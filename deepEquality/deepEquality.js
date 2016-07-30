@@ -12,4 +12,9 @@
   *
   */
 var deepEquals = function(obj1, obj2){
+	var object1 = JSON.stringify(obj1);
+	var object2 = JSON.stringify(obj2);
+	if(object1 === object2)
+		return true;
+	return false;
 };
