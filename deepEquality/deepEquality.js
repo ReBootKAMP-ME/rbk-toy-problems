@@ -26,6 +26,12 @@ var deepEquals = function(obj1, obj2,  result){
   }
  result = result && true;
  var keys = Object.keys(obj1);
+ var second = Object.keys(obj2);
+ console.log(keys + '\n' + second);
+ if(keys.length !== second.length){
+  result = false;
+  return result;
+ }
  // get all the obj1 keys inside the array keys
   for(var i = 0 ; i < keys.length ; i++){
     if(typeof obj1[keys[i]] !== 'object'){
