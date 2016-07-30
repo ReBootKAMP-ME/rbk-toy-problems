@@ -11,5 +11,37 @@
   * don't worry about handling cyclical object structures.
   *
   */
-var deepEquals = function(obj1, obj2){
+  // each time we'll check the keys inside the object 
+  // and then check if whats inside the object is an object or array
+  // use Object.keys(obj1) to get the array of all keys 
+  // then compare the values of 
+  // then compare it with the other 
+  // 
+var deepEquals = function(obj1, obj2,  result){
+  if(result === undefined){
+    result = true;
+  } 
+  if(!result){
+    return result;
+  }
+ result = result && true;
+ var keys = Object.keys(obj1);
+ // get all the obj1 keys inside the array keys
+  for(var i = 0 ; i < keys.length ; i++){
+    if(typeof obj1[keys[i]] !== 'object'){
+       if(obj1[keys[i]] !== obj2[keys[i]]){
+        result = false;
+       }
+    }
+    if(Object.keys(obj2).indexOf(keys[i]) === -1){
+      result = false;
+    }
+    if(Array.isArray(obj1[keys[i]]) === true || typeof obj1[keys[i]] === 'object'){
+      result = deepEquals( obj1[keys[i]], obj2[keys[i]] ,result);
+
+    }
+  }
+  console.log(result);
+  return result;
 };
+
