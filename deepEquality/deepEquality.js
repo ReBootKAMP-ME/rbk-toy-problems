@@ -12,4 +12,15 @@
   *
   */
 var deepEquals = function(obj1, obj2){
+  var flag = true;
+  for(key in obj1){
+    if(typeof obj1[key] === 'object'){
+      flag = flag && deepEquals(obj1[key], obj2[key])
+    }else if(obj1[key] === obj2[key]){
+      flag = flag && true;
+    }else {
+      return false
+    }
+  }
+  return flag;
 };
