@@ -12,4 +12,25 @@
   *
   */
 var deepEquals = function(obj1, obj2){
+  var keysObj1=Object.keys(obj1);
+  var keysObj2=Object.keys(obj2);
+  for(var i=0;i<keysObj1.length;i++){
+    if(keysObj1[i]!==keysObj2[i]){
+      return false;
+    }
+  }
+  for(var key in obj1){
+    if(typeof obj1[key] !== "object"){
+      if(obj1[key]!== obj2[key]){
+        return false;
+      }
+    }else{
+      for(var key1 in obj1[key]){
+        if(obj1[key][key1]!==obj2[key][key1]){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
 };
