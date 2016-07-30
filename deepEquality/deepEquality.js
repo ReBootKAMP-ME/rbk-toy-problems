@@ -46,7 +46,8 @@ var deepEquals = function(obj1, obj2){
           }
         } else if () // time out?????
 
-
+// use the recursion 
+      deepEquals (obj2[key2], obj1[key1])
       }
     } 
     return true;
