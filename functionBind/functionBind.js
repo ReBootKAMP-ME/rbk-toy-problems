@@ -1,12 +1,17 @@
-
  // function bind():
  //  example 1:
- //  var alice = {
- //   name: 'alice',
- //   shout: function(){
- //     alert(this.name);
- //   }
- // }
+  var alice = {
+   name: 'alice',
+   shout: function(){
+     alert(this.name);
+   }
+ }
+
+var bind = function(func, context,arg) {
+	return function (value){
+	return func.apply(context,[arg,value])
+	}
+};
  // var boundShout = bind(alice.shout, alice);
  // boundShout(); // alerts 'alice'
  // boundShout = bind(alice.shout, {name: 'bob'});
@@ -18,24 +23,28 @@
  // result === 'foobar'; // true
 
 
-var bind = function(func, context) {
-};
 
  // * Function.prototype.bind:
  // *
  // * example 1:
  // *
- // * var alice = {
- // *   name: 'alice',
- // *   shout: function(){
- // *     alert(this.name);
- // *   }
- // * }
- // * var boundShout = alice.shout.bind(alice);
- // * boundShout(); // alerts 'alice'
- // * boundShout = alice.shout.bind({name: 'bob'});
- // * boundShout(); // alerts 'bob'
- // *
+Function.prototype.bind = function(a, args1, args2) {
+	var that = this;
+	return function(){
+		return that.apply(a,[args1,args2])
+	}
+};
+ var alice = {
+   name: 'alice',
+   shout: function(){
+     alert(this.name);
+   }
+ }
+  // var boundShout = alice.shout.bind(alice);
+  // boundShout(); // alerts 'alice'
+ //  boundShout = alice.shout.bind({name: 'bob'});
+ //  boundShout(); // alerts 'bob'
+  // *
  // * example 2:
  // *
  // * var func = function(a, b){ return a + b };
@@ -44,6 +53,3 @@ var bind = function(func, context) {
  // * result === 'foobar'; // true
  // *
 
-
-Function.prototype.bind = function(a, args1, args2) {
-};

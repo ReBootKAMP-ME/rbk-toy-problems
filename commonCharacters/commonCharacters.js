@@ -10,7 +10,18 @@
  * Extra credit: Extend your function to handle more than two input strings.
  */
 
-//Works for any number of input strings:
-var commonCharacters = function(string1, string2) {
-  
+
+var commonCharacters = function(){
+	var firstArg= arguments[0];
+	var result='';
+	var restArgs = Array.from(arguments).slice(1);
+	for (var i = 0; i < firstArg.length; i++) {
+		for (var k = 0; k < restArgs.length; k++) {
+			if (restArgs[k].includes(firstArg[i])){
+				if(!result.includes(firstArg[i]) && firstArg[i]!== " ")
+				result+= firstArg[i];
+			}
+		}
+	}
+	return result;
 };
