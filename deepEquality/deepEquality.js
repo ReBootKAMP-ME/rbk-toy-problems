@@ -20,6 +20,8 @@ var deepEquals = function(obj1, obj2){
       result = result && true;
     } else {
       result = result && false;
+    }
+    if(!result){
       break;
     }
   }
