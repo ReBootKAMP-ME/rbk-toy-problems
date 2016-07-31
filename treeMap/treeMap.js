@@ -53,7 +53,7 @@ Tree.prototype.map = function (callback) {
   else{
     for(var i=0 ; i<this.children.length ; i++){
       if(this.children.length !== 0){
-        var temp = children[i].map(callback);
+        var temp = this.children[i].map(callback);
         mapTree.children.push(temp);
       }
     }
