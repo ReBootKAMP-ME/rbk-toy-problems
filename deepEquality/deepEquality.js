@@ -11,6 +11,7 @@
   * don't worry about handling cyclical object structures.
   *
   */
+<<<<<<< HEAD
   // each time we'll check the keys inside the object 
   // and then check if whats inside the object is an object or array
   // use Object.keys(obj1) to get the array of all keys 
@@ -51,3 +52,7 @@ var deepEquals = function(obj1, obj2,  result){
   return result;
 };
 
+=======
+var deepEquals = function(obj1, obj2){
+};
+>>>>>>> bbb0de0667a22ce5d8a35056f65f671d6f8912a0
