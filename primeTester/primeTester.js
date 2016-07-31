@@ -5,7 +5,15 @@
  */
 
 var primeTester = function(n) {
-  // to do
+  if(n < 1)
+  return false;
+else{
+	if(n===2 || n===3 || n===5)
+  		return true;
+  	else if(n%2 !==0 && n%3!==0 && n%5!==0)
+  		return true;
+}
+return false;
 };
 
  /* Extra credit: Write a function that generates a list of all prime numbers
@@ -16,5 +24,14 @@ var primeTester = function(n) {
 
 
 var primeSieve = function(start, end) {
-  // to do
+	var result=[];
+	if(start>end)
+		return false;
+  for(var i=start ; i<=end ; i++){
+  	if(i===2 || i===3 || i===5)
+  		result.push(i);
+  	else if(i%2 !==0 && i%3!==0 && i%5!==0)
+  		result.push(i)
+  }
+  return result;
 };

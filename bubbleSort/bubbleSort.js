@@ -29,6 +29,45 @@
 
 // Feel free to add helper functions if needed
 
+<<<<<<< HEAD
+// var findMin = function(array){
+// 	if(array.length === 1){
+// 		return array[0];
+// 	}
+// 	var min = array[0];
+// 	for(var i=1 ; i<array.length ; i++){
+// 		if(array[i] < min){
+// 			min = array[i];
+// 		}
+// 		return min;
+// 	}	
+// };
+
+// var bubbleSort = function(array) {
+// 	var sortArray = [];
+// 	for(var i=0 ; i<array.length ; i++){
+// 		sortArray.push(findMin(array));
+// 		array.splice(i,1);
+// 	}
+// 	return sortArray;
+
+// };
+
+var bubbleSort = function(array) {
+	 var length = array.length;
+      for (var i = (length - 1); i >= 0; i--) { 
+        for (var j = (length - i); j > 0; j--) {
+          if(array[j] < array[j-1]) {
+            var tmp = array[j];
+            array[j] = array[j-1];
+            array[j-1] = tmp;
+          }
+        }        
+      }
+      return array;
+  }; // time complexicty O(n^2)
+
+=======
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
@@ -69,3 +108,4 @@ bubbleSort(a);
 console.log(a);
 
 // Remember to look here http://visualgo.net/sorting
+>>>>>>> 887eeab433fb4932a3de88094dc9e48d73647ee5

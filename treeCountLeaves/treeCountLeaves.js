@@ -36,8 +36,22 @@ var Tree = function(value){
   this.children = [];
 };
 
+ var countChild = function(child){
+    var count = 0;
+    for(var i=0 ; i<child.length ; i++){
+      count = count + child[i];
+    }
+    return count;
+  };
+
 Tree.prototype.countLeaves = function () {
-  // TODO: implement me!
+  var counter = 0;
+  if(this.children.length === 1)
+    return 1;
+  for(var i=0 ; i<this.children.length ; i++){
+    counter = counter + countChild[this.children[i]];
+  }
+  return counter;
 }
 
 /**
