@@ -111,5 +111,5 @@ var largestSum = function(arr){
 		results=results+arr[i];
 	}
 	var res=results.toString();
-	return res.slice(0,11);
+	return res.slice(0,11).replace('.','');
 }
