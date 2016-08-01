@@ -70,7 +70,7 @@ Tree.prototype.mapInPlace = function (callback) {
     for(var i=0 ; i<this.children.length ; i++){
       if(this.children.length !== 0){
         var temp = this.children[i].mapInPlace(callback);
-        this.children[i] = temp;
+        this.children[i] = new Tree(temp);
       }
     }
   }
