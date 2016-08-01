@@ -1,9 +1,10 @@
-var FishTable = () => (
-  <table>
+console.log("FishTable")
+var FishTable = (props) => (
+ <table>
     <tbody>
-      <FishTableRow />
-      <FishTableRow />
-      <FishTableRow />
+      {props.allFish.map(fish=>
+      <FishTableRow fish={fish} id={fish.name} />)}
+     
     </tbody>
   </table>
 );

@@ -113,6 +113,9 @@ var postData = function(message, username) {
           }),
     success: function(data){
       console.log("Success!", data);
+      getData();
+      $("#userName").val(" ");
+       $("#userInput").val(" ");
     },
     error: function(data){
       console.log(data);

@@ -13,8 +13,21 @@
   * example usage:
   * var anagrams = allAnagrams('abc');
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+  //[ ,  , , , 'cba' ]
   */
-
+var arr=[];
 var allAnagrams = function(string) {
-
+  if(string===" "){
+  	return arr[];
+  }else{
+  for (var i = 0; i < string.length; i++) {
+  	  var str=string[i]
+  	  for (var y = i+1; y < string.length ; y++) {
+  	  	str=str+string[y];
+  	  }
+  	  
+  	  arr.push(str)
+  }
+  return arr;
+}
 };
