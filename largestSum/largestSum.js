@@ -106,6 +106,19 @@ Work out the first ten digits of the sum of the following numbers
 You should get 5537376230. 
 */
 
-var largestSum = function(){
-  return 0;
+var largestSum = function(str){
+	var arr = str.split('\n');
+	var sum = 0;
+	for (var i = 0; i < arr.length; i++) {
+		console.log(parseInt(arr[i]))
+		sum = sum + parseInt(arr[i]);
+	}
+	sum = sum.toString();
+	var result = '';
+	for (var i = 0; result.length < 10; i++) {
+		if(sum[i] !== '.'){
+			result = result + sum[i];
+		}
+	}
+  	return result;
 }
