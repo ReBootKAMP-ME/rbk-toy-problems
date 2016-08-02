@@ -27,3 +27,20 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+  var telephoneWords = function (numbers) {
+    var retrunArray = []
+    var key = { '2': ['A','B','C'], '3': ['D','E','F'], '4': ['G','H','I'], '5': ['J','K','L'], '6:' ['M','N','O'], '7': ['P','Q','R','S'], '8': ['Y','U','V'], '9':['W','X','Y','Z']};
+    var combination = function (arr, i) {
+      if(arr.length === numbers.length){
+        retrunArray.push(arr.join(''));
+      }else{
+        for(var j=0; j < key[numbers[i]].length; j++){
+          arr.push(key[numbers[i]])
+          combination(arr, i+1);
+        }
+      }
+    }
+    combination([], 0)
+    return retrunArray;
+  }
