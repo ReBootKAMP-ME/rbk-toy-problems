@@ -27,15 +27,16 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
-
+  // var fs = require('fs')
   var telephoneWords = function (phoneNumber){
+    // var file = fs.readFileSync('/usr/share/dict/words', 'utf8')
     var phoneLetters = {
       '0': ['0'],
       '1': ['1'],
       '2': ['A','B','C'],
       '3': ['D','E','F'],
       '4': ['G','H','I'],
-      '5': ['J','K','L'],
+      '5': ['J','K','L'], 
       '6': ['M','N','O'],
       '7': ['P','Q','R','S'],
       '8': ['T','U','V'], 

@@ -1,0 +1,12 @@
+{
+  "name": "telephoneLetters",
+  "author": "Me",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+  	"start": "npm run telephoneLetters.js"
+  },
+   "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
