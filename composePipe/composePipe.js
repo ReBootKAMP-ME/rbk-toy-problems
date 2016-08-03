@@ -14,7 +14,7 @@
    var greet = function(name){ return 'hello ' + name;}
    var exclaim = function(statement) { return statement.toUpperCase() + '!';}
    var welcome = compose(greet, exclaim);
-   welcome('phillip'); // 'HELLO PHILLIP!'
+   welcome('phillip'); // 'hello PHILLIP!'
 
  *
  * Step 2: Implement the function Pipe:
@@ -36,10 +36,30 @@
 
 'use strict';
 
-var compose = function(){
+var compose = function(...args){
 
+  var apply = function(func, index, result){
+    if(index === -1){
+      return result
+    }
+    return apply(args[index-1], index-1, func(result))
+  }
+
+  return function(param){
+    return apply(args[args.length-1], args.length-1, param)
+  }
 };
 
-var pipe = function(){
+var pipe = function(...args){
 
+  var apply = function(func, index, result){
+    if(args.length === index){
+      return result
+    }
+    return apply(args[index+1], index+1, func(result))
+  }
+
+  return function(param){
+    return apply(args[0], 0, param)
+  }
 };
