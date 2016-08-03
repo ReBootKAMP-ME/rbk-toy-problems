@@ -10,12 +10,32 @@
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
 	// Your code here..
+	var last= orderedInputArray.length-1;
+	for (var i = orderedInputArray[0]; i <= orderedInputArray[last]; i++) {
+		if(orderedInputArray.indexOf(i)=== -1){
+			return i;
+		}
+	}
 }
 
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+
+function getminOfArray(numArray) {
+  return Math.min.apply(null, numArray);
+}
 // Input will not be in order.
 // EXAMPLE: When inputArray is [6,5,7,3,2], output should be 4.
 
-// What is the time complexity of your solution?
+// What is the time complexity of your solution? n^4
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
 	// Your code here..
+	var max=getMaxOfArray(unorderedInputArray);
+	var min=getminOfArray(unorderedInputArray);
+	for (var i =min; i <=max; i++) {
+		if(unorderedInputArray.indexOf(i)=== -1){
+			return i;
+		}
+	}
 }

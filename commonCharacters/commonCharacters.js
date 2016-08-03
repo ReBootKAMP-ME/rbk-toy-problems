@@ -11,6 +11,78 @@
  */
 
 //Works for any number of input strings:
-var commonCharacters = function(string1, string2) {
-  
+
+
+var commonCharacters = function() {
+  var common=arguments[0].split("");
+  //console.log(common);
+    for (var y= 1; y< arguments.length; y++) {
+    	var arrsrt=arguments[y].split("");
+        for (var i = 0; i < common.length; i++) {
+   	    if (arrsrt.indexOf(common[i])> -1){
+   		   //if(common.indexOf(arguments[0][i])=== -1){
+   		}else{
+   			common.splice(i,1)
+   			i--;
+   		}
+
+   	  	  console.log(common);  
+   	  
+   	
+   }
+}
+   return common.join("");
+
+
+
 };
+
+
+
+
+
+
+
+
+
+
+/*var commonCharacters = function() {
+  var common=[];
+    for (var y= 1; y< arguments.length; y++) {
+    	var arrsrt=arguments[y];
+        for (var i = 0; i < arguments[0].length; i++) {
+   	    if (arrsrt.indexOf(arguments[0][i])> -1){
+   		   if(common.indexOf(arguments[0][i])=== -1){
+   		
+
+   		    common.push(arguments[0][i]);
+   		}
+   	  	    
+   	  
+   	
+   }
+}
+   return common.join("");
+
+
+
+};
+
+*/
+
+/*var commonCharacters = function(string1, string2) {
+  var common=[];
+  string2=string2.split("");
+   for (var i = 0; i < string1.length; i++) {
+   	 
+   	if (string2.indexOf(string1[i])> -1){
+   		if(common.indexOf(string1[i])=== -1){
+   		
+
+   		    common.push(string1[i]);
+   		}
+   	}
+   }
+   return common.join("");
+
+};*/
