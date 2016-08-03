@@ -36,10 +36,24 @@
 
 'use strict';
 
-var compose = function(){
-
+var compose = function(...args){
+	return function(param){
+		var index = args.length - 1;
+		var result = param;
+		while(index >=0){
+			result = args[index--](result);
+		}
+		return result;
+	}
 };
 
-var pipe = function(){
-
+var pipe = function(...args){
+	return function(param){
+		var index = 0;
+		var result = param;
+		while(index <args.length){
+			result = args[index++](result);
+		}
+		return result;
+	}
 };
