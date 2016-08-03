@@ -40,7 +40,6 @@ var compose = function(){
   var args = [].slice.call(arguments);
   return function () {
     var result = args[args.length - 1].apply(null, arguments)
-    console.log(result)
     for (var i = args.length - 2; i >= 0; i--) {
       result = args[i].call(null, result)
     }
@@ -49,5 +48,12 @@ var compose = function(){
 };
 
 var pipe = function(){
-
+  var args = [].slice.call(arguments);
+  return function () {
+    var result = args[0].apply(null, arguments)
+    for (var i = 1; i < args.length; i++) {
+      result = args[i].call(null, result)
+    }
+    return result;
+  }
 };
