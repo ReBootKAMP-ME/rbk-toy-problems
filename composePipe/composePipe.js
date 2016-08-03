@@ -35,11 +35,22 @@
  */
 
 'use strict';
-
+//these function works only for two arguments :}
 var compose = function(){
-
+  var args=arguments;
+  return function(res){
+    res=args[1].call(this,res);
+    res=args[0].call(this,res);
+    return res;
+  }
 };
 
 var pipe = function(){
+   var args=arguments;
+  return function(res){
+    res=args[0].call(this,res);
+    res=args[1].call(this,res);
+    return res;
+  }
 
 };
