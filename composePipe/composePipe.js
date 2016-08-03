@@ -35,11 +35,19 @@
  */
 
 'use strict';
+var greet = function(name){ return 'hello ' + name;}
+var exclaim = function(statement) { return statement.toUpperCase() + '!';}
 
-var compose = function(){
-
+var compose = function(func1, func2){
+  //var statement = greet (name);
+  var ex = func2(func1(name));
+  return ex;
 };
 
-var pipe = function(){
+// 
 
+  var add2 = function(number){ return number + 2; }
+  var multiplyBy3 = function(number){ return number * 3; }
+var pipe = function(){
+  
 };
