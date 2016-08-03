@@ -36,10 +36,24 @@
 
 'use strict';
 
-var compose = function(){
-
+var compose = function(...Args){
+  console.log(Args)
+  return function (value){
+    var init = Args[Args.length-1](value);
+    for (var i = Args.length-2; i>=0; i--){
+      init = Args[i](init)
+    }
+    return init;
+  } 
 };
 
-var pipe = function(){
-
+var pipe = function(...Args){
+  var newArgs = [];
+  return function (value){
+    var init = Args[0](value);
+    for (var i = 1; i<Args.length; i++){
+      init = Args[i](init)
+    }
+    return init;
+  } 
 };
