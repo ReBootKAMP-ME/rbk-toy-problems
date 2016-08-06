@@ -23,8 +23,8 @@ return res;
 // i don't think its a good way for solving this , but i couldnt come out with something more efficient !
 var spiralTraversal = function(matrix){
 	var results=[];
-	var arr1=inverse(matrix[0][2]);
-	for(var i=0;i< matrix.length ;i++){
+	var invertedIndex=inverse(matrix[2]);
+	for(var i=0; i < matrix.length ; i++){
 		for(var j=0; j < matrix.length; j++){
 			if(i === 0){
 				results.push(matrix[i][j]);
@@ -32,7 +32,7 @@ var spiralTraversal = function(matrix){
 				results.push(matrix[i][2])
 				j=2;
 			}else if(i === 2){
-				results.push(arr1[j]);
+				results.push(invertedIndex[j]);
 			}
 			if(i===2 && j===2){
 				results.push(matrix[1][0]);
@@ -42,4 +42,3 @@ var spiralTraversal = function(matrix){
 	}
 	return results;
 };
-
