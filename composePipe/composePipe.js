@@ -13,7 +13,7 @@
  * Compose Example:
    var greet = function(name){ return 'hello ' + name;}
    var exclaim = function(statement) { return statement.toUpperCase() + '!';}
-   var welcome = compose(greet, exclaim);
+   var welcome = compose(exclaim, greet);
    welcome('phillip'); // 'hello PHILLIP!'
 
  *
