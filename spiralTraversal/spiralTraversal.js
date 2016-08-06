@@ -13,6 +13,27 @@
  */
 
 var spiralTraversal = function(matrix){
+	var counter = matrix.length;
+	var limit = 0;
+	var result = [];
+	for (var j=matrix.length-1; j>0; j--) {
+	
+			for (var i = limit; i < counter; i++) {			
+				result.push(matrix[limit][i]);	
+			}
+			for (var i = limit+1; i < counter; i++) {
+				result.push(matrix[i][j])
+			}
+			for (var i = counter-2; i > limit; i--) {
+				result.push(matrix[j][i])
+			}
+			for (var i = counter-1; i > limit; i--) {
+				result.push(matrix[i][limit])
+			}
+		counter--;
+		limit++;
+	}
+	return result ;
 
 };
 
