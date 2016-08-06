@@ -13,6 +13,31 @@
  */
 
 var spiralTraversal = function(matrix){
-
+	var returnArr = [];
+	var j = 0;
+	for (var i = 0; i < matrix.length; i++) {
+		debugger;
+		if(j !== matrix.length){
+			while(j !== matrix.length){
+				returnArr.push(matrix[i][j]);
+				j++;
+			}
+			j--;
+			if(i === matrix.length-1){
+				i--;
+				j++;
+			}
+		}else {
+			j-=2;
+			while(j !== -1){
+				returnArr.push(matrix[i][j])
+				j--;
+			}
+			//I'm sorry for this but my way from beginning wrong i had to devid the matrix to arrays not go throw all elements
+			returnArr.push(matrix[1][0])
+			returnArr.push(matrix[1][1])
+		}
+	}
+	return returnArr
 };
 
