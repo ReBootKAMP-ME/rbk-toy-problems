@@ -13,6 +13,22 @@
  */
 
 var spiralTraversal = function(matrix){
-
-};
+  var top = 0;
+  var down = matrix.length - 1;
+  var left = 0;
+  var right = matrix[0].length - 1;
+  var result = [];
+  for(var i=left ; i<=right ; i++){
+  	result.push(matrix[top][i]);
+  	top++;
+  	if(top > down || left > right) 
+  		return;
+  }
+  return result;
+}
+// The idea is to have four indexes: 
+//top, down, left and right which are going to
+// be used to point where we are want to start
+// console.log rows and columns, when top > 
+//down or left > right then do it
 
