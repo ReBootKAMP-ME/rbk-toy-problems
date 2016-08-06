@@ -12,7 +12,34 @@
     returns [1, 2, 3, 6, 9, 8, 7, 4, 5]
  */
 
-var spiralTraversal = function(matrix){
+var inverse=function(arr){
+var res=[];
+res.push(arr[2]);
+res.push(arr[1]);
+res.push(arr[0]);
+return res;
+}
 
+// i don't think its a good way for solving this , but i couldnt come out with something more efficient !
+var spiralTraversal = function(matrix){
+	var results=[];
+	var arr1=inverse(matrix[0][2]);
+	for(var i=0;i< matrix.length ;i++){
+		for(var j=0; j < matrix.length; j++){
+			if(i === 0){
+				results.push(matrix[i][j]);
+			} else if(i === 1){
+				results.push(matrix[i][2])
+				j=2;
+			}else if(i === 2){
+				results.push(arr1[j]);
+			}
+			if(i===2 && j===2){
+				results.push(matrix[1][0]);
+				results.push(matrix[1][1]);
+			}
+		}
+	}
+	return results;
 };
 
