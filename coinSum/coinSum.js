@@ -14,6 +14,23 @@ coinCombination(200p) //-> 73682
 */
 
 var coinCombination = function(totalAmount){
-	var totalNumberOfCombinations = 0;
-	return totalNumberOfCombinations
+	var coins=[1,2,5,10,20,50,100,200];
+	var totalNumberOfCombinations=0;
+	function CombinationHelper(amount) {
+		//debugger;
+		sum=0;
+		for (var i = coins.length - 1; i >= 0; i--) {
+			if(sum+coins[i]<amount){
+				sum+=coins[i];
+				i++;
+			}
+			if(sum+coins[i]===amount){
+				totalNumberOfCombinations++;
+				sum=0;
+			}
+		}
+	}
+	CombinationHelper(totalAmount);
+	console.log(totalNumberOfCombinations);
+	//return totalNumberOfCombinations
 }

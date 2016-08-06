@@ -121,16 +121,28 @@ var postData = function(message, username) {
 };
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
-
 getData();
+
+setInterval(getData,1000);
 
 
 
 $('.submit').on('submit', function(event) {
   event.preventDefault();
-  var username = $('.usernameInput').val();
   $('#backButton').toggle();
   $('.title').text('Chat with JSON');
 
-  postData($('.userInput').val(), username);
+
+
+
+  postData($('.userInput').val(), $('.usernameInput').val());
+  
+
+  $('#userName').val('');
+  $('#userInput').val('');
+
+
+
+
+
 });

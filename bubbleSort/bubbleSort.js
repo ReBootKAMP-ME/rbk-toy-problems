@@ -29,6 +29,47 @@
 
 // Feel free to add helper functions if needed
 
+
+
+// Time complexity o(n^2)
+var bubbleSort = function(array) {
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < array.length; j++) {
+			if(array[i]<array[j]){
+				var temp;
+				temp=array[i];
+				array[i]=array[j];
+				array[j]=temp;
+			}
+		}
+	}
+	return array;
+
+};
+
+
+
+// Time complexity o(n^2) if not sorted
+// Time complexity o(n) if was sorted
+var bubbleSort2 = function(array) {
+	var flag=true;
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < array.length; j++) {
+			if(array[i]<array[j]){
+				var temp;
+				temp=array[i];
+				array[i]=array[j];
+				array[j]=temp;
+				flag=false;
+			}
+		}
+		if(flag)
+			return array;
+	}
+	return array;
+
+};
+
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
