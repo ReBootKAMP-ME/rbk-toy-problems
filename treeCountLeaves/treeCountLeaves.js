@@ -31,6 +31,10 @@
  * Basic tree that stores a value.
  */
 
+
+
+
+//i have to count the leaves that nodes have not children 
 var Tree = function(value){
   this.value = value;
   this.children = [];
@@ -38,8 +42,26 @@ var Tree = function(value){
 
 Tree.prototype.countLeaves = function () {
   // TODO: implement me!
-}
+  // i have to count all nodes and when i arrive the node that dont have child so i have to stop and return the count numbers
+var count=0;
 
+for (var i = 0; i < this.children.length; i++) {
+  if (this.children[i]===null&&this.value==="") {
+    return 0;
+  }
+  else
+  //  root.children[0].children[0].addChild(new Tree());
+
+   if(this.children[i].next!==0){
+     count+=1;
+ }
+    return count ; 
+     this.children[i].countLeaves()
+
+  }
+
+
+}
 /**
   * You shouldn't need to change anything below here, but feel free to look.
   */

@@ -27,3 +27,60 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+//each number in phone have letters so each number have combination for its letters so take each number in the given string and see the permutations of it 
+// var telephone=function(phoneNumber){
+// 	var per=[]
+// 	per[2]="abc";
+//     per[3]="def";
+//     per[4]="ghi";
+//     per[5]="jkl";
+//     per[6]="mno";
+//     per[7]="pqrs";
+//     per[8]="tuv";
+//     per[9]="wxyz";
+//     per[0]="";
+// 	var arrayOfnumberP=[];
+// 	var str="";
+// 	for (var i=0;i<phoneNumber.length;i++) {
+// 		for (var j = 0; j < per.length; ++) {
+// 		if(i===j){
+			
+// 			}
+// 		}
+// 		if (str!="") {
+// 			arrayOfnumberP.push(str)
+// 		}
+// 	}
+// console.log(arrayOfnumberP.join("\n"));
+// }
+
+
+var telephone=function(phoneNumber){
+var arrayOfnumberP=[];
+	var per=[]
+	per[2]="abc";
+    per[3]="def";
+    per[4]="ghi";
+    per[5]="jkl";
+    per[6]="mno";
+    per[7]="pqrs";
+    per[8]="tuv";
+    per[9]="wxyz";
+    per[0]="";
+var len=phoneNumber.length;
+var str = "";
+var p=Math.pow(2,len);
+var twoPower;
+for(i = 0; i < p; i++) 
+{
+    twoPower=p;
+    for(j=0;j<len;j++)
+    {
+        twoPower=twoPower/2;
+        str+= (i & twoPower ? input.charAt(j) : "");
+    }
+    str+="\n";
+}
+return str;
+}

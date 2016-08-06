@@ -34,13 +34,45 @@
 *
 *
 */
+// the idea of problem is to check all lines in Grid and find the max product four numbers in each line 
+//and after that check the max of all result of max product for each line 
+// so for loops i need in each line horizontal vertical right left 
+//
 
 
 var largestProductOfFour = function(array) {
-};
+horizontalA = 0;
+for (var i = 0; i < 20; i++){
+    for (var j = 0; j <20; j++){
+        horizontal = array[i,j]*array[i,(j+1)]*array[i,(j+2)]*array[i*(j+3)];
+        console.log(horizontal)
+        if (horizontal > horizontalA){
+            horizontalA = horizontal;
+        }
+    }
+}
+verticalA = 0;
+for (var i = 0; i < 20; i++){
+    for (var j = 0; j <20; j++){
+       vertical = array[i,j]*array[(i+1),j]*array[(i+2),j]*array[(i+3),j];
+
+        if (vertical > verticalA){
+            verticalA = vertical;
+        }
+    }
+}
 
 
+var v=Math.max(verticalA)
+var h=Math.max(horizontalA)
 
+
+var max=Math.max(v,h);
+
+return max ;
+}
+
+   
 
 
 

@@ -20,6 +20,65 @@
 
 // Feel free to add helper functions if needed
 
-var maximumProfit  = function(array) {
 
+//SOLUTION 
+
+//i have array of prices =[100,80,120,130,70,60,100,125] each niumber it mean  the price of stock in day 
+//i have to find the max profit 
+// i have to buy in minimum price and sell in max price to win
+//and when the prices in array it decrease each day like  {100, 80, 70, 65, 60, 55, 50}
+//this mean that if man sell will lose 
+
+var maximumProfit  = function(array) {
+	var maxprice=0;
+	var lowprice=0;
+	//sell 
+	function maxTosell(array){
+	for (var i = 0; i < array.length-1; i++) {
+		if(array[i]>array[i+1])
+		{ maxprice=array[i]
+			// array[i]=array[i+1]
+			// array[i+1]=maxprice
+		}
+
+	}
+}
+
+	//buy
+	function lowTobuy(array){
+	for (var i = 0; i < array.length-1; i++) {
+		if(array[i]<array[i+1]){
+			lowprice=array[i]
+			// array[i]=array[i+1]
+			// array[i+1]=lowprice
+		}
+	}
+}
+
+	return "price to sell  " + maxprice +"  price to buy  "+ lowprice 
 };
+
+
+
+// var maximumProfit  = function(array) {
+// var stock=0
+// var money=0
+// for (var i = 0; i < array.length; i++) {
+  
+//     if (array[i]>array[i+1]){
+//         stock+=1
+//         money-=array[i]
+//     }
+//     else{
+//         money+=array[i]*stock
+//         stock=0
+//     }
+// }
+// return("profit was: ",money)
+
+
+// }
+
+
+
+
