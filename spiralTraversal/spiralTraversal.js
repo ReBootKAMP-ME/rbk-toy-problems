@@ -13,6 +13,37 @@
  */
 
 var spiralTraversal = function(matrix){
+	var newArr = [];
 
+	var recuriveFunc = function(remMatrix){
+		if(remMatrix.length === 0){
+			return;
+		}
+		if(remMatrix.length <= 1){
+			for(var i=0; i<remMatrix[0].length; i++){
+				newArr.push(remMatrix[0][i]);
+			}
+			return;
+		}
+		for(var i=0; i<remMatrix[0].length; i++){
+			newArr.push(remMatrix[0][i]);
+		}
+		remMatrix = remMatrix.slice(1);
+		for(var i=0; i<remMatrix.length-1; i++){
+			newArr.push(remMatrix[i].pop());
+		}
+		for(var i=(remMatrix[remMatrix.length-1]).length-1; i>=0; i--){
+			newArr.push(remMatrix[remMatrix.length-1][i]);
+		}
+		remMatrix = remMatrix.slice(0,remMatrix.length-1);
+		for(var i=remMatrix.length-1; i>=0; i--){
+			newArr.push(remMatrix[i].shift());
+		}
+		recuriveFunc(remMatrix);
+	}
+
+	recuriveFunc(matrix);
+
+	return newArr;
 };
 
