@@ -11,9 +11,9 @@
  * You can view Compose as moving RIGTH to LEFT through its arguments.
  *
  * Compose Example:
-   var greet = function(name){ return 'hello ' + name;};
-   var exclaim = function(statement) { return statement.toUpperCase() + '!';};
-   var welcome = compose(greet, exclaim);
+   var greet = function(name){ return 'hello ' + name;}
+   var exclaim = function(statement) { return statement.toUpperCase() + '!';}
+   var welcome = compose(exclaim, greet);
    welcome('phillip'); // 'hello PHILLIP!'
 
  *
