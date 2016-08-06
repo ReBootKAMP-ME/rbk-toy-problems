@@ -8,12 +8,20 @@
  *
  * Each function is called on the return value of the function that follows.
  *
+<<<<<<< HEAD
  * You can view Compose as moving RIGHT to LEFT through its arguments.
+=======
+ * You can view Compose as moving RIGTH to LEFT through its arguments.
+>>>>>>> 6ffb51d107b5548406b9f6d89e0b89992756bbcd
  *
  * Compose Example:
    var greet = function(name){ return 'hello ' + name;}
    var exclaim = function(statement) { return statement.toUpperCase() + '!';}
+<<<<<<< HEAD
    var welcome = compose(greet, exclaim);
+=======
+   var welcome = compose(exclaim, greet);
+>>>>>>> 6ffb51d107b5548406b9f6d89e0b89992756bbcd
    welcome('phillip'); // 'hello PHILLIP!'
 
  *
@@ -35,6 +43,7 @@
  */
 
 'use strict';
+<<<<<<< HEAD
 // i think recursion is the right way to do it .. im going to re-do it again below using recursion
 var compose = function(){
   var args = Array.prototype.slice.call(arguments);
@@ -88,3 +97,13 @@ var compose2 = function(){
 
 
 
+=======
+
+var compose = function(){
+
+};
+
+var pipe = function(){
+
+};
+>>>>>>> 6ffb51d107b5548406b9f6d89e0b89992756bbcd
