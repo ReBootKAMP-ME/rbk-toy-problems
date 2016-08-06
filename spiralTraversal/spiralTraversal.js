@@ -24,12 +24,10 @@ var spiralTraversal = function(matrix){
 			spiral.push(matrix[i][matrix[0].length - count - 1])
 		}
 		for(var i = matrix[0].length - count - 2; i > count; i--){
-			console.log(i, matrix[0].length - count - 1, matrix[i][matrix[0].length - count - 1])
 			spiral.push(matrix[matrix[0].length - count - 1][i])
 		}
 		for(var i = matrix[0].length - count - 1; i > count; i--){
-			console.log(i, matrix[0].length - count - 1, matrix[i][matrix[0].length - count - 1])
-			spiral.push(matrix[i][matrix[0].length - count - 1])
+			spiral.push(matrix[i][count])
 		}
 		count++
 	}
