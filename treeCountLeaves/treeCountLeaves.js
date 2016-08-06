@@ -34,20 +34,31 @@
 var Tree = function(value){
   this.value = value;
   this.children = [];
-};
+}; 
 
+var numberofleve=1;
 Tree.prototype.countLeaves = function () {
   // TODO: implement me!
+ 
+  console.log(this.children);
+  for (var i = 0; i <= this.children.length-1; i++) {
+         // console.log("jo",this.children.length)
+        if(this.children.length === 0){
+          //console.log("in if ")
+          
+        }else{
+              this.children[i].countLeaves();
+        }
+  }
+numberofleve=numberofleve+1;
+          var temNum=numberofleve;
+           numberofleve=0;
+           console.log(temNum);
+            return temNum;
+  
 }
 
-/**
-  * You shouldn't need to change anything below here, but feel free to look.
-  */
 
-/**
-  * add an immediate child
-  * (wrap values in Tree nodes if they're not already)
-  */
 Tree.prototype.addChild = function(child){
   if (!child || !(child instanceof Tree)){
     child = new Tree(child);

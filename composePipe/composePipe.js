@@ -36,10 +36,17 @@
 
 'use strict';
 
-var compose = function(){
-
+var compose = function(v){
+  // we need to send the value come with calling to each function
+ console.log(arguments);
+ for (var i = arguments.length-1; i >= 0; i--) {
+   arguments[i].call(contex);
+ }
 };
 
 var pipe = function(){
+  for (var i = 0; i < arguments.length; i++) {
+    arguments[i]
+  }
 
 };

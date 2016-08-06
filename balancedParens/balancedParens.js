@@ -26,4 +26,102 @@
 
  var balancedParens = function (input) {
    // write your code hre
+   //console.log(input);
+   for (var i = 0; i < input.length; i++){
+   //console.log(input[i]);
+   	if(input[i]==='('){
+   		for (var y =input.length -1 ; y >i; y--) {
+   			//console.log(input[y]);
+           if(input[y]===')'){
+   			//console.log("inside if ");
+
+           	input=input.substr(i+1,y-1);
+           	//input.splice(i,1);
+            i--;
+           }
+      }
+   		
+
+}else if(input[i]==='['){
+   		for (var y =input.length -1 ; y >i; y--) {
+   			//console.log(input[y]);
+           if(input[y]===']'){
+   			//console.log("inside if ");
+
+           	input=input.substr(i+1,y-1);
+           	//input.splice(i,1);
+            i--;
+           }
+      }
+   		
+
+}else if(input[i]==='{'){
+   		for (var y =input.length -1 ; y >i; y--) {
+   			//console.log(input[y]);
+           if(input[y]==='}'){
+   			//console.log("inside if ");
+
+           	input=input.substr(i+1,y-1);
+           	//input.splice(i,1);
+            i--;
+           }
+      }
+   		
+
+}
+//console.log(input);
+   }
+
+//console.log(input);
+
+if(input.length >=1){
+	return false;
+}else{
+	return true ;
+}
+    
+
  };
+
+
+
+
+
+
+
+
+
+/* var balancedParens = function (input) {
+   // write your code hre
+   console.log(input);
+   for (var i = 0; i < input.length; i++){
+   //console.log(input[i]);
+   	if(input[i]==='('){
+   		for (var y =input.length -1 ; y >i; y--) {
+   			//console.log(input[y]);
+           if(input[y]===')'){
+   			//console.log("inside if ");
+
+           	input=input.substr(i+1,y-1);
+           	//input.splice(i,1);
+            i--;
+           }
+      }
+   		
+
+}
+//console.log(input);
+   }
+
+//console.log(input);
+
+if(input.length >=1){
+	return false;
+}else{
+	return true ;
+}
+    
+
+ };*/
+
+
