@@ -13,8 +13,8 @@
  * Compose Example:
    var greet = function(name){ return 'hello ' + name;}
    var exclaim = function(statement) { return statement.toUpperCase() + '!';}
-   var welcome = compose(greet, exclaim);
-   welcome('phillip'); // 'HELLO PHILLIP!'
+   var welcome = compose(exclaim, greet);
+   welcome('phillip'); // 'hello PHILLIP!'
 
  *
  * Step 2: Implement the function Pipe:
