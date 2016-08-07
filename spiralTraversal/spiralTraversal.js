@@ -12,9 +12,28 @@
     returns [1, 2, 3, 6, 9, 8, 7, 4, 5]
  */
 // there must be a way more efficient way than that , must get DRY
-var spiralTraversal = function(matrix){
 
-	// 4 directions : right down left up
+var func = [leftToright,upToDown,rightToLeft,downToUp];
+var spiralTraversal = function(matrix, counter, result){
+	counter = counter || 0;
+	result = result || [];
+	// edge statement for return
+	if(result.length ===  matrix.length * matrix[0].length){
+		return result;
+	}
+	for(var j = 0; j < matrix.length ; j ++){
+		counter = j;
+		for(var i = 0 + counter ; i < matrix.length[0] - counter; i++){
+			func[i](matrix, counter, result);		
+		}
+	}
+}
+
+
+
+var spiralTraversalWRONG = function(matrix){
+
+	4 directions : right down left up
 	var directions = {
 		right : [[0],[matrix.length]],
 		down : [[0],[matrix.length]],
@@ -46,9 +65,23 @@ var spiralTraversal = function(matrix){
 			result.push(matrix[matrix.length-1][i]);
 		}
 	}
-	
+	// return result;
+	var innerSpiral = function(array){
+		if(array.length === matrix.length){
+			if(result.length === matrix.length * matrix[0].length){
+				return result;
+			} else {
+				array = [];
+				innerSpiral(array ,func[++counter])
+			}
+			
+		} else {
+			for(var i = 0; i < func.length; i++){
+				func[i](matrix)
+			}
+		}
+	}
 
-	return result;
 };
 
 
@@ -87,6 +120,3 @@ var downToUp = function(matrix, start, result){
 	}
 	return result;
 }
-
-// as a spiral we first need the first row to get into our array 
-// 
