@@ -9,5 +9,13 @@ findAll([17,4,12,-16,12,4,7,12]) //should return [12]
 */
 
 var findAll = function(arr){
-
-}
+	var arrayResult = arr.sort();
+	var array = [];
+	var exist = Math.floor(arr.length/3);
+	for (var i=0;i<arrayResult.length;i++){
+		if(arrayResult[i]===arrayResult[i+exist]){
+			array.push(arrayResult[i]);
+		}
+	}
+	return array;
+};
