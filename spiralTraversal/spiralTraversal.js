@@ -32,3 +32,46 @@ var spiralTraversal = function(matrix){
 	return result;
 };
 
+/////////////////////////////////////
+// Pavel Solution 				   //
+////////////////////////////////////
+/*var spiralTraversal = function(matrix){
+  var minRow=0;
+  var maxRow = matrix.length-1; 
+  var minCol=0; 
+  var maxCol = matrix[0].length-1;
+  var result = [];
+
+  while(minCol<=maxCol && minRow<=maxRow){
+    //Move right
+    if(minRow<=maxRow){
+      for(var i=minCol;i<=maxCol;i++){
+        result.push(matrix[minRow][i]);
+      }
+      minRow++;
+    }
+    //Move down
+    if(minCol<=maxCol){
+      for(var i=minRow;i<=maxRow;i++){
+        result.push(matrix[i][maxCol]);
+      }
+      maxCol--;
+    }
+    //Move left
+    if(minRow<=maxRow){
+      for(var i=maxCol;i>=minCol;i--){
+        result.push(matrix[maxRow][i]); 
+      }
+      maxRow--;
+    }
+    //Move Up
+    if(minCol<=maxCol){
+      for(var i=maxRow;i>=minRow;i--){
+        result.push(matrix[i][minCol]);  
+      }
+      minCol++;
+    }
+  }
+  return result;
+};*/
+
