@@ -12,7 +12,7 @@ var findAll = function(arr){
 	var n = arr.length;
 	var pass = n/3;
 	var elements = {}
-	var result = new Set()
+	var result = []
 
 	for(var i = 0; i < n; i++){
 
@@ -22,8 +22,13 @@ var findAll = function(arr){
 			elements[arr[i]] += 1
 		}
 
-		if(elements[arr[i]] > pass){
-			result.add(arr[i])
+	}
+
+	var keys = Object.keys(elements);
+
+	for(var i = 0; i < keys.length; i++){
+		if(elements[keys[i]] > pass){
+			result.push(parseInt(keys[i]))
 		}
 	}
 
