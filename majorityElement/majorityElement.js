@@ -1,15 +1,12 @@
-/*
-Given an integer array of size n, find all elements that appear more than n/3 times. The algorithm should run in linear time.
-
+/* Given an integer array of size n, find all elements that appear more than n/3 times. The algorithm should run in linear time.
 Extra credit: Make the algorithm use O(1) space.
-
 Example: 
-findAll([17,4,12,-16,12,4,7,12]) //should return [12]
-
-*/
+findAll([17,4,12,-16,12,4,7,12]) //should return [12] */
 
 
 // That is O(N)
+// i removed the result to be an array
+// maybe that would make less space complexity
 var findAll = function(arr){
  var object = {};
  for(var i = 0; i < arr.length ; i++){
@@ -20,11 +17,11 @@ var findAll = function(arr){
  		object[arr[i]]++;
  	}
  }
- var result = [];
+ arr = [];
  for(var key in object){
  	if(object[key] >= 3){
- 		result.push(JSON.parse(key));
+ 		arr.push(JSON.parse(key));
  	}
  }
- return result;
+ return arr;
 }
