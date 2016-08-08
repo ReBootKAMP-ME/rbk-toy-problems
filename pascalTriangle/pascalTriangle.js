@@ -25,5 +25,24 @@ buildTriangle(3);// should output [[1],[1,1],[1,2,1]];
 */
 
 var buildTriangle = function(numOfRows){
+	var results = [];
 
-}
+	var RecursiveFunc = function(row){
+		if(row === numOfRows+1){
+			return;
+		}
+		var newArr = new Array(row);
+		newArr[0] = 1;
+		newArr[row-1] = 1;
+		var prevArr = results[results.length-1];
+		for(var i=1; i<newArr.length-1; i++){
+			newArr[i] = prevArr[i-1] + prevArr[i];
+		}
+		results.push(newArr);
+		RecursiveFunc(row+1);
+	};
+
+	RecursiveFunc(1);
+
+	return results;
+};
