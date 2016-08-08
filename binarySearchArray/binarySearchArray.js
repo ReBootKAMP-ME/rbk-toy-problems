@@ -26,9 +26,9 @@ var binarySearch = function (array, target) {
     var guess;
     while(min <= max) {
         guess = Math.floor((max + min) / 2);
-         console.log(guess)
+         // console.log(guess)
         if (array[guess] === target) {
-            return "index"+guess ;
+            return ("index"+guess );
         }
         else if (array[guess] < target) {
             min = guess + 1;
