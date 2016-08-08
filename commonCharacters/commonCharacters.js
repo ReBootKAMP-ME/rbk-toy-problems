@@ -11,6 +11,26 @@
  */
 
 //Works for any number of input strings:
-var commonCharacters = function(string1, string2) {
-  
+var commonCharacters = function(string, ...args) {
+	if(Array.isArray(args[0])){
+		args = args[0]
+	}
+	var result = []
+	var strings = args.slice()
+	
+	for(var i = 0; i < string.length; i++){
+
+		for(var j = 0; j < strings[0].length; j++){
+
+			if(string[i] === strings[0][j] && result.indexOf(string[i]) === -1){
+				result.push(string[i])
+			}
+		}
+	}
+	
+	if(strings.length === 1){
+		return result.join('')
+	}
+
+	return commonCharacters(result, strings.slice(1))
 };

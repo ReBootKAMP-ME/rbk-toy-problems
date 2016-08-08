@@ -23,4 +23,14 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
+	var bool = 0
+	
+	for (var i = 0; i < arr.length; i++) {
+		for(var j = 0; j < this.length; j++){
+			if(JSON.stringify(this[j]) === JSON.stringify(arr[i])){
+				bool++
+			}
+		}
+	}
+	return bool >= this.length ? true : false 
 }

@@ -25,5 +25,20 @@
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+   var str = input.split('')
+   var bool = true
+   var count = 1
+   for(var i = 0; i < str.length/2; i++){
+   	if(str[i] === '('){
+   	   	for (var j = str.length - count; j > str.length/2; j--) {
+   	   		if(str[j] === ')'){
+   	   			bool = bool && true
+   	   			count++
+   	   		} else {
+   	   			bool = bool && false
+   	   		}
+   	   	}
+   	}
+   }
+   return bool
  };

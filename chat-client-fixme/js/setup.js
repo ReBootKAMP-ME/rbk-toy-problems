@@ -122,7 +122,9 @@ var postData = function(message, username) {
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
 
-getData();
+// Create an update mechanism that's timed - the page should automatically get new messages every 1-3 seconds
+window.setInterval(function(){getData()}, 2000)
+
 
 
 
@@ -133,4 +135,8 @@ $('.submit').on('submit', function(event) {
   $('.title').text('Chat with JSON');
 
   postData($('.userInput').val(), username);
+  // As soon as you submit a new message, you should check for new messages.
+  getData();
+  // Clear out the message submit area after you submit a message.
+  $('.userInput').val('')
 });

@@ -13,6 +13,29 @@
  */
 
 var spiralTraversal = function(matrix){
+	var spiral = []
+	var count = 0
+	//assuming the 2 dimentional array is a square
+	var len = matrix.length
 
+	while(spiral.length < (len * len)){
+		var dis = len - count
+
+		for(var i = count; i < dis; i++){
+			spiral.push(matrix[count][i])
+		}
+		for(var i = count + 1; i < dis; i++){
+			spiral.push(matrix[i][dis - 1])
+		}
+		for(var i = dis - 2; i > count; i--){
+			spiral.push(matrix[dis - 1][i])
+		}
+		for(var i = dis - 1; i > count; i--){
+			spiral.push(matrix[i][count])
+		}
+		count++
+	}
+
+	return spiral
 };
 
