@@ -24,6 +24,20 @@ For example:
 buildTriangle(3);// should output [[1],[1,1],[1,2,1]];
 */
 
-var buildTriangle = function(numOfRows){
 
+
+var buildTriangle = function(numOfRows){
+	var triangle = [[1]];
+  	var subArray;
+
+  	for (var i = 0; i < numOfRows-1; i++) {
+	    subArray = [1];
+	    for (var j = 1; j < triangle[i].length; j++) {
+	     	subArray[j] = triangle[i][j] + triangle[i][j-1];
+	    }
+	    subArray.push(1);
+	    triangle.push(subArray);
+  	}
+  	return triangle;
 }
+
