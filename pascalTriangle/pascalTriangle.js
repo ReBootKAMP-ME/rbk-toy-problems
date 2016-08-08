@@ -24,6 +24,36 @@ For example:
 buildTriangle(3);// should output [[1],[1,1],[1,2,1]];
 */
 
+var sumpascal=function(array){
+	if(array.length === 2){
+		return [2];
+	}else{
+		var res=[];
+		for (var i = 0; i < array.length-1; i++) {
+			var j=i;
+			res.push(array[i]+array[j+1]);
+		}
+	}
+	return res;
+}
 var buildTriangle = function(numOfRows){
-
+	var results=[];
+	for (var i = 0; i < numOfRows; i++) {
+		var innerArray=[];
+		innerArray.push(1)
+		var j=i;
+		if(results.length >= 1){
+			if(results[j-1].length === 1){
+				innerArray.push(1);
+			}else{
+				var res=sumpascal(results[j-1]);
+				for(var k=0; k < res.length; k++){
+					innerArray.push(res[k]);
+				}
+				innerArray.push(1);
+			}
+		}
+			results.push(innerArray);
+	}
+return results;
 }
