@@ -34,7 +34,29 @@ var makeBoard = function(n) {
 //var myBoard = makeBoard(5);
 //The answer for a board size 5 is 8512 unique paths
 
-var robotPaths = function(/*you can pass any parameters you need*/) {
 
+// creatt the board
+// create a recusion function to test the path if already visited by calling hasBeenVisited function
+// if it is not visited move the robot to the location by calling the togglePiece function
+// if the robot i and j location reach the final point n test the path if it is hasBeenVisited if not togglePiece to the i ans j.
+
+var robotPaths = function(n) {
+  var result = 0;
+
+  var myBoard = makeBoard(n);
+
+  var search = function (i, j) {
+    console.log(i, j)
+    if (i === n && j === n){
+      result+=1;
+      return;
+    } else if (board.hasBeenVisited(i, j)) {
+      return;
+    } else {
+      board.togglePiece(i, j);
+      search(i, j + 1);
+      search(i+1, j);
+  return paths;
 }
-
+}
+}
