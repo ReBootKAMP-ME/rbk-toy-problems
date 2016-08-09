@@ -27,6 +27,7 @@ var makeBoard = function(n) {
   board.hasBeenVisited = function(i, j) {
     return !!this[i][j];
   }
+
   return board;
 };
 
@@ -34,7 +35,31 @@ var makeBoard = function(n) {
 //var myBoard = makeBoard(5);
 //The answer for a board size 5 is 8512 unique paths
 
+var generatePath=function(){
+  var cells=[];
+  for (var i = 0; i < 5; i++) {
+    var ran=Math.floor(Math.random()*5);
+    if(cells.indexOf(ran) === -1)
+      cells.push(ran);
+    else
+      i--;
+  }
+  return cells
+}
 var robotPaths = function(/*you can pass any parameters you need*/) {
+var board=makeBoard(5);
+var paths=[];
+
+//for each cell there is lots of paths
+//generate a random path to go throw it
+for (var i = 0; i < board.length; i++) {
+  var innerArray=[];
+  for (var j = 0; j < board.length; j++) {
+    var path=geeratePath();
+    if(board[i][path[j]].hasBeenVisited())
+
+  }
+}
 
 }
 
