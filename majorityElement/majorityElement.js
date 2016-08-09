@@ -9,7 +9,7 @@ findAll([17,4,12,-16,12,4,7,12]) //should return [12]
 */
 
 var findAll = function(arr){
-	
+
 	arr.sort(function(a, b){return b-a})
 	var arrappear=[];
 	var Eappear;
@@ -24,6 +24,5 @@ var findAll = function(arr){
 		Eappear=1;
 		}
 	}
-	return arrappear
-
+	return arrappear;
 }
