@@ -25,7 +25,7 @@ var makeBoard = function(n) {
     this[i][j] = !this[i][j];
   }
   board.hasBeenVisited = function(i, j) {
-    return !!this[i][j];
+      return !!this[i][j];
   }
   return board;
 };
@@ -34,7 +34,62 @@ var makeBoard = function(n) {
 //var myBoard = makeBoard(5);
 //The answer for a board size 5 is 8512 unique paths
 
-var robotPaths = function(/*you can pass any parameters you need*/) {
+var robotPaths = function(n) {
+  var board = makeBoard(n);
+  var uniquePaths = 0;
+  function helperRobot(board , i ,j) {
+    debugger;
+    if(board.hasBeenVisited(4,4)){
+      uniquePaths ++;
+      board[4][4]=false;
+    }
+    else {
+      if(i<=n-1 && j<=n-1){
+        if(!board.hasBeenVisited(i,j)){
+          board.togglePiece(i,j);
+          console.log(i,j);
+          helperRobot(board,i,j);
+          board.togglePiece(i,j);
+        }
+      }
+      if((i+1)<=n-1 && j<=n-1){
+        if(!board.hasBeenVisited(i+1,j)){
+          board.togglePiece(i+1,j);
+          console.log(i+1,j);
+          helperRobot(board,i+1,j);
+          board.togglePiece(i+1,j);
+        }
+      }
+      if(i<=n-1 && (j+1)<=n-1){
+        if(!board.hasBeenVisited(i,j+1)){
+          board.togglePiece(i,j+1);
+          console.log(i,j+1);
+          helperRobot(board,i,j+1);
+          board.togglePiece(i,j+1);
+        }
+      }
+      if(i<=n-1 && (j-1)<=n-1){
+        if(!board.hasBeenVisited(i,j-1)){
+          board.togglePiece(i,j-1);
+          console.log(i,j-1);
+          helperRobot(board,i,j-1);
+          board.togglePiece(i,j-1);
+        }
+      }
+      if((i-1)<=n-1 && j<=n-1){
+        if(!board.hasBeenVisited(i-1,j)){
+          board.togglePiece(i-1,j);
+          console.log(i-1,j);
+          helperRobot(board,i-1,j);
+          board.togglePiece(i-1,j);
+        }
+      }
+    }
 
+  }
+
+  helperRobot(board,0,0);
+
+  return uniquePaths;
 }
 

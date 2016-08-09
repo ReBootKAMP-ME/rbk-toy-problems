@@ -25,5 +25,26 @@ buildTriangle(3);// should output [[1],[1,1],[1,2,1]];
 */
 
 var buildTriangle = function(numOfRows){
+	var result = [];
+	function helperBuild(number) {
+		if(number === result.length)
+			return result;
+		if(result.length===0)
+			result.push([1]);
+		else if(result.length===1)
+			result.push([1,1]);
+		else{
+			debugger;
+			var row=[];
+			row.push(1);
+			for (var i = 0; i < result[result.length-1].length-1; i++) {
+				row.push(result[result.length-1][i]+result[result.length-1][i+1]);
+			}
+			row.push(1);
+			result.push(row);
+		}
+		return helperBuild(numOfRows);
+	}
+	return helperBuild(numOfRows);
 
 }

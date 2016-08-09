@@ -15,6 +15,9 @@
  *  balancedParens('[](){}'); // true
  *  balancedParens('[({})]');   // true
  *  balancedParens('[(]{)}'); // false
+
+	
+
  *
  * Step 3:
  * ignore non-bracket characters
@@ -25,5 +28,61 @@
  */
 
  var balancedParens = function (input) {
-   // write your code hre
+ 	var x=input.split("");
+ 	var arr=[];
+ 	for(var i=0;i<x.length;i++){
+		if(x[i]==="(" ||x[i]===")" || x[i]==="{" || x[i]==="}" || x[i]==="[" || x[i]==="]")
+			arr.push(x[i]);
+	}
+	//console.log(arr);
+ 	var flage=false;
+    for (var i = 0; i < arr.length; i++) {
+   	var char=arr[i];
+   	if(char==="("){
+   		for (var j = i+1; j < arr.length; j++) {
+   			if(arr[j]===")"){
+   				arr.splice(j,1);
+   				flage=true;
+   				break;
+   			}
+   		}
+   		if(flage){
+   			arr.splice(i,1);
+   			flage=false;
+   			i--;
+   		}
+
+   	}
+   	else if(char==="["){
+   		for (var j = i+1; j < arr.length; j++) {
+   			if(arr[j]==="]"){
+   				arr.splice(j,1);
+   				flage=true;
+   				break;
+   			}
+   		}
+   		if(flage){
+   			arr.splice(i,1);
+   			flage=false;
+   			i--;
+   		}
+   	}
+   	else if(char==="{"){
+   		for (var j = i+1; j < arr.length; j++) {
+   			if(arr[j]==="}"){
+   				arr.splice(j,1);
+   				flage=true;
+   				break;
+   			}
+   		}
+   		if(flage){
+   			arr.splice(i,1);
+   			flage=false;
+   			i--;
+   		}
+   	}
+   }
+   if(arr.length===0)
+   	return true;
+   return false;
  };

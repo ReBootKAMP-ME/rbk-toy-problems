@@ -15,8 +15,35 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 
 var longestCollatzSeq = function(){
-  return 0;
+  var max=0;
+  var number=0;
+  for (var i = 2; i < 1000000; i++) {
+  	if(getCollatzSeq(i)>max){
+  		max=getCollatzSeq(i);
+  		number=i;
+  	}
+  }
+  return number;
 }
 
+var getCollatzSeq=function(number){
+	var seq=[];
+	getCollatzSeqHelper=function(number){
+		seq.push(number);
+		if(number===1){
+			return seq.length;
+		}
+		if(number%2===0){
+			number=number/2;
+		}
+		else {
+			number=3*number +1 ;
+		}
+		return getCollatzSeqHelper(number);
+	}
+
+	return getCollatzSeqHelper(number);
+}
+847799
 
 module.exports = longestCollatzSeq;
