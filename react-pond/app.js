@@ -12,9 +12,10 @@ var fishData = [
   {
     name: 'Tuna',
     image: 'http://tinyurl.com/zgs7z2s',
-    description: 'Why are these things so huge? THey\'re terrifying.'
+    description: 'Why are these things so huge? They\'re terrifying.'
   }
 ];
 
 // Render `FishTable` here
 
+ReactDOM.render(<FishTable fishes={fishData}/>, document.getElementById('app'))

@@ -8,4 +8,19 @@
  */
 
 var largestProductOfThree = function(array) {
+	var sortNumber = function (a,b){
+	   return a - b;
+	}
+
+	var descending = array.slice().sort(sortNumber).reverse();
+
+	if((descending[descending.length - 1] && descending[descending.length - 2]) < 0){
+
+		descending[descending.length - 1] = Math.abs(descending[descending.length - 1])
+		descending[descending.length - 2] = Math.abs(descending[descending.length - 2])
+		
+		descending = descending.sort(sortNumber).reverse();
+	}
+
+	return descending[0] * descending[1] * descending[2]
 };

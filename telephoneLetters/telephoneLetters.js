@@ -27,3 +27,48 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+var telephoneWords = function(fourDigits){
+  var telephoneLetters = {
+    0 : ['0'],
+    1 : ['1'],
+    2 : ['A', 'B', 'C'],
+    3 : ['D', 'E', 'F'],
+    4 : ['G', 'H', 'I'],
+    5 : ['J', 'K', 'L'],
+    6 : ['M', 'N', 'O'],
+    7 : ['P', 'Q', 'R', 'S'],
+    8 : ['T', 'U', 'V'],
+    9 : ['W', 'X', 'Y', 'Z'],
+  }
+
+  var digits = fourDigits.split('')
+  var results = []
+
+  var generate = function(digitsArr, index){
+    if(index === digitsArr.length){
+      return results
+    }
+
+    var combo = ''
+    for(var i = 0; i < telephoneLetters[digitsArr[index]].length; i++){
+      if(index === 0){
+        combo = telephoneLetters[digitsArr[0]][i] + telephoneLetters[digitsArr[1]][index] + telephoneLetters[digitsArr[2]][index] + telephoneLetters[digitsArr[3]][index]
+        results.push(combo)
+      } else if (index === 1){
+        combo = telephoneLetters[digitsArr[0]][index] + telephoneLetters[digitsArr[1]][i] + telephoneLetters[digitsArr[2]][index] + telephoneLetters[digitsArr[3]][index]
+        results.push(combo)
+      } else if (index === 2){
+        combo = telephoneLetters[digitsArr[0]][index] + telephoneLetters[digitsArr[1]][index] + telephoneLetters[digitsArr[2]][i] + telephoneLetters[digitsArr[3]][index]
+        results.push(combo)
+      } else if (index === 3){
+        combo = (telephoneLetters[digitsArr[0]][index] || telephoneLetters[digitsArr[0]][index-1]) + (telephoneLetters[digitsArr[1]][index] || telephoneLetters[digitsArr[1]][index-1]) + (telephoneLetters[digitsArr[2]][index] || telephoneLetters[digitsArr[2]][index-1]) + telephoneLetters[digitsArr[3]][i]
+        results.push(combo)
+      }
+    }
+    index++
+    return generate(digitsArr, index)
+  }
+
+  return generate(digits, 0)
+}

@@ -16,5 +16,24 @@
   */
 
 var allAnagrams = function(string) {
+	var anagrams = []
+	var length = string.length
 
+	var generateAnagrams = function(array, string, n, anagram){
+		
+		if(anagram.length === length){
+			generateAnagrams(array, string, n+1, '')
+		}
+
+		if(array.length >= Math.pow(length, length)){
+			return array
+		}
+
+		for(var i = 0; i < length; i++){
+			
+		}
+
+		generateAnagrams(array, string, n, anagram)
+	}
+	generateAnagrams(array, string, 0, '')
 };

@@ -12,13 +12,17 @@
  // boundShout = bind(alice.shout, {name: 'bob'});
  // boundShout(); // alerts 'bob'
  //  example 2:
- //  var func = function(a, b){ return a + b };
+ // var func = function(a, b){ return a + b };
  // var boundFunc = bind(func, null, 'foo');
  // var result = boundFunc('bar');
  // result === 'foobar'; // true
 
 
-var bind = function(func, context) {
+var bind = function(func, context, par1) {
+
+	return function(par2){
+		return func.apply(context, [par1, par2])
+	} 
 };
 
  // * Function.prototype.bind:
@@ -46,4 +50,8 @@ var bind = function(func, context) {
 
 
 Function.prototype.bind = function(a, args1, args2) {
+	var context = this;
+	return function(args2){
+		return context.call(a, args1, args2)
+	} 
 };

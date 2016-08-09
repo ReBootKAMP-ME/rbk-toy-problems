@@ -22,4 +22,22 @@
 
 var maximumProfit  = function(array) {
 
+	var profit = function(num1, num2){
+		return num1 < num2 ? (num2 - num1) : 0
+	}
+
+	var maxProfit = 0;
+	for(var i = 0; i < array.length - 1; i++){
+
+		for(var j = i; j < array.length; j++){
+
+			var temp = profit(array[i], array[j])
+
+			if(temp > maxProfit){
+				maxProfit = temp
+			}
+		}
+	}
+
+	return maxProfit
 };
