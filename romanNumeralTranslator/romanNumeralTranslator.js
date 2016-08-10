@@ -39,6 +39,9 @@ var translateRomanNumeral = function(romanNumeral){
 		}else {
 			returnNumber+= DIGIT_VALUES[arr[i]]
 		}
+		if(i === arr.length-2){
+ 			returnNumber += DIGIT_VALUES[arr.length-1];
+ 		}
 	}
 	return returnNumber;
 };
