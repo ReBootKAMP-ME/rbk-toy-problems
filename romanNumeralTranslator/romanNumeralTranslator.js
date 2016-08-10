@@ -26,6 +26,35 @@ var DIGIT_VALUES = {
   M: 1000
 };
 
+//'IV' => ['I','V']
 var translateRomanNumeral = function(romanNumeral){
-
+var romanArray = romanNumeral.split('');
+var numberArray = [];
+var result=0;
+for (var i = 0; i < romanArray.length; i++) {
+	for (var key in DIGIT_VALUES){
+		//console.log(DIGIT_VALUES[key])
+		if (romanArray[i] === key){
+			numberArray.push(DIGIT_VALUES[key])
+		} 
+	}
+}
+console.log(numberArray)
+if (numberArray.length === 1){return numberArray[0]}
+for (var i = 0; i < numberArray.length; i++) {
+	if (numberArray[i+1] === undefined){
+		//result = numberArray[i];
+		return result;
+	} else if (numberArray[i]>=numberArray[i+1]){
+			result = result + (numberArray[i]+numberArray[i+1])
+		} else {
+			result= result +(numberArray[i+1]-numberArray[i])
+		} 
+		}
+	
+return numberArray;
+return result;
 };
+
+
+
