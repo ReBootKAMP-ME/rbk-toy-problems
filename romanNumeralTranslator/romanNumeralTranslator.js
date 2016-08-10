@@ -27,5 +27,26 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral){
-
+	var arrayResult=[];
+	var sum=0;
+	var arrayRoman=["I","V","X","L","C","D","M"];
+	var arrayValue=[1,5,10,50,100,500,1000];
+	for(var i=0;i<romanNumeral.length;i++){
+		if(arrayRoman.indexOf(romanNumeral[i])===-1){
+			return null;
+		}
+		for(var j=0;j<arrayRoman.length;j++){
+			if(romanNumeral[i]===arrayRoman[j]){
+				arrayResult.push(arrayValue[j]);
+			}
+		}
+	}
+	for(var k=0;k<arrayResult.length;k++){
+		if(arrayResult[k+1]!==undefined && arrayResult[k]<arrayResult[k+1]){
+			sum=sum-arrayResult[k];
+		}else{
+			sum=sum+arrayResult[k];
+		}
+	}
+	return sum;
 };
