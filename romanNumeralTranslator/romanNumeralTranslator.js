@@ -30,7 +30,7 @@ var translateRomanNumeral = function(romanNumeral){
 	var returnNumber = 0;
 	var arr = romanNumeral.split('');
 	for (var i = 0; i < arr.length; i++) {
-		if(DIGIT_VALUES[arr[i]] === undefined){
+		if(DIGIT_VALUES[arr[i]] === undefined || !DIGIT_VALUES[arr[i+1]]){
 			return null;
 		}
 		if(DIGIT_VALUES[arr[i]] < DIGIT_VALUES[arr[i+1]]){
