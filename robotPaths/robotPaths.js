@@ -6,7 +6,11 @@
  *  there to the bottom right corner? 
  *  
  *  Be systematic with your approach - make a clear plan before you start writing code.
+<<<<<<< HEAD
  *  
+=======
+ *
+>>>>>>> 2212925fc5c2e83d26f5e5ee71aef5c5fc37d5cf
  *  Extra credit: Make your solution work for a grid of any size.
  *
  */
@@ -34,6 +38,7 @@ var makeBoard = function(n) {
 //var myBoard = makeBoard(5);
 //The answer for a board size 5 is 8512 unique paths
 
+<<<<<<< HEAD
 // just like nQueens except that you can be on the same row more than once
 // or much much more difficult than that
 
@@ -71,4 +76,9 @@ var robotPaths = function() {
 
 
 
+=======
+var robotPaths = function(/*you can pass any parameters you need*/) {
+
+}
+>>>>>>> 2212925fc5c2e83d26f5e5ee71aef5c5fc37d5cf
 
