@@ -35,7 +35,7 @@ var translateRomanNumeral = function(romanNumeral){
 		
 		if(DIGIT_VALUES[numarals[i]] < DIGIT_VALUES[numarals[i+1]]){
 			temp = -DIGIT_VALUES[numarals[i]]
-		} else if (DIGIT_VALUES[numarals[i]] && DIGIT_VALUES[numarals[i+1]] < DIGIT_VALUES[numarals[i+2]]){
+		} else if ((DIGIT_VALUES[numarals[i]] < DIGIT_VALUES[numarals[i+2]]) && (DIGIT_VALUES[numarals[i+1]] < DIGIT_VALUES[numarals[i+2]])){
 			return null
 		} else {
 			temp = DIGIT_VALUES[numarals[i]]
