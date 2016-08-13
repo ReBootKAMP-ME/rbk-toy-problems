@@ -13,11 +13,12 @@ See example usage to understand what arguments are passed to the callback.
 
 Array.prototype.map = function(callback){
   //use native .forEach method to iterate over array
-  for(var i=0; i<this.length; i++){
-  	this[i] = callback(this[i],[i],this);
-  }
-  return this;
-}
+  var newArr = [];
+  this.forEach(function(element, index, array){
+    newArr.push(callback(element, index, array));
+  });
+  return newArr;
+};
 
 /*
 Example usage:
