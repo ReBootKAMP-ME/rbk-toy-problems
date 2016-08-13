@@ -11,8 +11,25 @@ of calling the callback function.
 See example usage to understand what arguments are passed to the callback.
 */
 
+
 Array.prototype.map = function(callback){
-  //use native .forEach method to iterate over array
+	var array = this.map
+  	function each(array, collback) {
+	  	if (Array.isArray(array)) {
+	    	for (var i = 0; i < array.length; i++) {
+	      		callback(array[i], i);
+	    	}
+	  	} 
+	}
+
+	function map(array, callback) {
+  		var acc = [];
+  		each(array, function(element, key) {
+    		acc[key] = callback(element, key);
+  		});
+  		return acc;
+	}
+	map(array, callback)
 }
 
 /*
@@ -39,7 +56,14 @@ Please see example usage to understand what should be passed to the callback.
 */
 
 var asyncSum = function(a,b,callback){
-
+	var result ;
+	if(typeof(a)!=='number' || typeof(b)!=='number'){
+		result = 'Incorrect argument(s)';
+		callback(result)
+	}else {
+		result = a+b;
+		callback(null,result)
+	}
 };
 
 /*
@@ -62,7 +86,7 @@ asyncSum(10,"B",logNumber);//should print "Error: Incorrect argument(s)" after 1
 Problem 3 (ADVANCED):
 
 What kind of candy do you like?
-Your answer:
+Your answer: gummy candy
 
 */
 
