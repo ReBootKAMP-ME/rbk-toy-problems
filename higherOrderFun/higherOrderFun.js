@@ -13,6 +13,13 @@ See example usage to understand what arguments are passed to the callback.
 
 Array.prototype.map = function(callback){
   //use native .forEach method to iterate over array
+  var array = []
+
+  this.forEach(function(entry, index, arr){
+  	array.push(callback(entry, index, arr))
+  })
+
+  return array
 }
 
 /*
@@ -40,6 +47,14 @@ Please see example usage to understand what should be passed to the callback.
 
 var asyncSum = function(a,b,callback){
 
+	setTimeout(function(error, number){
+		if(typeof (a && b) !== 'number'){
+			callback("Incorrect argument(s)", number)
+		} else {
+			callback(error, a + b)
+		}
+	}, 1000)
+
 };
 
 /*
@@ -62,7 +77,7 @@ asyncSum(10,"B",logNumber);//should print "Error: Incorrect argument(s)" after 1
 Problem 3 (ADVANCED):
 
 What kind of candy do you like?
-Your answer:
+Your answer: sour candy
 
 */
 
