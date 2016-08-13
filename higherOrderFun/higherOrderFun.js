@@ -14,8 +14,8 @@ See example usage to understand what arguments are passed to the callback.
 Array.prototype.map = function(callback){
   //use native .forEach method to iterate over array
   var results=[];
-  this.forEach(function(ele,index){
-  	results.push(callback.call(index));
+  this.forEach(function(elem,index,array){
+  	results.push(callback(elem,index,array));
   })
   return results;
 }
@@ -44,12 +44,15 @@ Please see example usage to understand what should be passed to the callback.
 */
 
 var asyncSum = function(a,b,callback){
-	if(typeof a === 'number' && typeof b === 'number'){
-		var sum=a+b;
-		return callback.call(sum);
-	}else{
-		return callback.call("incorrect argument");
-	}
+  setTimeout(function(){
+    if(typeof a === 'number' && typeof b === 'number'){
+    var sum=a+b;
+    callback(null,sum);
+  }else{
+    callback("incorrect argument",null);
+  }
+},1000)
+	
 };
 
 /*
