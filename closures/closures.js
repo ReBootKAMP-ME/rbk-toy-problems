@@ -41,6 +41,24 @@ myGame.myLevel(); //should return "You need to improve your game"
 */
 
 var pingPongTracker = function(){
-
+	return {
+		_totalPlayTime: 0,
+		playOneGame: function () {
+			this._totalPlayTime += 15;
+			return "Game Played";
+		},
+		myLevel: function () {
+			if (this._totalPlayTime < 30) {
+				return "I need to improve my game";
+			} else if (this._totalPlayTime <= 100) {
+				return "You need to improve your game";
+			} else {
+				return "Wow, I have wasted a lot of time"
+			}
+		},
+		timeSpentPlaying: function () {
+			return this._totalPlayTime;
+		}
+	}
 };
 
