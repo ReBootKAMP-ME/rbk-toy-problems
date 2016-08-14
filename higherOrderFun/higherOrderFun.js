@@ -13,12 +13,15 @@ See example usage to understand what arguments are passed to the callback.
 
 Array.prototype.map = function(callback){
   //use native .forEach method to iterate over array
+<<<<<<< HEAD
   var array = [];
   var tempArray = this;
   this.forEach(function(element,index){
   	array.push(callback(element,index,tempArray));
   });
   return array;
+=======
+>>>>>>> 2ff62556baac658486eab6e9f35544dbce82a3fa
 }
 
 /*
@@ -45,6 +48,7 @@ Please see example usage to understand what should be passed to the callback.
 */
 
 var asyncSum = function(a,b,callback){
+<<<<<<< HEAD
 	if(typeof a !== 'number' || typeof b !== 'number'){
 		setTimeout(function(){
 			callback('Incorrect arguments(s)',null);
@@ -55,6 +59,9 @@ var asyncSum = function(a,b,callback){
 			callback(null, total);
 		},1000)
 	}
+=======
+
+>>>>>>> 2ff62556baac658486eab6e9f35544dbce82a3fa
 };
 
 /*
@@ -78,7 +85,11 @@ Problem 3 (ADVANCED):
 
 What kind of candy do you like?
 Your answer:
+<<<<<<< HEAD
  I like Dates more than candies , they are also sweet :D
+=======
+
+>>>>>>> 2ff62556baac658486eab6e9f35544dbce82a3fa
 */
 
 
