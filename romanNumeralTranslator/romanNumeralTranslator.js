@@ -27,5 +27,21 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral){
-
+	var returnNumber = 0;
+	var arr = romanNumeral.split('');
+	for (var i = 0; i < arr.length; i++) {
+		if(DIGIT_VALUES[arr[i]] === undefined || !DIGIT_VALUES[arr[i+1]]){
+			return null;
+		}
+		if(DIGIT_VALUES[arr[i]] < DIGIT_VALUES[arr[i+1]]){
+			returnNumber+= DIGIT_VALUES[arr[i+1]] - DIGIT_VALUES[arr[i]]
+			i++;
+		}else {
+			returnNumber+= DIGIT_VALUES[arr[i]]
+		}
+		if(i === arr.length-2){
+ 			returnNumber += DIGIT_VALUES[arr.length-1];
+ 		}
+	}
+	return returnNumber;
 };

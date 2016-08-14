@@ -112,6 +112,7 @@ var postData = function(message, username) {
             'text': message
           }),
     success: function(data){
+      getData();
       console.log("Success!", data);
     },
     error: function(data){
@@ -122,7 +123,7 @@ var postData = function(message, username) {
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
 
-getData();
+setInterval(function(){getData()}, 2000);
 
 
 
@@ -133,4 +134,7 @@ $('.submit').on('submit', function(event) {
   $('.title').text('Chat with JSON');
 
   postData($('.userInput').val(), username);
+  $('.userInput').val('');
+  $('.usernameInput').val('');
+
 });

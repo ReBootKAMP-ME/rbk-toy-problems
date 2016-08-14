@@ -19,6 +19,7 @@
 
 
 var bind = function(func, context) {
+	return function(){func.call(context)}
 };
 
  // * Function.prototype.bind:
@@ -45,5 +46,13 @@ var bind = function(func, context) {
  // *
 
 
-Function.prototype.bind = function(a, args1, args2) {
+Function.prototype.bind = function(a) {
+	context = this;
+	args = [].slice.call(arguments)
+	args.shift();
+	return function(){
+		args2 = [].slice.call(arguments)
+		args = args.concat(args2);
+		return context.apply(null, args)
+	}
 };

@@ -11,6 +11,47 @@
  */
 
 //Works for any number of input strings:
-var commonCharacters = function(string1, string2) {
-  
+//first attempt
+var commonCharacters = function(masterString) {
+	var returnString = "";	
+	for (var i = 1; i < arguments.length; i++) {
+		returnString =  commonHelper(masterString, arguments[i], returnString);
+	}
+  	return returnString;
+};
+var commonCharactersHelper = function(masterString, string2, returnString) {
+	    for(var i = 0; i < returnString.length; i++){
+			if(string2.indexOf(returnString[i]) === -1){
+				returnString = returnString.split('');
+				returnString.splice(i,1);
+				returnString = returnString.join('');
+			}
+		}
+		for(var i = 0; i < masterString.length; i++){
+			if(string2.indexOf(masterString[i]) !== -1 && returnString.indexOf(masterString[i] === -1 && masterString[i] !== ' ' && string2.indexOf(returnString[i]) >= 0)){
+				returnString = returnString + masterString[i];
+			}
+		}
+
+		
+		return returnString;
+	}
+
+//second attempt
+var commonCharacter = function (char, string) {
+		if(string.indexOf(char) === -1)
+			return false;
+		return true;
+	}
+var commonCharacters = function(masterString) {
+	var returnString = "";	
+	for (var i = 0; i < masterString.length; i++) {
+		for (var j = 1; j < arguments.length; j++) {
+			 if(commonCharacter(masterString[i], arguments[i])){
+			 	returnString = returnString + masterString[i];
+			 }
+		}
+	}
+	
+  	return returnString;
 };

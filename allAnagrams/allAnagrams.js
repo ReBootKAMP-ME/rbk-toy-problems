@@ -16,5 +16,22 @@
   */
 
 var allAnagrams = function(string) {
-
+	var returnArray = [] 
+	var helperFunction = function ( s, arr ) {
+		if(arr.length === s.length){
+			returnArray.push(arr.join(''));
+			return;
+		}
+		arr.push(s)
+		return helperFunction(s, arr);
+	}
+	for (var i = 0; i < string.length; i++) {
+		helperFunction(string[i], []);
+	}
+	return returnArray;
 };
+
+
+
+
+

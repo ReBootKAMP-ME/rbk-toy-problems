@@ -29,6 +29,24 @@
 
 // Feel free to add helper functions if needed
 
+<<<<<<< HEAD
+var bubbleSort = function(array) {
+	for(var i =0; i < array.length; i++){
+		for(var j = 0; j < array.length-1; j++){
+			if(array[j] > array[i]){
+				var s = array[i];
+				array[i] = array[j];
+				array[j] = s;
+			}
+		}
+	}	
+	return array;
+};
+
+
+
+
+=======
 /*
 procedure bubbleSort( A : list of sortable items )
     n = length(A)
@@ -69,3 +87,4 @@ bubbleSort(a);
 console.log(a);
 
 // Remember to look here http://visualgo.net/sorting
+>>>>>>> 887eeab433fb4932a3de88094dc9e48d73647ee5

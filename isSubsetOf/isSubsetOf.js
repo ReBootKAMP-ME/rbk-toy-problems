@@ -23,4 +23,17 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
+	for (var i = 0; i < this.length; i++) {
+		if (typeof this[i] === "object") {
+			if(JSON.stringify(arr).indexOf(JSON.stringify(this[i])) === -1){
+				return false;
+			}
+		}else{
+			if(arr.indexOf(this[i]) === -1){
+				return false;
+			}
+		}
+
+	}
+	return true;
 }

@@ -21,5 +21,30 @@
 // Feel free to add helper functions if needed
 
 var maximumProfit  = function(array) {
-
+	var result = 0;
+	var maxProfit = array[array.length-1];
+	var maxProfitIndex = array.length-1;
+	for (var i = array.length - 2; i >= 0; i--) {
+		if(array[i] > maxProfit){
+			maxProfit = array[i]
+			maxProfitIndex = i;
+		}else {
+			break;
+		}
+	}
+	if(maxProfitIndex !== 0){
+		var minimumProfit = min(array, maxProfit, maxProfitIndex);
+		result = maxProfit - minimumProfit;
+	}
+	return result;
 };
+var min = function(array, maxProfit, maxProfitIndex){
+	var min = array[maxProfitIndex-1];
+	for (var i = maxProfitIndex-2; i >= 0; i--) {
+		if(array[i] < min){
+			min = array[i];
+		}
+	}
+	return min;
+}
+

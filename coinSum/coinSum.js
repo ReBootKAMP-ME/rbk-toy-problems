@@ -14,6 +14,8 @@ coinCombination(200p) //-> 73682
 */
 
 var coinCombination = function(totalAmount){
+	var coins = [1, 2, 5, 10, 50, 100, 200];
 	var totalNumberOfCombinations = 0;
 	return totalNumberOfCombinations
 }
+
