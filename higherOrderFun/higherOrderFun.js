@@ -13,7 +13,13 @@ See example usage to understand what arguments are passed to the callback.
 
 Array.prototype.map = function(callback){
   //use native .forEach method to iterate over array
+  var result = [];
+  [].forEach(this,function(element,index){
+  	result.push(callback(element,index));
+  });
+  return result;
 }
+
 
 /*
 Example usage:
@@ -27,6 +33,7 @@ var transform = function(element,index,array){
 
 /*
 Problem 2:
+
 
 Write an asynchronous sum function that accepts two numbers and a callback.
 The function should wait 1 second, then calculate the sum of two numbers
