@@ -15,7 +15,14 @@ cube(3);//should return 27
 */
 
 function pow(exponent) {
+	var mul = 1;
 
+	return function(number){
+		for(var i = 0; i < exponent; i++){
+			mul *= number
+		}
+		return mul
+	}
 };
 
 /*
@@ -39,6 +46,28 @@ myGame.myLevel(); //should return "You need to improve your game"
 */
 
 var pingPongTracker = function(){
+	var obj = {}
+	obj.time = 0
 
+	obj.timeSpentPlaying = function(){
+		return obj.time
+	}
+
+	obj.playOneGame = function(){
+		obj.time += 15
+		return "Game played"
+	}
+
+	obj.myLevel = function(){
+		if(obj.time < 30){
+			return "I need to improve my game"
+		} else if (obj.time >= 30 && obj.time <= 100){
+			return "You need to improve your game"
+		} else if (obj.time > 100){
+			return "Wow, I have wasted a lot of time"
+		}
+	}
+
+	return obj
 };
 
