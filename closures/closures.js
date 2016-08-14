@@ -15,7 +15,9 @@ cube(3);//should return 27
 */
 
 function pow(exponent) {
-
+	return function (num) {
+		return Math.pow(num, exponent)
+	}
 };
 
 /*
