@@ -15,7 +15,9 @@ cube(3);//should return 27
 */
 
 function pow(exponent) {
-
+	return function(num) {
+		return Math.pow(num, exponent);
+	};
 };
 
 /*
@@ -39,6 +41,26 @@ myGame.myLevel(); //should return "You need to improve your game"
 */
 
 var pingPongTracker = function(){
+	var totalTime = 0;
+	return {
+		timeSpentPlaying: function() {
+			return totalTime;
+		},
 
+		playOneGame: function() {
+			totalTime += 15;
+			return 'Game Played';
+		},
+
+		myLevel: function() {
+			if (totalTime < 30){
+				return 'I need to improve my game';
+			} else if (totalTime >= 30 && totalTime <=100){
+				return 'You need to improve your game';
+			} else {
+				return 'Wow, I have wasted a lot of time';
+			}
+		}
+	};
 };
 
