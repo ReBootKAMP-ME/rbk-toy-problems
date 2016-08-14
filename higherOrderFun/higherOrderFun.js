@@ -78,7 +78,7 @@ Problem 3 (ADVANCED):
 
 What kind of candy do you like?
 Your answer:
-
+ I like Dates more than candies , they are also sweet :D
 */
 
 
