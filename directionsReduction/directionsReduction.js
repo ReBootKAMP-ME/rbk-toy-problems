@@ -25,9 +25,31 @@ More examples:
 
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST"]
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
+
+walk through the array, if any item is preceeded by its opposite, then remove both, 
+reset from begining, then do the same, until no more removes were done
+
 */
 
 var dirReduc = function(directions){
+	var i = 0;
+	var l = directions.length;
+	var opposites = {
+		'NORTH': 'SOUTH',
+		'SOUTH': 'NORTH',
+		'EAST': 'WEST',
+		'WEST': 'EAST'
+	};
 
+	while (i < l) {
+		if (directions [i] === opposites [directions[i+1]]) {
+			directions.splice(i,2);
+			i = 0;
+			l = l - 2;
+		} else {
+			i++;
+		}
+	}
+	return directions
 };
 
