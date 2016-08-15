@@ -28,6 +28,10 @@ dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't nee
 */
 
 var dirReduc = function(directions){
-
+	if (directions[0] === directions[directions.length-1]){
+		return "don't need to move at all";
+	}else{
+		return [directions[directions.length-1]];
+	}
 };
 
