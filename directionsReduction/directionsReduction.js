@@ -26,8 +26,31 @@ More examples:
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST"]
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
 */
-
+//thats the right solution ever , but I dont know why its not working :/
+//try it on white board plz
 var dirReduc = function(directions){
+	var initLoc = 0;
+	
+	for (var i = 0; i < directions.length; i++) {
+		if(directions[i]==="NORTH"){
+			var dir=2
+		}
+		if(directions[i]==="SOUTH"){
+			var dir=-2
+		}
+		if(directions[i]==="EAST"){
+			var dir=1
+		}
+		if(directions[i]==="WEST"){
+			var dir=-1
+		}
 
+		initLoc = initLoc + dir;
+		console.log(initLoc)
+		if(initLoc === 0){
+			directions.splice(0,i)
+		}
+	}
+	return directions;
 };
 
