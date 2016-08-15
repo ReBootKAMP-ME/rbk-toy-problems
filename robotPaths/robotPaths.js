@@ -27,6 +27,18 @@ var makeBoard = function(n) {
   board.hasBeenVisited = function(i, j) {
     return !!this[i][j];
   }
+  board.goLeft = function (i ,j){
+  	return this[i][j-1]
+  }
+  board.goRight = function (i ,j){
+  	return this[i][j+1]
+  }
+  board.goUp = function (i, j){
+  	return this[i-1][j];
+  }
+  board.goDown = function (i, j){
+  	return this[i+1][j];
+  }
   return board;
 };
 
@@ -34,7 +46,20 @@ var makeBoard = function(n) {
 //var myBoard = makeBoard(5);
 //The answer for a board size 5 is 8512 unique paths
 
-var robotPaths = function(/*you can pass any parameters you need*/) {
-
+var robotPaths = function(board,i,j) {
+	// it should check if the piece is true then try to go left or right or down or up
+	// unfortunatliy i was unable to figure out a way to do so
+	var counter=0;
+	for (var i = 0; i < board.length; i++) {
+		for (var j = 0; j < board[i].length; j++) {
+			if(!board[i][j]){
+				board.togglePiece(i,j)
+				counter++;
+			}else{
+				return robotPaths(board, i, j)
+			}
+		}
+	}
+	return counter;
 }
 

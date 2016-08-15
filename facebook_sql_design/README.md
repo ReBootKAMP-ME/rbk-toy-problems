@@ -10,3 +10,4 @@ Comment has one User
 Like has one User and one Post
 
 * [ ] Optional question for your brain: User to User has Friendship.
+

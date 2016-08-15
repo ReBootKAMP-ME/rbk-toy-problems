@@ -27,5 +27,15 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral){
-
+	var result = 0;
+	for (var i = 0; i < romanNumeral.length; i++) {
+		if (DIGIT_VALUES[romanNumeral[i]]< DIGIT_VALUES[romanNumeral[i+1]]) {
+			var num = DIGIT_VALUES[romanNumeral[i+1]] - DIGIT_VALUES[romanNumeral[i]];
+			result += num;
+			i++;
+		}else{	
+		result += DIGIT_VALUES[romanNumeral[i]];
+		}
+	}
+	return result;
 };

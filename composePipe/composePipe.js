@@ -36,10 +36,22 @@
 
 'use strict';
 
-var compose = function(){
-
+var compose = function(func1,func2){
+	var args = Array.prototype.slice.call(arguments);
+		return function(statement){
+			for (var i = args.length - 1; i >= 0; i--) {
+				statement = args[i].call(this,statement);
+			}
+			return statement;
+		}
 };
 
 var pipe = function(){
-
+	var args = Array.prototype.slice.call(arguments);
+	return function (statement) {
+		for (var i = 0; i < args.length; i++) {
+			statement = args[i].call(this,statement)
+		}
+		return statement;
+	}
 };
