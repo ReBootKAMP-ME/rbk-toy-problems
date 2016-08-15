@@ -28,6 +28,33 @@ dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't nee
 */
 
 var dirReduc = function(directions){
+	var helper = function (arr) {
+		var flag = true;
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i] === "NORTH" && arr[i+1] === "SOUTH"){
+				flag = false;
+				arr.splice(i,2);
+				break;
+			}
+			if(arr[i] === "SOUTH" && arr[i+1] === "NORTH"){
+				flag = false;
+				arr.splice(i,2);
+				break;
+			}
+			if(arr[i] === "EAST" && arr[i+1] === "WEST"){
+				flag = false;
+				arr.splice(i,2);
+				break;
+			}
+			if(arr[i] === "WEST" && arr[i+1] === "EAST"){
+				flag = false;
+				arr.splice(i,2);
+				break;
+			}
+		}
 
+		return flag ? arr : helper(arr);
+	}
+	return helper(directions)
 };
 
