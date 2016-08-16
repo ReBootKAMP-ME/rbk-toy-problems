@@ -16,7 +16,7 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
-
+	
 };
 
 //What is the time complexity of your solution?
