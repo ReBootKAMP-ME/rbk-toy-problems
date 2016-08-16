@@ -17,10 +17,23 @@ Try to optimize your solution for time complexity.
 
 function scramble(str1,str2){
 
+	if(str1.length < str2.length){
+		return false
+	}
+
+	for(var i = 0; i < str2.length; i++){
+
+		if(str1.indexOf(str2[i]) === -1){
+			return false
+		}
+		
+	}
+
+	return true
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n^2)';
 
 
 /*
