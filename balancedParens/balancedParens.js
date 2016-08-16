@@ -23,7 +23,81 @@
  *
  *
  */
+ // function sumElement (arr){
+ // 	var sum=0;
+ //   for (var i=0;i<arr.length;i++){
+ //       sum=sum+arr[i];
+ //   }
+ //   return sum;
+ // }
+ // var balancedParens = function (input) {
+ //   // write your code hre
+ //   var  obj={};
+ //   var arrayOfIndex=[];
+ //   var array2=[];
+ //   for (var i=0; i<input.length;i++){
+ //   	 if(input[i]==="("){
+ //   	 	arrayOfIndex.push(i);
+ //   	 	obj["("]=arrayOfIndex;
+ //   	 }
+ //   	 if (input[i]===")"){
+ //   	 	array2.push(i);
+ //   	 	obj[")"]=array2;
+ //   	 }
+ //   }
+ //   if (arrayOfIndex.length!==array2.length){
+ //   	 return false;
+ //   }
+ //   else{
+ //      if(sumElement(arrayOfIndex)<sumElement(array2))
+ //      	return true;
+ //      else
+ //      	return false;
+       
+ //   }
+ //  // return obj;
+ // };
 
- var balancedParens = function (input) {
+
+ ////////   this try to solve another bruckets
+ function sumElement (arr){
+ 	var sum=0;
+   for (var i=0;i<arr.length;i++){
+       sum=sum+arr[i];
+   }
+   return sum;
+ }
+ var balancedParensHelper = function (input,p1,p2) {
    // write your code hre
+   var  obj={};
+   var arrayOfIndex=[];
+   var array2=[];
+   for (var i=0; i<input.length;i++){
+   	 if(input[i]===p1){
+   	 	arrayOfIndex.push(i);
+   	 	obj[p1]=arrayOfIndex;
+   	 }
+   	 if (input[i]===p2){
+   	 	array2.push(i);
+   	 	obj[p2]=array2;
+   	 }
+   }
+   if (arrayOfIndex.length!==array2.length){
+   	 return false;
+   }
+   else{
+      if(sumElement(arrayOfIndex)<sumElement(array2))
+      	return true;
+      else
+      	return false;
+       
+   }
+  // return obj;
  };
+
+var balancedParens=function(input){
+	if (balancedParensHelper(input,"(",")") || balancedParensHelper(input,"{","}") || balancedParensHelper(input,"[","]"))
+		return true ;
+	else 
+		return false;
+}

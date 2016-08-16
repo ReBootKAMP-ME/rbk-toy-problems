@@ -5,7 +5,7 @@
 *
 * 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 * 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
-* 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
+	5
 * 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
 * 22 31 16 71 51 67 63 89 41 92 36 54 22 40 40 28 66 33 13 80
 * 24 47 32 60 99 03 45 02 44 75 33 53 78 36 84 20 35 17 12 50
@@ -35,8 +35,59 @@
 *
 */
 
+var bubbleSort = function(array) {
+	for (var i=0;i<array.length;i++){
+		for (var j=0;j<array.length;j++){
+		   if (array[j]<array[j+1]){
+		   	var temp=array[j];
+		   	array[j]=array[j+1];
+		   	array[j+1]=temp;
+		   }
+		}
+	}
+   return array;
+};
+var largestProductOfFourHelper = function(array) {
+var newArr=bubbleSort(array);
+console.log(newArr);
+var product=newArr[0]*newArr[1]*newArr[2]*newArr[3];
+return product;
 
+};
 var largestProductOfFour = function(array) {
+//// algorithm depend on :
+///define newArray for pushing every result  
+// check every row for largest fourn number and push product of them in newArr
+///check every column for largest fourn number and push product of them in newArr
+//// ckeck every major diagonal for largest fourn number and push product of them in newArr
+///check every inverse diagonal  for largest fourn number and push product of them in newArr
+/// outPut of function  is the largest number in  newArray
+///********////
+var newArray=[];
+/////check row 
+for (var i=0;i<array.length;i++){
+    var copy=array[i].slice();
+    var productRow=largestProductOfFourHelper(copy);
+     newArray.push(productRow);
+}
+///////check column 
+//// make array of every column 
+//// find the largest product for this new array
+
+
+var arrayColumn=[];
+ for (var i=0;i<array.length;i++){
+ 	for (var j=i;j<array.length;j++){
+ 		arrayColumn.push(array[i][j]);
+ 	}
+  var productColum=largestProductOfFourHelper(arrayColumn);
+  newArray.push(productColum);
+ }
+
+////////check major diagonal
+
+
+
 };
 
 

@@ -27,5 +27,33 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral){
+  var number=0;
+  var rn=romanNumeral;
+  var array=[];
+  var b=false;
+  for (var i=0;i<rn.length;i++){
+  	for (var key in DIGIT_VALUES){
+  		if(rn[i]===key){
+  			array.push(DIGIT_VALUES[key])
 
+  		}
+  	}
+  }
+  for (var i=0;i<array.length;i++){
+  	if (array[i]>=array[i+1]){
+  		number=number+array[i];
+  		b=true;
+
+  	}
+  	else if (array[i]<array[i+1]){
+  		console.log(number)
+  		number=number+(array[i+1]-array[i]);
+  	}
+  }
+  if (b){
+  number=number+array[array.length-1];
+  	
+  }
+  console.log (array);
+  return number;
 };

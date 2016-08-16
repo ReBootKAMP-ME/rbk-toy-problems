@@ -35,6 +35,29 @@ var makeBoard = function(n) {
 //The answer for a board size 5 is 8512 unique paths
 
 var robotPaths = function(/*you can pass any parameters you need*/) {
-
+  /// first  iteration even reach spot (4,4)
+  //   second iteration throw rows , check new path for every cell (column in evry row)
+  // when  reaching to (4,4)  i get path , then i try another
+/********************************/
+///// first loop
+var board=makeBoard(5);
+var i=0;
+var j=0;
+var solution=0;
+while (i!=4 && j!=4){
+  for (var row=0;row<board.length;row++){
+    for (var column=1;column<board.length;column++){
+    board.togglePiece(row,j);
+    if (!board.hasBeenVisited(row,j+1)){
+        /// recrecursion with some updates to function 
+    }
+      
+    }
+  solution++
+  }
+i++;
+j++;
+}
+return solution;
 }
 

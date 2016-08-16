@@ -27,3 +27,37 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+ var telephoneWords=function(str){
+     var array=[['0','0','0','0'],['1','1','1','1'],['2','a','b','c'],['3','d','e','f']
+               ,['4','g','h','i'],['5','j','k','l'],['6','m','n','o'],['7','p','q','r','s'],
+               ['8','t','u','v'],['9','w','x','y','z']];
+     var word="";
+     var wordsArray=[];
+     var c=1
+     while (c<=3){
+      for (var i=0; i<str.length;i++){
+        for(var j=0;j<array.length;j++){
+          if (array[j][0]===str[i]){
+
+           
+             word=word+array[j][c];
+          }
+        }
+
+
+      }
+
+  wordsArray.push(word);
+  c++;
+  word="";
+
+     }
+      
+ return wordsArray;
+
+ }
+
+
+
+ 

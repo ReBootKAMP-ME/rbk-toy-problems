@@ -25,5 +25,18 @@ buildTriangle(3);// should output [[1],[1,1],[1,2,1]];
 */
 
 var buildTriangle = function(numOfRows){
+  var pascalTriangle = [[1]];
+  var array=[];
+
+  for (var i=0;i<numOfRows-1;i++) {
+    array=[1];
+    for (var j=1;j<pascalTriangle[i].length;j++) {
+      array[j]=pascalTriangle[i][j]+pascalTriangle[i][j-1];
+    }
+    array.push(1);
+    pascalTriangle.push(array);
+  }
+
+  return pascalTriangle;
 
 }

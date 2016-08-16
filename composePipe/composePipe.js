@@ -36,7 +36,21 @@
 
 'use strict';
 
-var compose = function(){
+var compose = function(f1,f2){
+  ///i dont understand toyproblem
+  // console.log(arguments);
+  //  for (var i=0;i<arguments.length;i++){
+  //     arguments[i].call(arguments[i+1])
+  //  }
+  //  return function(){
+     
+
+  // }
+    
+  // return function(){
+
+  // }
+
 
 };
 

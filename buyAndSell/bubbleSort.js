@@ -19,7 +19,45 @@
 */
 
 // Feel free to add helper functions if needed
+function Max(array){
+	var max=array[0];
+	 for (var i=1;i<array.length;i++){
+	 	if (array[i]>max){
+	 		max=array[i];
+	 	}
+	 }
+	 return max;
+}
+
+function Min(array){
+	var min=array[0];
+	 for (var i=1;i<array.length;i++){
+	 	if (array[i]<min){
+	 		min=array[i];
+	 	}
+	 }
+	 return min;
+}
 
 var maximumProfit  = function(array) {
+	 var max=Max(array);
+	 var min=Min(array);
+	 console.log(min,max);
+	 var profit=0;
+	 if (array.indexOf(max)===0){
+         profit=0;
+	 }
+	 else{
+	 	if (array.indexOf(min)<array.indexOf(max)){
+	 		profit=max-min;
+	 	}
+	 	else {
+	 		var newArray=array.splice(array.indexOf(max));
+	 		var newMin=Min(newArray);
+	 		console.log(newMin);
+	 		profit=max-newMin;
+	 	}
+	 }
 
+ return profit;
 };

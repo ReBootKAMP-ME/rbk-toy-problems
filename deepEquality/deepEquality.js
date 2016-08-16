@@ -12,4 +12,33 @@
   *
   */
 var deepEquals = function(obj1, obj2){
+  var array =Object.keys(obj2);
+  var i=0;
+  /////check keys 
+     for (var key1 in obj1){
+        if (key1!==array[i]){
+          console.log(key1,array[i]);
+          return false;
+      
+      }
+      i=i+1;
+     }
+   //////check values 
+   i=0;
+
+   for (var key1 in obj1){
+   if (typeof obj1[key1]!=="object"){
+       if (obj1[key1]!==obj2[array[i]]){
+        console.log(key1,obj1[key1],array[i],obj2[array[i]])
+        return false;
+       }
+   }
+   else {
+    deepEquals(obj1[key1],array[i])
+   }
+       i=i+1;
+     }
+     return true;
+   
+
 };
