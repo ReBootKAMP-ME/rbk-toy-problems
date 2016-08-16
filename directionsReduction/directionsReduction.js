@@ -26,6 +26,7 @@ More examples:
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST"]
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
 */
+<<<<<<< HEAD
 var dirReduc = function(directions){
 	var ways = {
 		NORTH : 0 , 
@@ -50,5 +51,10 @@ var dirReduc = function(directions){
 		newDirection.push('WEST');
 	}
 	return newDirection;
+=======
+
+var dirReduc = function(directions){
+
+>>>>>>> 6e64afed3eb2aceeb050313b8dab27c0898709ab
 };
 
