@@ -16,7 +16,19 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
-
+	var result=true;
+	var array=str1.split("");
+	for(var i=0;i<str2.length;i++){
+		if(array.indexOf(str2[i])===-1){
+			return false;
+		}else{
+			console.log("else")
+			console.log(array)
+			array.splice(array.indexOf(str2[i]),1);
+		}
+	}
+	console.log(array)
+	return result;
 };
 
 //What is the time complexity of your solution?
@@ -50,8 +62,24 @@ arr.splice(2,2,7);//should return [3,4] - the elements that were removed
 console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
-Array.prototype.splice = function(from,count){
-
+Array.prototype.splice = function(from,count,insert){
+	var result=[];
+	var arrayThis=this;
+	for(var i=0;i<this.length;i++){
+		this.pop();
+	}
+	for (var j=0;j<arrayThis.length;j++){
+		if(j===from || (j>from && j<from+count)){
+			result.push(arrayThis[j]);
+			if(j===from+count-1 && insert !== undefined){
+				arrayThis.push(insert);
+			}
+		}
+	}
+	for(var k=0;k<arrayThis.length;k++){
+		this.push(arrayThis[k]);
+	}
+	return result;
 }
 
 
