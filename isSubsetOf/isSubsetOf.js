@@ -23,4 +23,13 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
+	var flag = true;
+	var JSONedArray = [];
+	for(var i=0; i<arr.length; i++){
+		JSONedArray.push(JSON.stringify(arr[i]));
+	}
+	for(var i=0; i<this.length; i++){
+		flag = flag && (JSONedArray.indexOf(JSON.stringify(this[i])) !== -1);
+	}
+	return flag;
 }

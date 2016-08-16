@@ -26,8 +26,37 @@ More examples:
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST"]
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
 */
+var checkOpposite = function(value1, value2){
+	if(value1 === 'SOUTH' && value2 === 'NORTH'){
+		return true;
+	}
+	if(value1 === 'NORTH' && value2 === 'SOUTH'){
+		return true;
+	}
+	if(value1 === 'EAST' && value2 === 'WEST'){
+		return true;
+	}
+	if(value1 === 'WEST' && value2 === 'EAST'){
+		return true;
+	}
+	return false;
+};
 
 var dirReduc = function(directions){
-
+	var myArr = directions.slice();	
+	for(var i=0; i<myArr.length-1; i++){
+		var enterFlag = false;
+		for(var j=0; j<myArr.length-1; j++){
+			if(checkOpposite(myArr[j], myArr[j+1])){
+				enterFlag = true;
+				myArr.splice(j,2);
+				j -= 2;
+			}
+		}
+		if(enterFlag){
+			break;
+		}
+	}
+	return myArr;
 };
 

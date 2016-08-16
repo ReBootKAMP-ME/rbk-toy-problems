@@ -21,5 +21,15 @@
 // Feel free to add helper functions if needed
 
 var maximumProfit  = function(array) {
+	var maxProfit = 0;
 
+	for(var i=0; i<array.length; i++){
+		for(var j=i+1; j<array.length; j++){
+			if( (array[j]-array[i]) > maxProfit){
+				maxProfit = array[j]-array[i];
+			}
+		}
+	}
+
+	return maxProfit;
 };

@@ -113,6 +113,9 @@ var postData = function(message, username) {
           }),
     success: function(data){
       console.log("Success!", data);
+
+      //Checking for new messages as soon as submiting a new message
+      getData();
     },
     error: function(data){
       console.log(data);
@@ -122,7 +125,7 @@ var postData = function(message, username) {
 
 //-------------- END VARIABLE/FUNCTION DECLARATIONS ---------------------
 
-getData();
+setInterval( ()=> {getData();} , 2000 );
 
 
 
@@ -133,4 +136,7 @@ $('.submit').on('submit', function(event) {
   $('.title').text('Chat with JSON');
 
   postData($('.userInput').val(), username);
+
+  $('#userName').val('');
+  $('#userInput').val('');
 });

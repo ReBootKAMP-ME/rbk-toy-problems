@@ -16,11 +16,28 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
+	var flag = false;
 
+	var recursiveFunc = function(accum, remainingValues){
+		if(accum === str2){
+			return true;
+		}
+		if(remainingValues.length === 0){
+			return false;
+		}
+		for(var i=0; i<remainingValues.length; i++){
+			var newArr = remainingValues.slice();
+			var value = newArr.splice(i,1);
+			flag = flag || recursiveFunc(accum + value, newArr);
+		}
+		return flag;
+	};
+
+	return recursiveFunc('',str1.split(''));
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n^2)';
 
 
 /*
@@ -50,8 +67,30 @@ arr.splice(2,2,7);//should return [3,4] - the elements that were removed
 console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
-Array.prototype.splice = function(from,count){
-
+Array.prototype.splice = function(fromIndex,count){
+	var newArr = [];
+	var originalArr = [];
+	for(var i=0; i<this.length; i++){
+		if( i >= fromIndex && i < fromIndex+count ){
+			newArr.push(this[i]);
+		} else {
+			if(i === fromIndex+count){
+				var args = Array.prototype.slice.call(arguments, 2);
+				for(var j=0; j<args.length; j++){
+					originalArr.push(args[j]);
+				}
+			}
+			originalArr.push(this[i]);
+		}
+	}
+	for(var i=0; i<this.length; i++){
+		this.pop();
+		i--;
+	}
+	for(var i=0; i<originalArr.length; i++){
+		this.push(originalArr[i]);
+	}
+	return newArr;
 }
 
 

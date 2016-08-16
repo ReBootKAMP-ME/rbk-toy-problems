@@ -27,3 +27,39 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+var keypad = {
+	0: [],
+	1: [],
+	2: ['A','B','C'],
+	3: ['D','E','F'],
+	4: ['G','H','I'],
+	5: ['J','K','L'],
+	6: ['M','N','O'],
+	7: ['P','Q','R','S'],
+	8: ['T','U','V'],
+	9: ['W','X','Y','Z']
+}
+
+var telephoneWords = function(string){
+
+	var combinations = [];
+
+	var getCombinations = function(accum, index){
+		if(accum.length === string.length){
+			combinations.push(accum);
+		} else {
+			var possibleVals = keypad[parseInt(string[index])];
+			if(possibleVals.length === 0){
+				getCombinations(accum+string[index],index+1);
+			}
+			for(var i=0; i<possibleVals.length; i++){
+				getCombinations(accum+possibleVals[i],index+1);
+			}
+		}
+	}
+
+	getCombinations('',0);
+
+	return combinations;
+};
