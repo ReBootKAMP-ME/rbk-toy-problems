@@ -13,14 +13,19 @@ str1 is 'satak' and str2 is 'steak' should return false.
 str1 is 'steak' and str2 is 'steakk' should return false, because there is only one k in str1
 
 Try to optimize your solution for time complexity.
-*/
+*/  //linear
 
 function scramble(str1,str2){
-
+	for (var i = 0; i < str2.length; i++) {
+		if(str1.indexOf(str2[i]) === -1){
+			return false;
+		}
+	}
+	return true;
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n)';
 
 
 /*
@@ -50,8 +55,12 @@ arr.splice(2,2,7);//should return [3,4] - the elements that were removed
 console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
-Array.prototype.splice = function(from,count){
-
+Array.prototype.splice = function(from,count, add){
+	var result = [];
+	var arr = this.slice(from,count+1);
+	this = this.slice(from, count+1)
+	}
+	return arr;
 }
 
 
