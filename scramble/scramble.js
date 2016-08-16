@@ -46,12 +46,44 @@ The original array should be modified after running splice.
 Example:
 var arr = [1,2,3,4,5,6];
 //Remove 2 elements starting at index 2 and insert 7:
-arr.splice(2,2,7);//should return [3,4] - the elements that were removed
+	;//should return [3,4] - the elements that were removed
 console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
-Array.prototype.splice = function(from,count){
+Array.prototype.splice = function(start,count, ...args){
+	var removedElements = []
+	var firstPart = []
+	var secPart = []
+	var newArr = []
+	var len = this.length
 
+	for(var i = 0; i < start; i++){
+		firstPart.push(this[i])
+	}
+
+	for(var i = start+count; i < this.length; i++){
+		secPart.push(this[i])
+	}
+
+	for(var i = start; i < start+count; i++){
+		removedElements.push(this[i])
+	}
+
+	if(args){
+		newArr = firstPart.concat(args, secPart)
+	} else {
+		newArr = firstPart.concat(secPart)
+	}
+
+	for(var i = 0; i < len; i++){
+		this.pop()
+	}
+
+	for(var i = 0; i < newArr.length; i++){
+		this.push(newArr[i])
+	}
+
+	return removedElements
 }
 
 
