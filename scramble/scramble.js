@@ -16,13 +16,21 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
-
+	for (var i = 0; i < str2.length; i++) {
+		if(str1.indexOf(str2[i]) === -1){
+			return false;
+		}else{
+			str1=str1.replace(str2[i],'')
+		}
+	}
+	return true;
 };
 
 //What is the time complexity of your solution?
 var timeComplexity = 'O(??)';
-
-
+//so for using the for loop its O(n), and for using the indexof is also O(n) since it loops through all
+//the array to check if the elment exists or not 
+// so its gonna be O(n^2)
 /*
 Toy problem 2 (Advanced):
 Rewrite your favorite splice method on array prototype.
@@ -51,7 +59,31 @@ console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
 Array.prototype.splice = function(from,count){
+	var newArr=[];
+	var removedItems=[];
 
+	for (var i = 0; i < this.length; i++) {
+		if(i === from){
+			removedItems.push(this[i]);
+			if(count > 1){
+				from++;
+				count--;
+			}
+			if(count === 1){
+				newArr.push(arguments[2]);
+				count=0;
+			}
+		}else{
+			newArr.push(this[i]);
+		}
+	}
+	for (var i = 0; i < this.length; i++) {
+		this[i]=newArr[i];
+	}
+	while( this.length > newArr.length){
+		this.pop();
+	}
+	return removedItems;
 }
 
 
