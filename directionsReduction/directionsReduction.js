@@ -26,14 +26,14 @@ More examples:
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) => ["WEST"]
 dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]) => [] //don't need to move at all
 */
-var ways = {
-	NORTH : 0 , 
-	SOUTH : 0 ,
-	EAST : 0 ,
-	WEST : 0
-}
-
+<<<<<<< HEAD
 var dirReduc = function(directions){
+	var ways = {
+		NORTH : 0 , 
+		SOUTH : 0 ,
+		EAST : 0 ,
+		WEST : 0
+	}
 	// how to eliminate all unnecessary choices 
 	// define new array which would hold our new direction
 	var newDirection = [];
@@ -41,7 +41,6 @@ var dirReduc = function(directions){
 	for(var i = 0 ; i < directions.length; i++){
 		ways[directions[i]]++;
 	}
-	
 	if(ways.NORTH - ways.SOUTH > 0){
 		newDirection.push('NORTH');
 	} else if( ways.SOUTH - ways.NORTH > 0){
@@ -51,8 +50,11 @@ var dirReduc = function(directions){
 	} else if(ways.WEST - ways.EAST > 0){
 		newDirection.push('WEST');
 	}
-
-	console.log(ways);
 	return newDirection;
+=======
+
+var dirReduc = function(directions){
+
+>>>>>>> 6e64afed3eb2aceeb050313b8dab27c0898709ab
 };
 
