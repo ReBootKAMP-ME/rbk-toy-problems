@@ -14,9 +14,25 @@ str1 is 'steak' and str2 is 'steakk' should return false, because there is only 
 
 Try to optimize your solution for time complexity.
 */
+//scramble ('steak', 'steakk')
+
+
 
 function scramble(str1,str2){
-
+	arr1 = str1.split('');
+	arr2 = str2.split('');
+	for (var i = 0; i < arr2.length; i++) {
+		var flag = false;
+		for (var j = 0; j < arr1.length; j++) {
+		 	if (arr1[j] === arr2[i]){
+		 		arr1.splice(j,1);
+		 		flag = true;
+		 	}
+		} if (flag === false) {
+			return flag
+		}
+	}
+	return flag;
 };
 
 //What is the time complexity of your solution?
@@ -51,7 +67,14 @@ console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
 Array.prototype.splice = function(from,count){
-
+	
+	var removed = [];
+	var newArray = [];
+	for (var i = 0; i < Array.length; i++) {
+		Array[i]
+	}
+	return removed;
+	Array = newArray;
 }
 
 
