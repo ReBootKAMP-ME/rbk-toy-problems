@@ -48,10 +48,27 @@ var arr = [1,2,3,4,5,6];
 //Remove 2 elements starting at index 2 and insert 7:
 arr.splice(2,2,7);//should return [3,4] - the elements that were removed
 console.log(arr); //should [1,2,7,5,6] - the original array was modified
+
+will use slice with concat to modify the original array, and slice to cut the inner array
 */
 
-Array.prototype.splice = function(from,count){
 
+Array.prototype.splice = function(from, count, ...Args){
+	var array = this;
+	returnArr = array.slice(from, from + count);
+	originalArr = array.slice(0, from).concat(array.slice(from + count, array.length));
+	for (var i = 0; i < (from + count); i++ ){
+		array.shift()
+	}
+	if (Args) {
+		for (var i = Args.length - 1; i >= 0; i--) {
+			array.unshift(Args[i])
+		}
+	}
+	for (var i = from - 1; i >= 0; i--){
+		array.unshift(originalArr[i]);
+	}
+	return returnArr;
 }
 
 
