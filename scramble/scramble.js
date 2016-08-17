@@ -75,11 +75,11 @@ Array.prototype.splice = function(from,count){
 
   
    var cutArray = []; 
-   // var temp = from;
    while(cutArray.length < count){
    	cutArray.push(this[from]);
    	++from;
    }
+   
    
    for(var i = 0 ; i < this.length; i++){
    	if(this.indexOf(cutArray[i]) > -1){
@@ -91,23 +91,6 @@ Array.prototype.splice = function(from,count){
 
    	}
    }
-
-//////////////////////////////
-// commented answer below acts as a slice and does not modify the array
-/////////////////////////////
-   // var temp = this;
-   // var secondTemp = cutArray;
-   // temp = temp.join('');
-   // secondTemp = cutArray.join('');
-   // temp = temp.split(secondTemp);
-  
-   // var resultArray = [];
-   // for(var i = 0; i < temp.length; i++){
-   // 	resultArray.push(temp[i].split('').join())
-
-   // }
-
-   // resultArray = resultArray.join();
    return cutArray;
 }
 
