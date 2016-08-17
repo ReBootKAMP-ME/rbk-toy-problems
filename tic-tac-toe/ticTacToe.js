@@ -31,5 +31,33 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
+		var right = 0;
+		var left=0;
+	for (var i = 0; i < board.length; i++) {
+		var horizintal = 0;
+		var vertical = 0;
+		for (var j = 0; j < board[i].length; j++) {
+			if (board[i][j] === 0) {
+				horizintal += board[i][j]+5;
+			}else{
+				horizintal += board[i][j];
+			}
+			if (board[j][i] === 0) {
+				vertical += board[j][i]+5;
+			}else{
+				vertical += board[j][i];
+			}
+		}
+		right = board[0][0] + board[1][1] + board[2][2];
+		left = board[0][2] + board[1][1] + board[2][0];
 
+		if (horizintal === 3 || vertical === 3 || right === 3 || left === 3) {
+			return 1;
+		}else if(horizintal === 6 || vertical === 6 || right === 6 || left === 6){
+			return 2;
+		}else if(horizintal >= 10 || vertical >= 10){
+			return -1;
+		}
+	}
+	return 0;
 };
