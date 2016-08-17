@@ -28,8 +28,31 @@ var solvedBoard = [[0,1,1],
                    [2,1,2]];
 
 ticTacToe(solvedBoard);//should return 1
+
+Conditions:
+1 Major Diagonal
+1 Minor Diagonal
+Horizental
+Vertical
 */
 
 function ticTacToe(board){
-
+	var solved = function (x, y, z){
+		return (((x && y && z) !== undefined) && ((x + y + z) % 3 === 0) && ((x && y && z) !== 0))
+	}
+	for (var i = 0; i < 3; i++ ) {
+		if (solved (board[i][0], board[i][1], board[i][2])){
+			return 1;
+		} 
+		if (solved (board[0][i], board[1][i], board[2][i])){
+			return 1
+		}
+		if ((i === 0) && (solved (board[i][i], board[i+1][i+1], board[i+2][i+2]))) {
+			return 1;
+		}
+		if ((i === 2) && (solved (board[2-i][i], board[i-1][i-1], board[i][2-i]))) {
+			return 1;
+		}
+	}
+	return -1;
 };
