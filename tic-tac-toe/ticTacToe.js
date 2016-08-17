@@ -31,5 +31,16 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
-
+	for (var i = 0; i < board.length; i++) {
+		for (var j = 0; j < board.length; j++) {	
+		if (board[0][j] === board[0+1][j] && board[0+1][j] === board[0+2][j]){ // check the verticals:
+			return (board[0][j] + "wins");
+		} else if (board[i][0] === board[i][0+1] && board[i][0+1] === board[i][0+2]){ //check horizantel
+			return (board[i][0]+ "wins");
+		} else if((board[0][0] === board[1][1] && board[1][1] === board[2][2]) || (board[0][2] === board[1][1] && board[1][1] === board[2][0])) { 
+			return (board[1][1] + "wins");
+		}
+		}
+	}
 };
+
