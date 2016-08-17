@@ -31,5 +31,67 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
+	var xCol = false;
+	var xRow = false;
+	var xDg = false;
+	var oCol = false;
+	var oRow = false;
+	var oDg = false;
+	var draw = false;
+	for (var i = 0; i < 3; i++) {
+		//X condition
+		for (var j = 0; j < 3; j++) {
+			if(board[j][i]===1){
+				xCol = true;
+			}else{
+				xCol = false;
+			}
+			if(board[j][j]===1){
+				xDg = true;
+			}else{
+				xDg = false;
+			}
+			if(board[3-j][3-j]===1){
+				xRow = true;
+			}else{
+				xRow = false;
+			}
+		}
+		if(xCol === true || xRow === true || xDg === true){
+			return 1;
+		}
+		//O condition
+		for (var j = 0; j < 3; j++) {
+			if(board[j][i]===2){
+				oRow = true;
+			}else{
+				oRow = false;
+			}
+			if(board[j][j]===2){
+				oDg = true;
+			}else{
+				oDg = false;
+			}
+			if(board[3-j][3-j]===2){
+				oRow = true;
+			}else{
+				oRow = false;
+			}
+		}
+		if(oCol === true || oRow === true || oDg === true){
+			return 2;
+		}
+		for (var j = 0; j < 3; j++) {
+			if(board[i][j]!==0){
+				draw = true;
+			}else{
+				draw = false;
+			}
+		}
+		if(draw === true){
+			return 0;
+		}
+	}
+	return -1;
 
 };
