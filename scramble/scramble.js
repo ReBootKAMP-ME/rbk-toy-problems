@@ -31,7 +31,7 @@ function scramble(str1,str2){
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n^2)';
 
 
 /*
