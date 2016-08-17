@@ -31,5 +31,28 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
-
+	var arrays = [];
+	for (var i = 0; i < board.length; i++) {
+		arrays.push(board[i]);
+	}
+	for (var i = 0; i < board.length; i++) {
+		var arr = []
+		for (var j = 0; j < board.length; j++) {
+			arr.push(board[j][i]);
+		}
+		arrays.push(arr);
+	}
+	var arr = [board[0][0], board[1][1], board[2][2]]
+	arrays.push(arr);
+	arr = [board[2][0], board[1][1], board[0][2]];
+	arrays.push(arr);
+	arrays = JSON.stringify(arrays)
+	console.log(arrays)
+	if(arrays.indexOf(JSON.stringify([1,1,1])) !== -1){
+		return 1
+	}
+	if(arrays.indexOf(JSON.stringify([2,2,2])) !== -1){
+		return 2
+	}
+	return -1
 };
