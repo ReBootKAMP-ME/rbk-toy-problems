@@ -21,23 +21,48 @@ Complete the functions in order to provide this functionality.
 */
 
 function Jar() {
-  // TODO
+  this.totalAmount = 0;
+  this.contain = [];
 }
 
 Jar.prototype.add = function(amount, type) {
-  // TODO
+	var a = this.totalAmount
+	this.totalAmount += amount;
+	var flag = true;
+	for (var i = 0; i < this.contain.length; i++) {
+		if(this.contain[i].type === type){
+			flag = false;
+			this.contain[i].amount = ((this.contain[i].amount/100 * a) + amount) * this.totalAmount / 100;
+		} else {
+			this.contain[i].amount = this.contain[i].amount/100 * this.totalAmount / 100;
+
+		}
+		
+	}
+  if(flag){
+  	if(this.totalAmount === 0){
+  		this.contain.push({amount: 100, type: type})
+  	}else{
+  		this.contain.push({amount: (amount*100)/this.totalAmount, type: type})
+  	}
+  }
 };
 
 Jar.prototype.pourOut = function(amount) {
-  // TODO
+  this.totalAmount -= amount;
 };
 
 Jar.prototype.getTotalAmount = function() {
-  // TODO
+  return this.totalAmount;
 };
 
 Jar.prototype.getConcentration = function(type) {
-  // TODO
+	for (var i = 0; i < this.contain.length; i++) {
+		if(this.contain[i].type === type){
+			return this.contain[i].amount;
+		}
+	}
+	return 0;
 }
 
 
