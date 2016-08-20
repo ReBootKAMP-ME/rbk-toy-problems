@@ -31,5 +31,26 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
-
+	var counter0 = 0;
+	var counter1 = 0;
+	var counter2 = 0;
+	//check row by row if there complete row of 1 or 2
+	for(var i=0 ; i<board.length ; i++){
+		for(var t=0 ; t<board[i].length ; t++){
+			if(board[i][t] === 0)
+				counter0++;
+			if(board[i][t] === 1)
+				counter1++;
+			if(board[i][t] === 2)
+				counter2++;
+		}
+		if(counter1 === 3)
+			return 1;
+		if(counter2 === 3)
+			return 2;
+		//check column
+		for(var e=0 ; e<board[i].length ; e++){
+			if()
+		}
+	}
 };
