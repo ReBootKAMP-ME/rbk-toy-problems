@@ -11,7 +11,7 @@ Whenever the jar is empty, the concentrations are always 0
 Now you add 200 units of apple juice
 And then you add 200 units of banana juice
 Now the concentration of apple juice is 0.5 (50%)
-Then you pour out 200 units
+Then you pour out 200 units 100 100
 The concentration of apple juice is still 50%
 Then you add 200 units of apple juice again
 Now the concentration of apple juice is 0.75, while the concentration
@@ -22,22 +22,38 @@ Complete the functions in order to provide this functionality.
 
 function Jar() {
   // TODO
+  this.jar={};
 }
 
 Jar.prototype.add = function(amount, type) {
-  // TODO
+	if (this.jar[type]){
+  		this.jar[type]=this.jar[type]+amount;
+	}else{
+		this.jar[type]=0;
+		this.jar[type]+=amount;
+	}
 };
 
-Jar.prototype.pourOut = function(amount) {
-  // TODO
+Jar.prototype.pourOut = function(amount){
+  this.jar[type]=this.jar[type]-amout;
 };
 
 Jar.prototype.getTotalAmount = function() {
-  // TODO
+	var total=0;
+	for(var key in this.jar){
+	  total=total+this.jar[key];
+	}
+	return total;
 };
 
 Jar.prototype.getConcentration = function(type) {
-  // TODO
+	var total=this.getTotalAmount();
+	var concentration=0;
+	console.log(this.jar[type])
+	if(this.jar[type]){
+		concentration=this.jar[type] / total;
+	}
+	return concentration;
 }
 
 
