@@ -26,13 +26,15 @@ function Jar() {
 
 Jar.prototype.add = function(amount, type) {
 	var flag = false;
+	var index ;
 	for(var i = 0; i < this.types.length; i++){
 		if(this.types[i].type === type){
+			index = i;
 			flag = true;
 		} 
 	}
 	if(flag){
-	  this.types[i].amount += amount;
+	  this.types[index].amount += amount;
 	} else {
   	  this.types.push({type : type , amount : amount});
 	}
