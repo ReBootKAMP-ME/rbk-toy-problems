@@ -37,6 +37,39 @@
 
 
 var largestProductOfFour = function(array) {
+	// the for loops to find the greatest product in the rows
+	//for loops to find the greatest product in cols
+	//for loops to find the greatest product in dignols
+	//return the higest proudect
+	var largestProduct=0;
+	//this for 
+	for (var i = 0; i < array.length; i++) {
+		//console.log()
+		var newarr=array[i];
+		//console.log(newarr);
+		for (var j = 0; j < newarr.length -3; j++) {
+			var product=newarr[j]*newarr[j+1]*newarr[j+2]*newarr[j+3];
+			//console.log(product)
+			if (largestProduct < product){
+				largestProduct=product;
+			}
+		}
+	}
+   
+  for (var i = 0; i < array.length; i++) {
+            var newarr=array[i];
+          //console.log(newarr);
+   	   for (var y = 0; y < newarr.length-3; y++) {
+   	   	 //console.log(array[y+1][y]);
+   	   	    var product=newarr[y]*array[y+1][y]*array[y+2][y]*array[y+3][y];
+   	   	     // console.log(product);
+			if (largestProduct < product){
+				largestProduct=product;
+			}
+   	   }
+   }
+   
+	return largestProduct;
 };
 
 

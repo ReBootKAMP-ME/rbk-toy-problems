@@ -22,22 +22,38 @@ Complete the functions in order to provide this functionality.
 
 function Jar() {
   // TODO
+  this.fruit={};
+  this.Totalammount=0;
 }
 
 Jar.prototype.add = function(amount, type) {
   // TODO
+  if(this.fruit[type]=== undefined){
+  this.fruit[type]=amount;
+  }else{
+  	this.fruit[type]=this.fruit[type]+amount;
+  }
+  this.Totalammount=this.Totalammount+amount;
 };
 
 Jar.prototype.pourOut = function(amount) {
   // TODO
+  this.Totalammount=this.Totalammount- amount;
+
 };
 
 Jar.prototype.getTotalAmount = function() {
   // TODO
+  return this.Totalammount;
 };
 
 Jar.prototype.getConcentration = function(type) {
   // TODO
+  if (this.Totalammount===0){
+  	return 0
+  }else{
+  return (this.fruit[type]/this.Totalammount)*100/100;
+}
 }
 
 

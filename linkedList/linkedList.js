@@ -34,6 +34,10 @@ LinkedList.prototype.contains = function(
 ){
 };
 
-LinkedList.prototype.makeNode = function(
-){
+LinkedList.prototype.makeNode = function(value){
+	var node = {};
+  node.value = value;
+  node.next = null;
+
+  return node;
 };
