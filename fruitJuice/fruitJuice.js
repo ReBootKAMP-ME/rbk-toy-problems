@@ -21,22 +21,51 @@ Complete the functions in order to provide this functionality.
 */
 
 function Jar() {
-  // TODO
+  /*this.prototype.juice={};
+  this.prototype.juice.mix={};*/
+  /*this = {};
+  this.juice={}
+  this.juice.mix={};
+  return this.juice;*/
+  return this.prototype;
 }
 
 Jar.prototype.add = function(amount, type) {
+	if (this.juice === undefined){
+		this.juice={};	
+	} else if (this.juice.mix === undefined){
+		this.juice.mix={};	
+	} else if (this.juice.mix.type === undefined){
+		this.juice.mix.type = amount;
+	} else {
+		this.juice.mix.type += amount;
+	};
+
+	if (this.juice.total === undefined) {
+		this.juice.total = amount;
+	} else {
+		this.juice.total += amount;
+	}
+	//return this.juice.type;
   // TODO
 };
 
 Jar.prototype.pourOut = function(amount) {
+	this.juice.total -= amount;
   // TODO
 };
 
 Jar.prototype.getTotalAmount = function() {
+	return this.juice.total;
   // TODO
 };
 
 Jar.prototype.getConcentration = function(type) {
+	if (this.juice.mix.type === undefined){
+		return 0;
+	} else{
+		return (this.juice.mix.type / this.juice.total);
+	}
   // TODO
 }
 
