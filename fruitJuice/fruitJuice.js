@@ -21,11 +21,28 @@ Complete the functions in order to provide this functionality.
 */
 
 function Jar() {
-  // TODO
+  this.concentrations = 0;
+  this.ingredients = [];
 }
 
 Jar.prototype.add = function(amount, type) {
-  // TODO
+	var flag = false;
+	var index;
+  if (this.ingredients.length === 0) {
+  	this.ingredients.push({amount:amount, type:type});
+  }else{
+		for (var i = 0; i < this.ingredients.length; i++) {
+		  if (this.ingredients[i].type === type) {
+		  	flag = true;
+		  	index = i;
+		  }
+	  }
+	  if (flag) {
+	  	this.ingredients[index].amount+= amount;
+	  }else{
+	  	this.ingredients.push({amount:amount,type:type});
+	  }
+  }
 };
 
 Jar.prototype.pourOut = function(amount) {
@@ -33,11 +50,28 @@ Jar.prototype.pourOut = function(amount) {
 };
 
 Jar.prototype.getTotalAmount = function() {
-  // TODO
+  var total = 0;
+  for (var i = 0; i < this.ingredients.length; i++) {
+  	total+= this.ingredients[i].amount;
+  }
+  return total;
 };
 
 Jar.prototype.getConcentration = function(type) {
-  // TODO
+	var fruit = 0;
+	if (this.ingredients.length === 0) {
+		return 0;
+	}else{
+		for (var i = 0; i < this.ingredients.length; i++) {
+			if(this.ingredients[i].type === type){
+			console.log(this.ingredients[i].type)
+				fruit+= this.ingredients[i].amount;
+			}
+		}
+	}
+	var total = this.getTotalAmount();
+	var result =  fruit/ total;
+	return result;
 }
 
 
