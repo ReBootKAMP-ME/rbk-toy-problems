@@ -21,23 +21,40 @@ Complete the functions in order to provide this functionality.
 */
 
 function Jar() {
-  // TODO
+  this.types = {}
+  this.totalAmount = 0
 }
 
 Jar.prototype.add = function(amount, type) {
-  // TODO
+  if(this.types[type] === undefined){
+  	this.types[type] = amount
+  } else {
+  	this.types[type] += amount
+  }
+  this.totalAmount += amount
 };
 
 Jar.prototype.pourOut = function(amount) {
-  // TODO
+
+  for(key in this.types){
+
+  	this.types[key] -= ((this.totalAmount - amount) * this.getConcentration(key))
+  }
+
+  this.totalAmount -= amount
+
 };
 
 Jar.prototype.getTotalAmount = function() {
-  // TODO
+  return this.totalAmount
 };
 
 Jar.prototype.getConcentration = function(type) {
-  // TODO
+  if(this.types[type] === undefined){
+  	return 0
+  } else {
+  	return this.types[type] / this.totalAmount
+  }
 }
 
 
