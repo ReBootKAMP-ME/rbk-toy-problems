@@ -21,23 +21,29 @@ Complete the functions in order to provide this functionality.
 */
 
 function Jar() {
-  // TODO
+  this.concentrations = 0;
+  this.amount = 0;
+  this.fruit = {};
 }
 
 Jar.prototype.add = function(amount, type) {
-  // TODO
+  this.amount += amount;
+  this.fruit.type = amount/this.amount;
 };
 
 Jar.prototype.pourOut = function(amount) {
-  // TODO
+  this.amount -= amount;
 };
 
 Jar.prototype.getTotalAmount = function() {
-  // TODO
+  return this.amount;
 };
 
 Jar.prototype.getConcentration = function(type) {
-  // TODO
+	if(this.fruit.type === undefined){
+		return 0
+	}
+  return this.fruit.type;
 }
 
 
