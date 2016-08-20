@@ -31,6 +31,7 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
+<<<<<<< HEAD
   // test from left to right
   
   var bigResult = -1;
@@ -111,3 +112,7 @@ var horizontalTic = function(row){
 
 
 
+=======
+
+};
+>>>>>>> cc35986589ad14cfcabe4a02d384ef9f22bf6e3c
