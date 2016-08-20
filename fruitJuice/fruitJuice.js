@@ -22,22 +22,45 @@ Complete the functions in order to provide this functionality.
 
 function Jar() {
   // TODO
+  this.amount=0;
+  this.concentrations={};
 }
 
 Jar.prototype.add = function(amount, type) {
   // TODO
+  if(this.concentrations[type]===undefined){
+  	this.concentrations[type]=amount;
+  }else{
+
+  	this.concentrations[type]+=amount;
+  }
+  this.amount+=amount;
 };
 
 Jar.prototype.pourOut = function(amount) {
   // TODO
+  for(var key in this.concentrations){
+  	this.concentrations[key]-=(amount/(Object.keys(this.concentrations).length));
+  }
+  this.amount-=amount;
 };
 
 Jar.prototype.getTotalAmount = function() {
   // TODO
+  return this.amount;
 };
 
 Jar.prototype.getConcentration = function(type) {
   // TODO
+  var sum=0;
+  for (var key in this.concentrations){
+  	sum+=this.concentrations[key];
+  }
+  if(sum===0){
+  	return 0;
+  }else{
+  	return this.concentrations[type]/sum
+  }
 }
 
 
