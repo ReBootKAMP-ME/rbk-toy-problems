@@ -13,8 +13,17 @@ abc(); // should return 'c' on this third call
 abc(); // should return 'a' again on this fourth call
 */
 
-function makeLooper(string){
 
+function makeLooper(string){
+ var counter=-1;	
+ return function(){
+ 	if(counter === string.length-1){
+ 		counter=0;
+ 	}else{
+ 		counter++; 
+ 	}
+ 	return string[counter];
+ }
 };
 
 
@@ -29,6 +38,16 @@ A pyramid will square the number of cans in each level:
 9 in the next, 
 16, 
 25,
+36
+49
+64
+81
+100
+121
+144
+169
+196
+
 ...
 
 Complete the pyramid function to return the number of complete levels of a can pyramid you can make,
@@ -41,7 +60,13 @@ pyramid(1666); // should === 16
 */
 
 function pyramid(cans){
-
+	var total=0;
+	var number=0;
+	while(total <= cans){
+		number++;
+		total+=Math.pow(number,2);
+	}
+	return number-1;
 };
 
 
