@@ -14,7 +14,13 @@ abc(); // should return 'a' again on this fourth call
 */
 
 function makeLooper(string){
-
+	var index = 0;
+	return function(){
+		if(index >= string.length){
+			index = 0;
+		}
+		return string[index++];
+	}
 };
 
 
@@ -42,6 +48,14 @@ pyramid(1666); // should === 16
 
 function pyramid(cans){
 
+	function countLevels(accum, level){
+		if(accum > cans){
+			return level - 2;
+		}
+		return countLevels(accum + Math.pow(level, 2) , level + 1);
+	}
+
+	return countLevels(0,0);
 };
 
 
