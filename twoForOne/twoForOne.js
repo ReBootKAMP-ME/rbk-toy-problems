@@ -49,10 +49,10 @@ pyramid(1666); // should === 16
 */
 
 function pyramid(cans){	
-	var levels = 3;
+	var levels = 0;
 	var cansInLevel = 0;
-	var remainingCans = cans - 14;
-	for (var i = 4; i <= cans; i++) {
+	var remainingCans = cans;
+	for (var i = 1; i <= cans; i++) {
 		cansInLevel = (i * i);
 		remainingCans -= cansInLevel;
 		if (remainingCans > 0){
