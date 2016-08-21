@@ -14,14 +14,14 @@ abc(); // should return 'a' again on this fourth call
 */
 
 function makeLooper(string){
-	var loop = string.split('')
+
 	var calls = -1
 	return function(){
 		calls++
-		if(calls === loop.length){
+		if(calls === string.length){
 			calls = 0
 		}
-		return loop[calls]
+		return string[calls]
 	}
 };
 
