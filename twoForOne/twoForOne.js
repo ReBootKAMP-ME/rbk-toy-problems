@@ -49,7 +49,21 @@ pyramid(1666); // should === 16
 */
 
 function pyramid(cans){
+	var bool = true
+	var numOfCans = 0
+	var lv = 0
+	while(bool){
+		lv++
+		
+		if(numOfCans > cans){
+			bool = false
+			lv-=2
+		} else {
+			numOfCans += Math.pow(lv, 2)
+		}	
+	}
 
+	return lv
 };
 
 
