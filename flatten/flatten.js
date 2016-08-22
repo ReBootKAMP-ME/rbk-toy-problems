@@ -13,5 +13,16 @@ flatten('a', ['b', 2], 3, null, [[4], ['c']]) // returns ['a', 'b', 2, 3, null, 
 */
 
 function flatten(){
-
+	var arrayResult=[];
+	var rec=function(arg){
+		for(var i=0;i<arg.length;i++){
+			if(!Array.isArray(arg[i])){
+				arrayResult.push(arg[i]);
+			}else{
+				rec(arg[i]);
+			}
+		}
+	}
+	rec(arguments);
+	return arrayResult;
 }
