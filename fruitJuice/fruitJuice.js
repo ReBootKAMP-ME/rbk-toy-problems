@@ -26,31 +26,38 @@ function Jar() {
 }
 
 Jar.prototype.add = function(amount, type) {
-  if(this.types[type] === undefined){
+
+  if( !this.types[type] ){
+
   	this.types[type] = amount
   } else {
+
   	this.types[type] += amount
   }
+
   this.totalAmount += amount
 };
 
 Jar.prototype.pourOut = function(amount) {
 
-  for(key in this.types){
+  var newTotal = this.totalAmount - amount
 
-  	this.types[key] -= ((this.totalAmount - amount) * this.getConcentration(key))
+  for( key in this.types ){
+
+  	this.types[key] -= newTotal * this.getConcentration(key)
   }
 
-  this.totalAmount -= amount
-
+  this.totalAmount = newTotal
 };
 
 Jar.prototype.getTotalAmount = function() {
+
   return this.totalAmount
 };
 
 Jar.prototype.getConcentration = function(type) {
-  if(this.types[type] === undefined){
+
+  if( !this.types[type] ){
   	return 0
   } else {
   	return this.types[type] / this.totalAmount
