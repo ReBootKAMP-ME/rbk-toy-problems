@@ -12,6 +12,24 @@ flatten('a', ['b', 2], 3, null, [[4], ['c']]) // returns ['a', 'b', 2, 3, null, 
 
 */
 
-function flatten(){
+function flatten(...args){
+	var result = []
 
+	var generate = function(array, index){
+		if(index === array.length){
+			return
+		}
+
+		if(Array.isArray(array[index])){
+			generate(array[index], 0)
+		} else {
+			result.push(array[index])
+		}
+
+		generate(array, index + 1)
+	}
+
+	generate(args, 0)
+
+	return result
 }
