@@ -58,7 +58,6 @@ function pyramid(cans){
 			total+= Math.pow(counter,2);
 		}
 	}
-	return  counter;
 };
 
 
