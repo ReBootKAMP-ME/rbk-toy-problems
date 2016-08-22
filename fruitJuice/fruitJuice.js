@@ -42,6 +42,7 @@ Jar.prototype.add = function(amount, type) {
 Jar.prototype.pourOut = function(amount) {
   // TODO
   
+
 };
 
 Jar.prototype.getTotalAmount = function() {
