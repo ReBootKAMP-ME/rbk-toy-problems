@@ -16,11 +16,21 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
+	 var flage=0;
+	for (var i = 0; i < str2.length; i++) {
+		if(str1.indexOf(str2[i])> -1){
+			flage=flage+1;
+		}
+	}
+	if(flage === str2.length){
+		return true;
+	}
+	return false;
 
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n)';
 
 
 /*
@@ -51,6 +61,20 @@ console.log(arr); //should [1,2,7,5,6] - the original array was modified
 */
 
 Array.prototype.splice = function(from,count){
+	console.log(arguments)
+	var deletedArr=[]
+	for (var i = from; i < from+count; i++){ 
+		deletedArr.push(this[i]);
+	}
+	console.log(from,count)
+	console.log(this)
+	//this.splice(from,count)
+	if(arguments.length >2){
+		for (var i = 2; i < arguments.length; i++) {
+			this.push(arguments[i])
+		}
+	}
+	return deletedArr;
 
 }
 

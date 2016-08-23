@@ -1,4 +1,3 @@
-
 /*
 * Write a function that generates every sequence of throws a single
 * player could throw over a three-round game of rock-paper-scissors.
@@ -20,15 +19,15 @@
 var numofresult=3^3;
 var result=[];
 var rockPaperScissors = function() {
-  if(numofresult===0){
-    return result;
-  }else{
-  var arr=["rock", "scissors", "paper"];
-      var arr1=[];
+	if(numofresult===0){
+		return result;
+	}else{
+	var arr=["rock", "scissors", "paper"];
+     	var arr1=[];
      for (var i = 0; i < 3; i++) {
-      var rand=Math.floor((Math.random() * 3) + 0);
+     	var rand=Math.floor((Math.random() * 3) + 0);
          arr1.push(arr[rand])
-      
+     	
      }
     result.push(arr1);
     numofresult--;

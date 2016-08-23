@@ -22,5 +22,37 @@
  * Extra credit: Make the method work for arrays that contain objects and/or arrays as elements.
 */
 
+// Array.prototype.isSubsetOf = function (arr) {
+// 	var isAvailable = false;
+// 	for(var i= 0 ; i < this.length ; i++){
+// 		if(arr.indexOf(this[0]) !== -1){
+// 			isAvailable = true;
+// 		}  else if(arr.indexOf(this[i]) === -1){
+// 		    return false;
+// 		}
+// 	}
+// 	return isAvailable;
+// };
+
+
+
+
+
+
+
 Array.prototype.isSubsetOf = function (arr) {
-}
+	var newArr  =[];
+	var boolean = true;
+	for(var i = 0; i < arr.length ; i++){
+		newArr.push(JSON.stringify(arr[i]));
+	}
+	for(var i = 0; i< this.length ; i++){
+		if(newArr.indexOf(JSON.stringify(this[i])) === -1){
+			return false;
+		}		
+	}
+	return boolean;
+};
+
+
+

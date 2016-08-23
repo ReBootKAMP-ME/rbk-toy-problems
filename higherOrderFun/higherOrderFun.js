@@ -12,7 +12,12 @@ See example usage to understand what arguments are passed to the callback.
 */
 
 Array.prototype.map = function(callback){
-  //use native .forEach method to iterate over array
+  var array=[];
+ this.forEach(function(v,i,arr){
+ 	array[i]=callback(v,i,arr)
+ })
+ return array;
+  	
 }
 
 /*
@@ -39,6 +44,8 @@ Please see example usage to understand what should be passed to the callback.
 */
 
 var asyncSum = function(a,b,callback){
+	var x=a+b;
+	setInterval(function(){ callback(x); }, 1000);
 
 };
 
