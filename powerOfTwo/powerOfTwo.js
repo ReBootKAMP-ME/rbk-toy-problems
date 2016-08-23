@@ -4,6 +4,15 @@ Calculate the sum of the digits of the number 2^1000?
 Hint the answer is 1366.
 */
 
-var powerOfTwo = function(){
-  return 0;
+var powerOfTwo = function(power){
+	var result = 0
+	var num = Math.pow(2, power)
+	
+	while(num !== 0){
+		var temp = num % 10
+		result += temp
+		num = (num - temp) / 10
+	}
+
+	return result;
 }
