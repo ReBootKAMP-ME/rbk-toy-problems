@@ -26,6 +26,22 @@ var DIGIT_VALUES = {
   M: 1000
 };
 
-var translateRomanNumeral = function(romanNumeral){
+//X  X  I
+//10 10 1
 
+var translateRomanNumeral = function(romanNumeral){
+	var arr=romanNumeral.split('');
+	for (var i = 0; i < arr.length; i++) {
+		if(! DIGIT_VALUES[arr[i]])
+			return null;
+	}
+	var result=0;
+	for (var i = 0; i < arr.length-1; i++) {
+		if(DIGIT_VALUES[arr[i]]>=DIGIT_VALUES[arr[i+1]])
+			result+=DIGIT_VALUES[arr[i]];
+		else
+			result-=DIGIT_VALUES[arr[i]];
+	}
+	result+=DIGIT_VALUES[arr[arr.length-1]]
+	return result;
 };

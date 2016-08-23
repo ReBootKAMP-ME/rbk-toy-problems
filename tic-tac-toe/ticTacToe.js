@@ -31,5 +31,34 @@ ticTacToe(solvedBoard);//should return 1
 */
 
 function ticTacToe(board){
+	// check the row
+	for (var i = 0; i < board.length; i++) {
+		if(board[i][0]===board[i][1] && board[i][1]===board[i][2]){
+			return board[i][0];
+		}
+	}
+	// check the coulm
+	for (var i = 0; i < board.length; i++) {
+		if(board[0][i]===board[1][i] && board[1][i]===board[2][i]){
+			return board[0][1];
+		}
+	}
+	// check the left corner
+	if(board[0][0]=== board[1][1] && board[1][1]===board[2][2]){
+		return board[0][0]
+	}
+	// check the right corner
+	if(board[0][2]=== board[1][1] && board[1][1]===board[2][0]){
+		return board[0][0]
+	}
+	// not solved yet
+	for (var i = 0; i < board.length; i++) {
+		for (var j = 0; j < board.length; j++) {
+			if(board[i][j]===0)
+				return -1;
+		}
+	}
+	// just draw
+	return 0;
 
 };

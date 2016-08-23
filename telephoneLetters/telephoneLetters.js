@@ -27,3 +27,45 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+
+  var digits={
+    '0':['0'],
+    '1':['1'],
+    '2':['a','b','c'],
+    '3':['d','e','f'],
+    '4':['g','h','i'],
+    '5':['j','k','l'],
+    '6':['m','n','o'],
+    '7':['p','q','r','s'],
+    '8':['t','u','v'],
+    '9':['w','x','y','z']
+  };
+
+  function telephoneWords(string) {
+    var arr=string.split('');
+    var results=[];
+    var str="";
+
+    for (var i = 0; i < arr.length; i++) {  //arr=[2,7,4,5]
+      for (var j = 0; j < 4; j++) {   //[['a','b','c'],['p','q','r','s'],['g','h','i'],['j','k','l']]
+        if(digits[arr[j]][i])
+          str+=digits[arr[j]][i];
+      }
+      results.push(str);
+      str="";
+    }
+    return results;
+  }
+        // digits[arr[0]][0]//a
+        // digits[arr[1]][0]//p
+        // digits[arr[2]][0]//g
+        // digits[arr[3]][0]//j
+/*
+
+apgj => digits[arr[0]][0] + digits[arr[1]][0] + digits[arr[2]][0] + digits[arr[3]][0]
+apgk => digits[arr[0]][0] + digits[arr[1]][0] + digits[arr[2]][0] + digits[arr[3]][1]
+apgl
+
+
+
+*/

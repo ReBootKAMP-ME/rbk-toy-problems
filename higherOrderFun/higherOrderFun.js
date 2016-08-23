@@ -12,17 +12,21 @@ See example usage to understand what arguments are passed to the callback.
 */
 
 Array.prototype.map = function(callback){
-  //use native .forEach method to iterate over array
+  var array=this;
+  var arr=[];
+  this.forEach(function (element, index, array) {
+  	arr.push(callback(element,index,array))
+  })
+  return arr;
 }
 
-/*
-Example usage:
-var transform = function(element,index,array){
-  return array[index] + index + element;
-};
 
-["a","b","c"].map(transform); //should return ['a0a','b1b','c2c'];
-*/
+// var transform = function(element,index,array){
+//   return array[index] + index + element;
+// };
+
+// ["a","b","c"].map(transform); //should return ['a0a','b1b','c2c'];
+
 
 
 /*
@@ -39,7 +43,14 @@ Please see example usage to understand what should be passed to the callback.
 */
 
 var asyncSum = function(a,b,callback){
-
+	setTimeout(function () {
+		if(typeof(a)==='number' && typeof(b) === 'number'){
+			return callback(false,a+b);
+		}
+		else {
+			callback("Incorrect argument(s)");
+		}
+	},1000)
 };
 
 /*

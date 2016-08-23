@@ -9,7 +9,19 @@
 // EXAMPLE: When inputArray is [2,3,4,6], output should be 5
 
 var orderedArrayMissingNumber = function(orderedInputArray) {
-	// Your code here..
+	for (var i = 0; i < orderedInputArray.length-1; i++) {
+		if(orderedInputArray[i+1]-orderedInputArray[i]>1)
+			return orderedInputArray[i+1]-1;
+	}
+
+	// var num1=orderedInputArray.pop();
+	// var num2=orderedInputArray[length-1];
+	// if(num1-num2>1)
+	// 	return num1-1;
+	// if(orderedInputArray.length-1===1)
+	// 	return  'not found'
+	// return orderedArrayMissingNumber(orderedInputArray);
+
 }
 
 // Input will not be in order.
@@ -17,5 +29,6 @@ var orderedArrayMissingNumber = function(orderedInputArray) {
 
 // What is the time complexity of your solution?
 var unorderedArrayMissingNumber = function(unorderedInputArray) {
-	// Your code here..
+	return orderedArrayMissingNumber(unorderedInputArray.sort());
 }
+// o(2n)=> o(n) : n for sort and n for orderedArrayMissingNumber

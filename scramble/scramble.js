@@ -16,11 +16,22 @@ Try to optimize your solution for time complexity.
 */
 
 function scramble(str1,str2){
-
+	var str1= str1.split('');
+	var str2= str2.split('');
+	for (var i = 0; i < str2.length; i++) {
+		var indexof = str1.indexOf(str2[i])
+		if(indexof===-1){
+			return false;
+		}
+		else{
+			str1.splice(indexof,1);
+		}
+	}
+	return true;
 };
 
 //What is the time complexity of your solution?
-var timeComplexity = 'O(??)';
+var timeComplexity = 'O(n^2)';
 
 
 /*
