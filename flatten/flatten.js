@@ -31,6 +31,7 @@ function flatten(){
 		argArray.push(arguments[i])
 	}
 	var result = argArray.toString().split(',');
+	console.log(result)
 	for (var i = 0; i < result.length; i++) {
 		if(result[i]=== "null"){
 			result[i]=null;
