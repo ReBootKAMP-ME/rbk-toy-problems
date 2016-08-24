@@ -43,7 +43,20 @@ twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
 function twoSum(nums, target){
-
+	var indices = [];
+	for (var i = 0; i < nums.length; i++) {
+		if(nums[i] < target && indices.length === 0){
+			indices.push(i);
+		} else if(indices.length === 1){
+			if(nums[indices[0]] + nums[i] === target){
+				indices.push(i);
+				break;
+			}
+		}
+	}
+	if(indices.length === 2){
+		return indices;
+	}
 }
 
 /*
