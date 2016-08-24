@@ -9,6 +9,7 @@ var powerOfTwo = function(num){
 	var sum = [];
 	var theSum = 0;
 	var candN = 0;
+	console.log(number)
 	while(number !== 0){
 		candN = number%10;
 		sum.push(candN);
