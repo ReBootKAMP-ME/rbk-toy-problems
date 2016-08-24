@@ -5,5 +5,11 @@ Hint the answer is 1366.
 */
 
 var powerOfTwo = function(){
-  return 0;
+	var num = Math.pow(2,1000);
+	var str = num.toSring();
+	var result = 0;
+	for (var i = 0; i < str.length; i++) {
+		result += Number(str[i]);
+	}
+  	return result;
 }
