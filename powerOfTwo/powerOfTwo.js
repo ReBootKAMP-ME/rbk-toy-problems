@@ -5,5 +5,14 @@ Hint the answer is 1366.
 */
 
 var powerOfTwo = function(){
-  return 0;
+	var value=Math.pow(2,1000);
+	var ar=value.toString().split('');
+	var results=0;
+	for (var i = 0; i < ar.length; i++) {
+		if(ar[i] !== 'e' || ar[i] !== '.' || ar[i] !== '+'){
+			var value=parseInt(ar[i]);
+			results+= value;
+		}
+	}
+  	return results;
 }
