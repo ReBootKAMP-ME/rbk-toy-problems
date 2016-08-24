@@ -15,7 +15,11 @@ singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
-
+	for(var i=0;i<arr.length;i++){
+		if(arr.indexOf(arr[i])===arr.lastIndexOf(arr[i])){
+			return arr[i]
+		}
+	}
 }
 
 /*
@@ -33,7 +37,13 @@ twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
 function twoSum(nums, target){
-
+	for(var i=0;i<nums.length;i++){
+		for(var j=i+1;j<nums.length;j++){
+			if(nums[i]+nums[j]===target){
+				return [i,j];
+			}
+		}
+	}
 }
 
 /*
@@ -48,7 +58,26 @@ countAllNumbers(2); //should return 91 because there are 91 numbers that have un
 */
 
 function countAllNumbers(n){
+	var power=Math.pow(n,2);
+	var counter=0;
+	for(var i=0;i<power;i++){
+		var temp=i.toString();
+		var arr=temp.split('');
+		if(!checkDublicate(arr)){
+			counter++;
+		}
+	}
+	return counter
 
 };
+
+function checkDublicate(arr){
+		for(var j=0;j<arr.length;j++){
+			if(arr.indexOf(arr[j])===arr.lastIndexOf(arr[j])){
+				return false
+			}
+		}
+		return true;
+}
 
 
