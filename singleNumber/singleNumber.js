@@ -10,12 +10,19 @@ Your algorithm should have a linear runtime complexity.
 Extra credit: Could you implement it without using extra memory?
 
 Example:
-arr = [2,4,3,6,8,2,3,4,8];
+var arr = [2,4,3,6,8,2,3,4,8];
 singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
-
+	for (var i = 0; i < arr.length; i++) {	
+		var template = arr.slice(i)
+		console.log(template);
+		if (template.indexOf(arr[i]) === -1){
+		//if (arr.indexOf(arr.splice(i,1)[0]) === -1){
+			return arr[i];
+		} else arr.splice(indexOf(arr[i]),1);
+	}
 }
 
 /*
@@ -33,7 +40,13 @@ twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
 function twoSum(nums, target){
-
+	var result = [];
+	for (var i = 0; i < nums.length; i++) {
+		if (nums.indexOf(target - nums[i]) !== -1){
+			result.push(nums[i], nums[nums.indexOf(target - nums[i])]);
+			return result;
+		}
+	}
 }
 
 /*
