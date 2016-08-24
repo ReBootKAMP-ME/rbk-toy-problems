@@ -45,10 +45,47 @@ Given n = 2, return 91. (The answer should be the total numbers in the range of 
 excluding [11,22,33,44,55,66,77,88,99] because they don't have unique digits)
 
 countAllNumbers(2); //should return 91 because there are 91 numbers that have unique digits
+So ideas first, after 9 digits, there is no way to have a number of unique digits, 
+So we will start with 2 digits, and for every unique number we will check the 3 digits, and for each unique number we will check the one higher, and so on until we reach the upper limit if less than n=9
+
 */
 
-function countAllNumbers(n){
 
+function countAllNumbers(n){
+	var unique = 10;
+	if (n > 9) {
+		n = 9;
+	}
+	var solution = function (number, digits) {
+		var uniqueObject = number || {
+			0: false,
+			1: false,
+			2: false,
+			3: false,
+			4: false,
+			5: false,
+			6: false,
+			7: false,
+			8: false,
+			9: false
+		}
+		if (digits === 0) {
+			return;
+		} else {
+			for (var i = 0; i < 9; i++){
+				if (!uniqueObject[i]) {
+					unique++;			
+					uniqueObject[i] = true;	
+					var d = digits - 1;
+					solution (uniqueObject, d);
+					uniqueObject[i] = false;
+				}
+			}
+		}
+	}
+	solution (undefined, n);
+	return unique;
 };
+
 
 
