@@ -48,7 +48,23 @@ countAllNumbers(2); //should return 91 because there are 91 numbers that have un
 */
 
 function countAllNumbers(n){
-
+	var count = 0;
+	var end = Math.pow(10, n);
+	for (var i = 0; i <= end; i++) {
+		if(!uniqueNumber(i)){
+			count++;
+		}
+	}
+	return count;
 };
+
+var uniqueNumber = function (num) {
+	for (var i = 0; i < num.toString().length - 1; i++) {
+		if(num.toString()[i] < 10 || num.toString()[i] !== num.toString()[i+1]){
+			return false;
+		}
+	}
+	return true;
+}
 
 
