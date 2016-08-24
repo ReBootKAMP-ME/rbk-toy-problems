@@ -15,7 +15,18 @@ singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
-
+	var myObj = {};
+	for(var i = 0; i < arr.length; i++){
+		if(!myObj[arr[i]]){
+			myObj[arr[i]] = 0;
+		}
+		myObj[arr[i]]++;
+	}
+	for(var key in myObj){
+		if(myObj[key] === 1){
+			return parseInt(key);
+		}
+	}
 }
 
 /*
@@ -33,7 +44,13 @@ twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
 function twoSum(nums, target){
-
+	for(var i=0; i<nums.length; i++){
+		for(var j=i+1; j<nums.length; j++){
+			if(nums[i]+nums[j] === target){
+				return [i,j];
+			}
+		}
+	}
 }
 
 /*
@@ -47,8 +64,28 @@ excluding [11,22,33,44,55,66,77,88,99] because they don't have unique digits)
 countAllNumbers(2); //should return 91 because there are 91 numbers that have unique digits
 */
 
-function countAllNumbers(n){
+function isUnique(num){
+	var str = num.toString().split('');;
+	if(str.length === 1){
+		return true;
+	}
+	for(var i=0; i<str.length-1; i++){
+		if(str.indexOf(str[i],i+1) === -1){
+			return true;
+		}
+	}
+	return false;
+}
 
+function countAllNumbers(n){
+	var count = 0, start = 0, upperBound = Math.pow(10, n);
+	while(start < upperBound){
+		if(isUnique(start)){
+			count++;
+		}
+		start++;
+	}
+	return count;
 };
 
 
