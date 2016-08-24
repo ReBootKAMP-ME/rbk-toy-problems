@@ -15,7 +15,17 @@ singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
-
+	var index = 0;
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[index] === arr[i]){
+			index++;
+			i = index;
+		}
+		if(i === arr.length - 1){
+			return arr[index];
+		}
+	}
+	return -1;
 }
 
 /*
