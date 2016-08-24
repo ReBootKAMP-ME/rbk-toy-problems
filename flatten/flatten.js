@@ -13,8 +13,8 @@ flatten('a', ['b', 2], 3, null, [[4], ['c']]) // returns ['a', 'b', 2, 3, null, 
 */
 
 function flatten(){
+	console.log(arguments)
 	var result = [];
-
 	var looping = function (element) {
 		for (var i = 0; i < element.length; i++) {
 			if(Array.isArray(element[i]) ){
@@ -26,4 +26,13 @@ function flatten(){
 	}
 	looping(arguments)
 	return result;
+}
+
+
+
+
+var xzz = function () {
+	for (var i = 0; i < arguments.length; i++) {
+		console.log(arguments[i]);
+	}
 }
