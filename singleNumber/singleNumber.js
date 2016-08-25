@@ -15,7 +15,19 @@ singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
-
+	var obj = {}
+	for(var i = 0; i < arr.length; i++){
+		if(obj[arr[i]]){
+			obj[arr[i]]++ 
+		} else {
+			obj[arr[i]] = 1
+		}
+	}
+	for(key in obj){
+		if(obj[key] === 1){
+			return parseInt(key)
+		}
+	}
 }
 
 /*
