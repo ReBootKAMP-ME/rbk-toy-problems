@@ -1,3 +1,4 @@
+
 /*
 There are 3 problems today: you can do 2 medium ones or the advanced one.
 
@@ -80,5 +81,4 @@ function countAllNumbers(n){
 	}
 	return Math.pow(10, n) - unique.length;
 };
-
 
