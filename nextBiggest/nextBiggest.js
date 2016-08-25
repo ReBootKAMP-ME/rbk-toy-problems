@@ -28,6 +28,7 @@ rotate(data, -5) // => [1, 2, 3, 4, 5]
 
 The rotation shouldn't be limited by the indices available in the array. 
 Meaning that if we exceed the indices of the array it keeps rotating.
+var data = [1, 2, 3, 4, 5];
 
 rotate(data, 7)     // => [4, 5, 1, 2, 3]
 rotate(data, 11)    // => [5, 1, 2, 3, 4]
@@ -36,7 +37,28 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 */
 
 function rotate(array, steps){
-
+	var returnArray = [];
+	for (var i = 0; i < array.length; i++) {
+		var index = i + steps
+		if(index >= array.length || index < 0){
+			returnArray[getIndex(index, array.length)] = array[i];
+		} else {
+			returnArray[index] = array[i];
+		}
+	}
+	return returnArray;
+}
+var getIndex = function (index, length) {
+	if(index < length && index >= 0){
+		return index;
+	}
+	if(index < 0){
+		index = index + length;
+	} else if(index > 0){
+			index = index - length;
+	}	
+	
+	return getIndex(index, length)
 }
 
 
