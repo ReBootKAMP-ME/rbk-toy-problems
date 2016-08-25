@@ -19,8 +19,8 @@ rotate([true, true, false], 1) // => [false, true, true]
 
 var data = [1, 2, 3, 4, 5];
 rotate(data, 1) // => [5, 1, 2, 3, 4]
-rotate(data, 2) // => [4, 5, 1, 2, 3]
-rotate(data, 5) // => [1, 2, 3, 4, 5]
+rotate(data, 2) // => [4, 5, 1, 2, 3] 5 4 
+rotate(data, 5) // => [1, 2, 3, 4, 5] 
 rotate(data, 0) // => [1, 2, 3, 4, 5]
 rotate(data, -1) // => [2, 3, 4, 5, 1]
 rotate(data, -2) // => [3, 4, 5, 1, 2]
@@ -35,8 +35,25 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 
 */
 
+//works for all cases :D 
 function rotate(array, steps){
-
+	var results=0;
+	if(steps === 0 || steps === array.length){
+		return array;
+	}else if(steps > 0 ){
+		for (var i = 0; i < steps; i++) {
+			array.unshift(array[array.length-1]);
+			array.pop();
+			console.log(array);
+		}
+	}else{
+		steps=Math.abs(steps);
+		for (var i = 0; i < steps ; i++) {
+			array.push(array[0]);
+			array.shift();
+		}
+	}
+	return array;
 }
 
 
@@ -58,6 +75,13 @@ nextBigger(531)==-1
 */
 
 function nextBigger(num){
-  
+	  var number=num.toString().split('');
+	  var min = Math.min.apply(null, number);
+	  var max = Math.max.apply(null, number);
+	  if(number.length === 1){
+	  	return -1;
+	  }else if(number.indexOf(max) === 0 && number.indexOf(min) === number.length){
+	  		return -1;
+	  }
 };
 
