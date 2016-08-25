@@ -36,7 +36,19 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 */
 
 function rotate(array, steps){
-
+	// for the positive steps:
+	if (steps >= 0){
+		for (var i = 0; i < steps; i++) {
+		array.unshift(array[array.length-1]);
+		array.splice(array.length-1,1);
+		}
+	} else {
+		for (var i = steps; i < 0; i++) {
+		array.push(array[0]);
+		array.splice(0,1);
+		}
+	}	
+return array;
 }
 
 
