@@ -36,7 +36,12 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 */
 
 function rotate(array, steps){
-
+  if (steps > 0) {
+    return array.slice(array.length - (steps % array.length), array.length).concat(array.slice(0, array.length - (steps % array.length)))
+  } else if (steps < 0) {
+    return array.slice((array.length - (array.length + (steps % array.length))), array.length).concat(array.slice(0, (array.length - (array.length + (steps % array.length)))))
+  }
+  return array;
 }
 
 
