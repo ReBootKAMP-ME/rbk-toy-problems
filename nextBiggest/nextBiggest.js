@@ -36,7 +36,30 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 */
 
 function rotate(array, steps){
-
+	var result = [];
+	if(steps === 0 || steps === array.length){
+		return array;
+	}else if(steps > array.length){
+		steps = steps%array.length;
+	}else if(steps > 0){
+		for(var i=1 ; i>=steps ; i--){
+			var temp = array.pop();
+			result.push(temp);	
+		}
+		for(var i=0 ; i<array.length-steps ; i++){
+			result.push(array[i]);
+		}
+	}
+	else if(steps < 0){
+		var arr = array.splice(0,Math.abs(steps));
+		for(var i=0 ; i<array.length ; i++){
+			result.push(array[i]);
+		}
+		for(var i=0 ; i<arr.length ; i++){
+			result.push(arr[i]);
+		}
+	}
+	return result;
 }
 
 
