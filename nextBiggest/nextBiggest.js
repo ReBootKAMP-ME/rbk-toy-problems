@@ -58,6 +58,20 @@ nextBigger(531)==-1
 */
 
 function nextBigger(num){
-  
+  var work = num.toFixed().split('');
+  var comp;
+  for (var i = (work.length - 1); i >= 0; i--) {
+    comp = parseInt(work[i])
+    for (var j = (work.length - 2); j >= 0; j--){
+      if (comp > parseInt(work[j])) {
+        work[i] = work[j];
+        work[j] = comp;
+        work = work.join('');
+        work = parseInt(work);
+        return work;
+      }
+    }
+  }
+  return -1;
 };
 
