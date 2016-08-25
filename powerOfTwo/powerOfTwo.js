@@ -5,5 +5,9 @@ Hint the answer is 1366.
 */
 
 var powerOfTwo = function(){
+<<<<<<< HEAD
   console.log(Math.pow(2, 1000));
+=======
+  return 0;
+>>>>>>> d1c4c03e5e8277a3ce615192da17ec5aeb18b0c0
 }

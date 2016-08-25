@@ -15,6 +15,7 @@ singleNumber(arr);//should return 6 because it only appear once
 */
 
 function singleNumber(arr){
+<<<<<<< HEAD
 	var object = {};
  for(var i = 0 ; i < arr.length ; i++){
  	if(object[arr[i]] !== undefined){
@@ -32,6 +33,9 @@ function singleNumber(arr){
  	}
  }
  return JSON.parse(index);
+=======
+
+>>>>>>> d1c4c03e5e8277a3ce615192da17ec5aeb18b0c0
 }
 
 /*
@@ -49,6 +53,7 @@ twoSum(nums,9); //should return [0,1] because nums[0] + nums[1] = 2 + 7 = 9;
 */
 
 function twoSum(nums, target){
+<<<<<<< HEAD
   var result;
   for(var i = 0; i < nums.length; i++){
   	for(var j = 0 ; j < nums.length; j++){
@@ -59,6 +64,10 @@ function twoSum(nums, target){
   };
   return 'Sorry none of them sum to your desired target';
 };
+=======
+
+}
+>>>>>>> d1c4c03e5e8277a3ce615192da17ec5aeb18b0c0
 
 /*
 Problem 3 (advanced):
@@ -72,6 +81,7 @@ countAllNumbers(2); //should return 91 because there are 91 numbers that have un
 */
 
 function countAllNumbers(n){
+<<<<<<< HEAD
 	if(n < 0){
 		return 'Sorry that does not work';
 	} else {
@@ -95,10 +105,13 @@ function countAllNumbers(n){
 		}
 		return filteredOut.length;
 	}
+=======
+>>>>>>> d1c4c03e5e8277a3ce615192da17ec5aeb18b0c0
 
 };
 
 
+<<<<<<< HEAD
 function checkUnique(arr){
 	var object = {};
 	for(var i =0; i<arr.length; i++){
@@ -114,3 +127,5 @@ function checkUnique(arr){
 
 
 
+=======
+>>>>>>> d1c4c03e5e8277a3ce615192da17ec5aeb18b0c0
