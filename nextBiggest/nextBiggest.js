@@ -57,7 +57,40 @@ nextBigger(111)==-1
 nextBigger(531)==-1
 */
 
-function nextBigger(num){
-  
-};
 
+var nextBigger = function(num){
+	var strNum = num.toString()
+
+	var checkDigits = function(newNum){
+		var newStrNum = newNum.toString()
+		var bool = true;
+
+		for(var i = 0; i < strNum.length; i++){
+			bool = bool && (newStrNum.indexOf(strNum[i]) !== -1)
+		}
+
+		return bool
+	}
+
+	var flag = true;
+	var count = num
+
+	var edge = function(num){
+		var bool = true
+		for(var i = 0; i < num.length; i++){
+			bool = bool && (num[i] > num[i+1])
+		}
+		if(bool){
+			return -1
+		} else {
+			while(flag){
+				count++
+				if(checkDigits(count)){
+					return count
+				}
+			}
+		}
+	}
+	
+	return edge(strNum)
+}
