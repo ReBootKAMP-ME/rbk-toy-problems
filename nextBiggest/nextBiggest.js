@@ -105,7 +105,7 @@ function nextBigger(num){
   		strigNum[i-2] = swipe;
   	return (strigNum = strigNum.join(""));
   	}
-  }
+  } return -1;
   //strigNum = strigNum.join("");
   //return strigNum;
 };
