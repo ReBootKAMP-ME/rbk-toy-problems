@@ -58,6 +58,17 @@ nextBigger(531)==-1
 */
 
 function nextBigger(num){
-  
+  var strNum = num.toString().split('');
+  for (var i = strNum.length - 1; i > 0; i--) {
+  	for (var j = i; j > 0; j--) {
+  		if(strNum[j] < strNum[i]){
+  			var swap = strNum[i];
+  			strNum[i] = strNum[j];
+  			strNum [j] = swap;
+  			return parseInt(strNum.join(''));
+  		}
+  	}
+  }
+  return -1;
 };
 
