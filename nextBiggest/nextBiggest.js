@@ -36,7 +36,22 @@ rotate(data, 12478) // => [3, 4, 5, 1, 2]
 */
 
 function rotate(array, steps){
-
+	var result = [], index;
+	
+	steps = steps % array.length;
+	
+	if(steps >= 0){
+		index = array.length-steps;
+	} else {
+		index = Math.abs(steps);
+	}
+	for(var i=index; i<array.length; i++){
+		result.push(array[i]);
+	}
+	for(var i=0; i<index; i++){
+		result.push(array[i]);
+	}
+	return result;
 }
 
 
@@ -56,8 +71,44 @@ nextBigger(9)==-1
 nextBigger(111)==-1
 nextBigger(531)==-1
 */
-
 function nextBigger(num){
-  
+	if(Math.floor(num) !== num || num < 10){
+		return -1;
+	}
+	num = Math.floor(num);
+	var numbers = num.toString().split('');
+	var combinations = [];
+
+	function getCombinations(accum, remainingValues){
+		if(remainingValues.length === 0){
+			combinations.push(accum);
+		}
+		for(var i=0; i<remainingValues.length; i++){
+			var tempArr = remainingValues.slice();
+			var tempAccum = accum + tempArr.splice(i,1);
+			getCombinations(tempAccum, tempArr);
+		}
+	};
+	getCombinations('',numbers);
+
+	var largerNums = [];
+	for(var i=0; i<combinations.length; i++){
+		combinations[i] = parseInt(combinations[i]);
+		if(combinations[i] > num){
+			largerNums.push(combinations[i]);
+		}
+	}
+
+	if(largerNums.length === 0){
+		return -1;
+	}
+
+	var biggerNum = largerNums[0];
+	for(var i=1; i<largerNums.length; i++){
+		if(largerNums[i] < biggerNum){
+			biggerNum = largerNums[i];
+		}
+	}
+	return biggerNum;  
 };
 
