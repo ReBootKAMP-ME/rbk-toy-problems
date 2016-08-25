@@ -69,32 +69,12 @@ nextBigger(111)==-1
 nextBigger(531)==-1
 */
 
-function nextBigger(num){
-  var strigNum = JSON.stringify(num);
-  strigNum = strigNum.split("");
-  console.log(strigNum);
-  for (var i = 1; i < strigNum.length; i++) {
-  	if (strigNum[strigNum.length-i] > strigNum[strigNum.length-(i+1)]){
-  		var swipe = strigNum[strigNum.length-i];
-  		//temp[strigNum.length-i] = strigNum[strigNum.length-(i+1)];
-  		//temp[strigNum.length-(i+1)] = swipe;
-  		strigNum[strigNum.length-i] = strigNum[strigNum.length-(i+1)];
-  		strigNum[strigNum.length-(i+1)] = swipe;
-  	}
-  }
-  strigNum = strigNum.join("");
-  return strigNum;
-};
-
-
-// next try
-
 // function nextBigger(num){
 //   var strigNum = JSON.stringify(num);
 //   strigNum = strigNum.split("");
 //   console.log(strigNum);
-//   for (var i = strigNum.length; i > 0; i--) {
-//   	if (strigNum[i-1] > strigNum[i-2]){
+//   for (var i = 1; i < strigNum.length; i++) {
+//   	if (strigNum[strigNum.length-i] > strigNum[strigNum.length-(i+1)]){
 //   		var swipe = strigNum[strigNum.length-i];
 //   		//temp[strigNum.length-i] = strigNum[strigNum.length-(i+1)];
 //   		//temp[strigNum.length-(i+1)] = swipe;
@@ -105,6 +85,30 @@ function nextBigger(num){
 //   strigNum = strigNum.join("");
 //   return strigNum;
 // };
+
+
+// next try
+
+function nextBigger(num){
+  var strigNum = JSON.stringify(num);
+  strigNum = strigNum.split("");
+  console.log(strigNum);
+
+  for (var i = strigNum.length; i > 0; i--) {
+  	console.log(strigNum[i-1]);
+  	console.log(strigNum[i-2]);
+  	if (strigNum[i-1] > strigNum[i-2]){
+  		var swipe = strigNum[i-1];
+  		//temp[strigNum.length-i] = strigNum[strigNum.length-(i+1)];
+  		//temp[strigNum.length-(i+1)] = swipe;
+  		strigNum[i-1] = strigNum[i-2];
+  		strigNum[i-2] = swipe;
+  	return (strigNum = strigNum.join(""));
+  	}
+  }
+  //strigNum = strigNum.join("");
+  //return strigNum;
+};
 
 
 
