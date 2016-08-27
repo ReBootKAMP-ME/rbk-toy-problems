@@ -12,5 +12,28 @@
 */
 
 var longestPalindrome = function (string) {
-  
+	var arrayAll=[]
+	var result="";
+	for(var i=0;i<string.length;i++){
+		for(var j=i+1;j<string.length;j++){
+			if(string[i]===string[j]){
+				var temp=string.substring(i,j+1);
+				arrayAll.push(temp);
+			}
+		}
+	}
+	for(var k=0;k<arrayAll.length;k++){
+		var counter=0;
+		for(var w=0;w<arrayAll[k].length;w++){
+			counter++;
+			if(arrayAll[k][w]!==arrayAll[k][arrayAll[k].length-counter]){
+				arrayAll.splice(k,1);
+		}
+	}
+	for(var e=0;e<arrayAll.length;e++){
+		if(arrayAll[e].length>result.length){
+			result=arrayAll[e];
+		}
+	}
+	return result; 
 };
