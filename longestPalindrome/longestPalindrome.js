@@ -12,5 +12,21 @@
 */
 
 var longestPalindrome = function (string) {
-  
+	var array=[];
+	var newStr=string.split(' '); // my dad is a athlete
+	for (var i = 0; i < newStr.length; i++) {
+		var length=newStr[i].length-1;
+		for (var j = 0; j < newStr[i].length; j++) {
+			if (newStr[i][j] === newStr[i][length]){
+				if(length === j){
+					array.push(newStr[i]);
+			    }
+			    length--;
+			}else{
+				break;
+			}
+		}
+	}
+	var longest = arr.reduce(function (a, b) { return a.length > b.length ? a : b; });
+	return longest; 
 };
