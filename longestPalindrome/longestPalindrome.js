@@ -10,7 +10,44 @@
 * Extra credit: The best solution for this problem runs in linear time.
 * If you would like a challenge, read about Manacher's algorithm
 */
-
+var isPalindrome = function (string) {
+  for (var i = 0; i < Math.floor(string.length/2); i++) {
+    if (string[i] !== string[string.length - (1 + i)]) {
+      return false;
+    }
+  }
+  return true;
+}
 var longestPalindrome = function (string) {
-  
+  //split
+  //find palindrome words
+  //which is the longest
+  //for the longest, check how many characters after and before after and before the spaces do not effect the palindrome, and return that
+  var compArr = string.split(' ');
+  var comp = '';
+  var position = 0;
+  for (var i = 0; i < compArr.length; i++) {
+    if (isPalindrome(compArr[i]) && (compArr[i].length > comp.length)) {
+      comp = compArr[i];
+      position = i;
+    }
+  }
+ 
+  var flag = true;
+  if (!!compArr[position - 1] && !!compArr[position + 1]) {
+    comp = ' ' + comp + ' ';
+    var before = compArr[position - 1].split('');
+    var after = compArr[position + 1].split('');
+    var i = 0
+    while(flag) {
+      var bChar = before.pop();
+      if ( bChar === after[i]) {
+        comp = bChar + comp + after[i];
+      } else {
+        flag = false
+      }
+      i++;
+    }
+  }
+  return comp;
 };
