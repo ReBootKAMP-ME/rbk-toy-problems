@@ -11,6 +11,22 @@
 * If you would like a challenge, read about Manacher's algorithm
 */
 
+
+//' dad '.split('').reverse().join('')
+
 var longestPalindrome = function (string) {
-  
+	var temp = [];
+  var arr = string.split(' ');
+  for (var i = 0; i < arr.length; i++) {
+  	var reverse = arr[i].split('').reverse().join('')
+  	//console.log(reverse);
+  	if (string.indexOf(reverse) !== -1) {
+  		console.log('im here')
+  		if (string.indexOf(string[string.indexOf(reverse)-1] + reverse + string[reverse.length + 1]) > -1){
+  		console.log("bigger"+ string[string.indexOf(reverse)-1]+ reverse + string[reverse.length+1])
+  		}
+  		temp.push(reverse);
+  	}
+  }
+  return temp;
 };
