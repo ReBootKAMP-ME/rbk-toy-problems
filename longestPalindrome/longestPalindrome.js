@@ -44,4 +44,4 @@ var checkPali = function(string,index){
 	} else {
 		return index;
 	}
-}
+};
