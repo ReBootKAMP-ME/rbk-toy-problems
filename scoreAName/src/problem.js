@@ -30,7 +30,7 @@ var totalNameScores = function(){
 		for (var j = 0; j < contents[i].length; j++) {
 			sum = sum + alphabet.indexOf((contents[i][j]))+1;
 		}
-		worth.push(sum * i);
+		worth.push(sum * (i+1));
 	}
 	for (var i = 0; i < worth.length; i++) {
 		total = total + worth[i];
@@ -42,6 +42,7 @@ module.exports = {totalNameScores};
 
 
 //870,873,746 to be 6,837,803,474.
+//871,198,282 to be 6837803474.
 
 // var contents = ["AAAA"]
 
