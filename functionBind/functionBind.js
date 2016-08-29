@@ -19,6 +19,9 @@
 
 
 var bind = function(func, context) {
+	return function(){
+		return func.apply(context);
+	}
 };
 
  // * Function.prototype.bind:
@@ -45,5 +48,8 @@ var bind = function(func, context) {
  // *
 
 
-Function.prototype.bind = function(a, args1, args2) {
+Function.prototype.bind = function(context, args1, args2) {
+	context = this
+	//slice the context from arguments
+	function.apply(context , args1 ,args2);
 };

@@ -27,5 +27,16 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral){
-
+	var number = romanNumeral.split('');
+	var result = 0;
+	if(number.lenght === 1)
+		result = result + DIGIT_VALUES[number[0]];
+	for(var i=0 ; i<number.length ; i=i+2){
+		if(DIGIT_VALUES[number[i]]< DIGIT_VALUES[number[i+1]]){
+			result = result + DIGIT_VALUES[number[i+1]] - DIGIT_VALUES[number[i]];
+		}else{
+			result = result + DIGIT_VALUES[number[i]] + DIGIT_VALUES[number[i+1]]; 
+		}
+	}
+	return result;
 };

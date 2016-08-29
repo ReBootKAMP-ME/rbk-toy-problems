@@ -27,3 +27,46 @@
   *  Why not filter your results to only return words contained in that file?
   *
   */
+ 
+
+  var telephoneWords = function(string) {
+  	var result = [];
+  	var words = [['A','B','C'],
+  				 ['D','E','F'],
+  				 ['G','E','F'],
+  				 ['J','K','L'],
+  				 ['M','N','O'],
+  				 ['P','Q','R','S'],
+  				 ['T','U','V'],
+  				 ['W','X','Y','Z']
+  	];
+  	var numbers = string.split('');
+  	for(var i=0 ; i<numbers.length ; i++){
+  		var temp1 = words[numbers[i]];
+  		for(var x=0 ; x<temp1.lenght; x++){
+  			var letter = [];
+  			if(temp1[x] ==='0' || temp1[x] === '1')
+  				letter = temp1[x];
+  			else{
+  				var temp2 = words[numbers[i]+1];
+  				for(var t=0 ; t<temp2.length ; t++)
+  					if(temp2[t] ==='0' || temp2[t] === '1')
+  					letter.push(temp2[t]);
+  					else{
+  						var temp3 = words[numbers[i]+2];
+  						for(var e=0 ; e<temp3.length ; e++){
+  							if(temp3[t] ==='0' || temp3[t] === '1')
+  							letter = letter + temp3[t];
+  						else{
+  							letter.push(temp3[e]); 
+  						}
+  						}
+  						result.push(letter);
+  					}	
+  			}
+
+  		}
+  	}
+  	return result;
+  }
+

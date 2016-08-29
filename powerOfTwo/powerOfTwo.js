@@ -5,5 +5,12 @@ Hint the answer is 1366.
 */
 
 var powerOfTwo = function(){
-  return 0;
+  var number = Math.pow(2,1000);
+  console.log(number);
+  var arr = number.split('');
+  var sum = 0;
+  for(var i=0 ; i<arr.length ; i++){
+  	sum = sum + arr[i];
+  }
+  return sum;
 }

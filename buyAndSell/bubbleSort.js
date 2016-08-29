@@ -20,6 +20,67 @@
 
 // Feel free to add helper functions if needed
 
-var maximumProfit  = function(array) {
+
+// var findMin = function(arr){
+// 	var min = arr[0];
+// 	for(var i=1 ; i<arr.length ; i++){
+// 		if(arr[i] <min)
+// 			min=arr[i];
+// 	}
+// 	return min;
+// };
+
+// var findMax = function(arr){
+// 	var max = arr[0];
+// 	for(var i=1 ; i<arr.length ; i++){
+// 		if(arr[i] > max)
+// 			max=arr[i];
+// 	}
+// 	return max;
+// };
+
+
+// var maximumProfit  = function(array) {
+// 	var min = 0;
+// 	var max = 0;
+// 	var minTemp = 0;
+// 	var maxTemp = 0;
+// 	for(var i=0 ; i<array.length ; i++){
+// 		min = findMin(array);
+// 		max = findMax(array);
+// 	}
+// 	minTemp = array.indexOf(min);
+// 	maxTemp = array.indexOf(max);
+// 	if(maxTemp > minTemp){
+// 		return "maximum profit: "+"buy at: "+min+"in day: "+minTemp+"\n"+"sell at: "+max+"in day: "+maxTemp;
+// 	}else{
+// 		return "maximumProfit is 0";
+// 	}
+
+// };
+
+var maximumProfit  = function(array){
+	var min = array[0]; 
+    var maxProfit = 0; 
+    var profit = 0;
+    var minIndex = 0; 
+    var maxIndex = 0; 
+
+    
+    for (var i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+            minIndex = i;
+        }
+        profit = array[i] - min;
+        if (profit > maxProfit) {
+            maxProfit = profit;
+            maxIndex = i;
+        }
+    }
+    console.log("maxProfit is "+maxProfit);
+    console.log("minIndex is "+minIndex);
+    console.log("maxIndex is "+maxIndex); 
+    return ;
 
 };

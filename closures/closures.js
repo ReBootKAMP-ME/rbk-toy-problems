@@ -15,7 +15,15 @@ cube(3);//should return 27
 */
 
 function pow(exponent) {
-
+	var result = 1;
+	return{
+		square: function(){
+			 return result = exponent*2;
+		},
+		cube: function(){
+			return result = exponent*3;
+		}
+	};
 };
 
 /*
@@ -39,6 +47,24 @@ myGame.myLevel(); //should return "You need to improve your game"
 */
 
 var pingPongTracker = function(){
+	var time = 0;
+	return {
+		timeSpentPlaying: function(){
+			return time;
+		},
+		playOneGame: function(){
+			time = time + 15;
+			return "Game played";
+		},
+		myLevel: function(){
+			if(time < 30)
+				return "I need to improve my game";
+			if(time > 30 || time <100)
+				return "You need to improve your game";
+			if(time >100)
+				return "Wow, I have wasted a lot of time";
+		}
 
+	}
 };
 

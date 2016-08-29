@@ -35,8 +35,37 @@
 *
 */
 
+var max = function(array){
+	var result =[];
+	var counter = 0;
+	var maxN = array[0];
+	for(var i=1 ; i<array.length ; i++){
+		if(counter === 4){
+			return result;
+			console.log(result);
+		}
+		else if(array[i]>max){
+			maxN=array[i];
+			result.push(maxN);
+			console.log(result);
+			array.splice(array[i],1);
+			counter++;
+			i--;
+		}
+
+	}
+	
+};// i try to make function which can return to me the four largest number in array to use it in the main function
+
 
 var largestProductOfFour = function(array) {
+	for(var col=0 ; i<array.length ; i++){
+		for (var row=0 ; i<array.length ; i++){
+         // call the function max to find the largest four.
+         // prodcut = product of largest four in the same row
+         // in the next row applay this function for the next row and compare the result
+		}
+	}
 };
 
 
