@@ -14,13 +14,58 @@ To run the tests run npm install and npm test.
 */
 fs = require('fs');
 
-var readFile = function (){
-  var contents = fs.readfileSync("./names.txt").toString();
+var readFile = function () {
+  var contents = fs.readFileSync("./names.txt").toString();
   return contents.split(",");
+};
+var sortNames = function () {
+	//
+	// var unsorted = readFile();
+	// var topLevelArr = [];
+	// var finalArr = [];
+	// var sort = function (word, position, currLevelArr) {
+	// 	var valueOfCharAtPosition = (word.charCodeAt(position) - 64);
+	// 	if (!Array.isArray(currLevelArr[valueOfCharAtPosition])) {
+	// 		if (!currLevelArr[valueOfCharAtPosition]) {
+	// 			currLevelArr[valueOfCharAtPosition] = [];
+	// 		}
+	// 	}
+	// 	if (!word[position + 1]) {
+	// 		currLevelArr[valueOfCharAtPosition].push(word);
+	// 	} else {
+	// 		position++;
+	// 		sort (word, position, currLevelArr[valueOfCharAtPosition])
+	// 	}
+	// }
+	// for (var i = 0; i < unsorted.length; i++) {
+	// 	unsorted[i] = unsorted[i].split('')
+	// 	unsorted[i].pop();
+	// 	unsorted[i].shift();
+	// 	unsorted[i] = unsorted[i].join();
+	// 	sort(unsorted[i], 0, topLevelArr)
+	// }
+	// var concatArr = function (arr) {
+	// 	for (var i = 0; i < arr.length; i++) {
+	// 		if (Array.isArray(arr[i])) {
+	// 			arr.concat(concatArr(arr[i]))
+	// 		}
+	// 	}
+	// 	return arr;
+	// };
+	// concatArr(topLevelArr);
+	// return topLevelArr
+};
+var totalNameScores = function() {
+	var sortedArr = readFile().sort();
+	var total = 0;
+	var wordValue;
+	for (var i = 0; i < sortedArr.length; i++) {
+		wordValue = 0;
+		for (var j = 0; j < sortedArr[i].length; j++) {
+			wordValue += sortedArr[i].charCodeAt(j);
+		}
+		total += (wordValue * (i+1));
+	}
+	return total;
 }
-
-var totalNameScores = function(){
-  return 0;
-}
-
 module.exports = {totalNameScores};
