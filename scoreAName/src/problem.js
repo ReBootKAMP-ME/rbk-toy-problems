@@ -18,42 +18,50 @@ var readFile = function () {
   var contents = fs.readFileSync("./names.txt").toString();
   return contents.split(",");
 };
-var sortNames = function () {
-	//
-	// var unsorted = readFile();
-	// var topLevelArr = [];
-	// var finalArr = [];
-	// var sort = function (word, position, currLevelArr) {
-	// 	var valueOfCharAtPosition = (word.charCodeAt(position) - 64);
-	// 	if (!Array.isArray(currLevelArr[valueOfCharAtPosition])) {
-	// 		if (!currLevelArr[valueOfCharAtPosition]) {
-	// 			currLevelArr[valueOfCharAtPosition] = [];
-	// 		}
-	// 	}
-	// 	if (!word[position + 1]) {
-	// 		currLevelArr[valueOfCharAtPosition].push(word);
-	// 	} else {
-	// 		position++;
-	// 		sort (word, position, currLevelArr[valueOfCharAtPosition])
-	// 	}
-	// }
-	// for (var i = 0; i < unsorted.length; i++) {
-	// 	unsorted[i] = unsorted[i].split('')
-	// 	unsorted[i].pop();
-	// 	unsorted[i].shift();
-	// 	unsorted[i] = unsorted[i].join();
-	// 	sort(unsorted[i], 0, topLevelArr)
-	// }
-	// var concatArr = function (arr) {
-	// 	for (var i = 0; i < arr.length; i++) {
-	// 		if (Array.isArray(arr[i])) {
-	// 			arr.concat(concatArr(arr[i]))
-	// 		}
-	// 	}
-	// 	return arr;
-	// };
-	// concatArr(topLevelArr);
-	// return topLevelArr
+var sortNames = function (z) {
+	var unsorted = readFile();
+	var finalBucket = [];
+	var sortit = function (word, position, bucket) {
+		var valueOfChar = word.charCodeAt(position) - 65;
+		if (!bucket[valueOfChar]) {
+			bucket[valueOfChar] = {
+				words: [],
+				bucket: []
+			};
+		}
+		if(!word[position+1]) {
+			bucket[valueOfChar].words.push('"' + word + '"');
+		} else {
+			position++;
+			sortit(word, position, bucket[valueOfChar].bucket);
+		}
+	};
+	for (var i = 0; i < unsorted.length; i++) {
+		unsorted[i] = unsorted[i].split('');
+		unsorted[i].pop();
+		unsorted[i].shift();
+		unsorted[i] = unsorted[i].join('');
+		sortit(unsorted[i], 0, finalBucket);
+	}
+	var sortedArray = []
+	var merge = function (innerObject) {
+		if (innerObject.words && (innerObject.words.length > 0)) {
+			sortedArray = sortedArray.concat(innerObject.words);
+		} 
+		if (innerObject.bucket) {
+			merge(innerObject.bucket)
+		} else {
+			for (var key in innerObject) {
+				merge(innerObject[key]);
+			}
+		}
+	};
+	for (var i = 0; i < finalBucket.length; i++) {
+		if (finalBucket[i]){
+			merge(finalBucket[i]);
+		}
+	}
+	return sortedArray;
 };
 var totalNameScores = function() {
 	var sortedArr = readFile().sort();
