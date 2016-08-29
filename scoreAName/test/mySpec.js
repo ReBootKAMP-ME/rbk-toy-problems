@@ -5,7 +5,7 @@
 
   describe('totalNameScores',  function(){
     describe('for file content', function (){
-      it('should return a total of 6837803474',  function(){
+      it('should return a total of 6,837,803,474',  function(){
         expect(totalNameScores()).toBe(6837803474);
       });
     });
