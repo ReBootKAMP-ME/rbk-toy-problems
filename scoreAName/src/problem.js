@@ -13,14 +13,27 @@ What is the total of all the name scores in the file?
 To run the tests run npm install and npm test.
 */
 fs = require('fs');
-
+ var contents;
 var readFile = function (){
-  var contents = fs.readfileSync("./names.txt").toString();
-  return contents.split(",");
+    contents = fs.readFileSync("./names.txt").toString();
+  contents = contents.split(",");
+  return contents
 }
 
+var alphabet = [0,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var totalNameScores = function(){
-  return 0;
+	 readFile()
+	contents.sort();
+	var result = 0;
+	for (var i = 0; i < contents.length; i++) {
+		 var sum = 0;
+		for (var j = 0; j < contents[i].length; j++) {
+			if(alphabet.indexOf(contents[i][j])!==-1)
+			sum	+= alphabet.indexOf(contents[i][j])
+		}
+		result += sum*contents.indexOf(contents[i])
+	}
+	return result;
 }
 
 module.exports = {totalNameScores};
