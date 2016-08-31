@@ -32,3 +32,18 @@ var readFile = function (){
   return contents;
 };
 
+var wordCount = function(){
+	var result = {};
+	var content = readFile();
+	content = content.split(" ");
+	for (var i = 0; i < content.length; i++) {
+		var counter = 1;
+		if(result[content[i]]!== undefined){
+			result[content[i]]=result[content[i]]+1;
+		}else if(content[i] !=="," && content[i]!=="''" && content[i]!=='""'){
+			result[content[i]]=counter;
+		}
+	}
+	console.log(result);
+}
+wordCount();
