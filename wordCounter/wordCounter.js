@@ -32,3 +32,21 @@ var readFile = function (){
   return contents;
 };
 
+var wordCounter = function(){
+	var string = readFile();
+	var arr = string.split(' ');
+	var result = {};
+	var specialCharacter = ['/',',','-','_','!','@','#','$','%','^','&','*','(',')','+','<','>',':',';','|','?'];
+	for(var i=0 ; i<arr ; i++){
+		if(specialCharacter.indexOf(arr[i]) < 0){
+			var keys = Object.keys(result);
+			if(keys.indexOf(arr[i]) < 0){
+				result[arr[i]] = 1;
+			}else{
+				var value = result[arr[i]];
+				result[arr[i]] = value + 1;
+			}
+		}
+	}
+	return result;
+}
