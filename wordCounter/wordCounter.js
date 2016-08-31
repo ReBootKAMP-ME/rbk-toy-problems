@@ -32,3 +32,21 @@ var readFile = function (){
   return contents;
 };
 
+var frequency = function(){
+	var words = readFile().split('\n').join(' ').split('\r').join(' ').split('"').join(' ').split(',').join(' ').split('-').join(' ').split('.').join(' ').split('/').join(' ').split(' ')
+	var wordFreq = {}
+
+	for(var i = 0; i < words.length; i++){
+		if(words[i] !== ''){
+			if(wordFreq[words[i].toLowerCase()]){
+				wordFreq[words[i].toLowerCase()]++
+			} else {
+				wordFreq[words[i].toLowerCase()] = 1
+			}
+		}
+	}
+
+	return wordFreq
+}
+
+console.log(frequency())
